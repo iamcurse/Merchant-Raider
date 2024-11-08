@@ -146,10 +146,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 28
-        width: 12
-        height: 13
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 19
-        width: 15
-        height: 25
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 7
-        width: 37
-        height: 35
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_3
       rect:
         serializedVersion: 2
-        x: 152
-        y: 17
-        width: 16
-        height: 24
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_4
       rect:
         serializedVersion: 2
-        x: 203
-        y: 12
-        width: 30
-        height: 30
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_5
       rect:
         serializedVersion: 2
-        x: 280
-        y: 13
-        width: 22
-        height: 30
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: spr_player_front_attack_shadowless_6
       rect:
         serializedVersion: 2
-        x: 344
-        y: 19
-        width: 16
-        height: 24
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,99 +296,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: spr_player_front_attack_shadowless_7
-      rect:
-        serializedVersion: 2
-        x: 407
-        y: 19
-        width: 17
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 00e939fc8e7fd1e50800000000000000
-      internalID: 6781849193176866304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_front_attack_shadowless_8
-      rect:
-        serializedVersion: 2
-        x: 139
-        y: 12
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ffc198ed868e1b520800000000000000
-      internalID: 2716207587388890367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_front_attack_shadowless_9
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 7
-        width: 24
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f741a092a61ea33c0800000000000000
-      internalID: -4378939841593076609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_front_attack_shadowless_10
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 8
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29965da9e21ef0e10800000000000000
-      internalID: 2166197536070920594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eceb96fadd172604d9ad2ef3848fff3b
     internalID: 0
     vertices: []
     indices: 
@@ -400,15 +312,11 @@ TextureImporter:
     nameFileIdTable:
       spr_player_front_attack_shadowless_0: -7582661634317650745
       spr_player_front_attack_shadowless_1: -6299791619717912749
-      spr_player_front_attack_shadowless_10: 2166197536070920594
       spr_player_front_attack_shadowless_2: -1308030209389003335
       spr_player_front_attack_shadowless_3: 1940211882724783541
       spr_player_front_attack_shadowless_4: 6069704840956180000
       spr_player_front_attack_shadowless_5: 4965542721972142449
       spr_player_front_attack_shadowless_6: 4693254479981127098
-      spr_player_front_attack_shadowless_7: 6781849193176866304
-      spr_player_front_attack_shadowless_8: 2716207587388890367
-      spr_player_front_attack_shadowless_9: -4378939841593076609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

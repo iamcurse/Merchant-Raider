@@ -125,10 +125,10 @@ TextureImporter:
       name: spr_player_back_hit_shadowless_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 18
-        width: 15
-        height: 23
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: spr_player_back_hit_shadowless_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 18
-        width: 16
-        height: 24
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: spr_player_back_hit_shadowless_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 19
-        width: 17
-        height: 24
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: spr_player_back_hit_shadowless_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 19
-        width: 17
-        height: 24
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b82cf5580fd1ad149b028f1b2110903e
     internalID: 0
     vertices: []
     indices: 

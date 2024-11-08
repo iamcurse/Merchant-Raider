@@ -131,10 +131,10 @@ TextureImporter:
       name: spr_player_front_walk_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 17
-        width: 17
-        height: 25
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: spr_player_front_walk_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 17
-        width: 17
-        height: 25
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: spr_player_front_walk_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 17
-        width: 17
-        height: 24
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: spr_player_front_walk_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 17
-        width: 17
-        height: 25
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: spr_player_front_walk_4
       rect:
         serializedVersion: 2
-        x: 279
-        y: 17
-        width: 17
-        height: 25
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: spr_player_front_walk_5
       rect:
         serializedVersion: 2
-        x: 343
-        y: 17
-        width: 17
-        height: 24
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f7e5942772f0904188d39eb9b2b9103
     internalID: 0
     vertices: []
     indices: 
