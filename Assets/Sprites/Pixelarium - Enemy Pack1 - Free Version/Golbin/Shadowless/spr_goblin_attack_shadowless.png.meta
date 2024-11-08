@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 0a47cc74c7ac782418c8971c4ad27ac2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1251236852052438282
+    second: spr_goblin_attack_shadowless_0
+  - first:
+      213: -4440212981048687952
+    second: spr_goblin_attack_shadowless_1
+  - first:
+      213: -6473580681063296423
+    second: spr_goblin_attack_shadowless_2
+  - first:
+      213: -5651012601209269495
+    second: spr_goblin_attack_shadowless_3
+  - first:
+      213: 5894485433114101535
+    second: spr_goblin_attack_shadowless_4
+  - first:
+      213: -821246647461140980
+    second: spr_goblin_attack_shadowless_5
+  - first:
+      213: 1671000948798169694
+    second: spr_goblin_attack_shadowless_6
+  - first:
+      213: -1221194585242554395
+    second: spr_goblin_attack_shadowless_7
+  - first:
+      213: 517932434384774592
+    second: spr_goblin_attack_shadowless_8
+  - first:
+      213: -6209084370807184141
+    second: spr_goblin_attack_shadowless_9
+  - first:
+      213: -8469053643011760770
+    second: spr_goblin_attack_shadowless_10
+  - first:
+      213: -2334000263707952487
+    second: spr_goblin_attack_shadowless_11
+  - first:
+      213: 8028607016263856635
+    second: spr_goblin_attack_shadowless_12
+  - first:
+      213: 3346723837139210964
+    second: spr_goblin_attack_shadowless_13
+  - first:
+      213: -8411750737083984242
+    second: spr_goblin_attack_shadowless_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 24
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0da670a9494d5110800000000000000
+      internalID: 1251236852052438282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 24
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2c389a1d13162c0800000000000000
+      internalID: -4440212981048687952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 24
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95214684ba83926a0800000000000000
+      internalID: -6473580681063296423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 24
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9035aa3caf19391b0800000000000000
+      internalID: -5651012601209269495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 24
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f170b76654b6dc150800000000000000
+      internalID: 5894485433114101535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_5
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 24
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06291976885a94f0800000000000000
+      internalID: -821246647461140980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_6
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 9
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52a4747286903710800000000000000
+      internalID: 1671000948798169694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 17
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efacf0bef17d0fe0800000000000000
+      internalID: -1221194585242554395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_8
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 10
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c568211ec0103700800000000000000
+      internalID: 517932434384774592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_9
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 25
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f4ab9179a6e4d9a0800000000000000
+      internalID: -6209084370807184141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_10
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 25
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d5e882590e77a80800000000000000
+      internalID: -8469053643011760770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_11
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 25
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99af4005027fb9fd0800000000000000
+      internalID: -2334000263707952487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 25
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1bd9d3b875b6f60800000000000000
+      internalID: 8028607016263856635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_13
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 24
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d2d3022993f17e20800000000000000
+      internalID: 3346723837139210964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_goblin_attack_shadowless_14
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 9
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e869af0a545734b80800000000000000
+      internalID: -8411750737083984242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_goblin_attack_shadowless_0: 1251236852052438282
+      spr_goblin_attack_shadowless_1: -4440212981048687952
+      spr_goblin_attack_shadowless_10: -8469053643011760770
+      spr_goblin_attack_shadowless_11: -2334000263707952487
+      spr_goblin_attack_shadowless_12: 8028607016263856635
+      spr_goblin_attack_shadowless_13: 3346723837139210964
+      spr_goblin_attack_shadowless_14: -8411750737083984242
+      spr_goblin_attack_shadowless_2: -6473580681063296423
+      spr_goblin_attack_shadowless_3: -5651012601209269495
+      spr_goblin_attack_shadowless_4: 5894485433114101535
+      spr_goblin_attack_shadowless_5: -821246647461140980
+      spr_goblin_attack_shadowless_6: 1671000948798169694
+      spr_goblin_attack_shadowless_7: -1221194585242554395
+      spr_goblin_attack_shadowless_8: 517932434384774592
+      spr_goblin_attack_shadowless_9: -6209084370807184141
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
