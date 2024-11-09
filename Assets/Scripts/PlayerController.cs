@@ -3,8 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [ShowOnly][SerializeField] private bool isInRange;
+    [ShowOnly][SerializeField] private bool isAttacking;
     [SerializeField] private float speed = 1f;
+    
+    [SerializeField] private bool canMove = true;
+    [SerializeField] private bool canInteract = true;
+    [SerializeField] private bool canAttack = true;
     
     private Vector2 _movementInput;
     private Rigidbody2D _rigidBody2D;
@@ -50,6 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         _move.Enable();
         _interact.Enable();
+        _attackCloseRange.Enable();
+        _attackLongRange.Enable();
     }
     
     private void OnDisable()
@@ -62,21 +68,41 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (!canMove) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
     }
 
     private void Animate()
     {
+        if (isAttacking) return;
         if (_movementInput != Vector2.zero)
         {
             _animator.SetFloat(MoveX, _movementInput.x);
             _animator.SetFloat(MoveY, _movementInput.y);
-            _animator.Play("Base Layer.Player_Walk");
+            _animator.Play("Player_Walk");
         } else
         {
-            _animator.Play("Base Layer.Player_Idle");
+            _animator.Play("Player_Idle");
         }
-        
+    }
+
+    private void OnInteract()
+    {
+        if (!canInteract) return;
+        Debug.Log("Interact");
+    }
+    
+    private void OnAttackCloseRange()
+    {
+        if (!canAttack) return;
+        _animator.Play("Player_Attack");
+        Debug.Log("Attack Close Range");
+    }
+    
+    private void OnAttackLongRange()
+    {
+        if (!canAttack) return;
+        Debug.Log("Attack Long Range");
     }
 }

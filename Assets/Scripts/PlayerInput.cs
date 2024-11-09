@@ -37,7 +37,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Attack Close Range"",
+                    ""name"": ""AttackCloseRange"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
                     ""expectedControlType"": """",
@@ -46,7 +46,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack Long Range"",
+                    ""name"": ""AttackLongRange"",
                     ""type"": ""Button"",
                     ""id"": ""e167963f-36c3-4ff1-8db7-5bdf13879e01"",
                     ""expectedControlType"": """",
@@ -60,7 +60,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -204,7 +204,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Attack Close Range"",
+                    ""action"": ""AttackCloseRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -215,7 +215,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Attack Close Range"",
+                    ""action"": ""AttackCloseRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -226,7 +226,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Attack Close Range"",
+                    ""action"": ""AttackCloseRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -237,7 +237,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Attack Close Range"",
+                    ""action"": ""AttackCloseRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -248,7 +248,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Attack Close Range"",
+                    ""action"": ""AttackCloseRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -259,7 +259,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Attack Long Range"",
+                    ""action"": ""AttackLongRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -270,7 +270,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Attack Long Range"",
+                    ""action"": ""AttackLongRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -281,7 +281,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Attack Long Range"",
+                    ""action"": ""AttackLongRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -292,7 +292,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Attack Long Range"",
+                    ""action"": ""AttackLongRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -303,7 +303,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Attack Long Range"",
+                    ""action"": ""AttackLongRange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -914,8 +914,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_AttackCloseRange = m_Player.FindAction("Attack Close Range", throwIfNotFound: true);
-        m_Player_AttackLongRange = m_Player.FindAction("Attack Long Range", throwIfNotFound: true);
+        m_Player_AttackCloseRange = m_Player.FindAction("AttackCloseRange", throwIfNotFound: true);
+        m_Player_AttackLongRange = m_Player.FindAction("AttackLongRange", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
