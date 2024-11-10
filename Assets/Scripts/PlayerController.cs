@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
         //Public method to call when player gets hit, when player gets hit, player can't attack
         isHit = true;
         Debug.Log("Player got hit");
-        _animator.Play("Player_Hit");
+        _animator.Play("Player_Hit", -1, 0f);
     }
 
     private void OnInteract()
