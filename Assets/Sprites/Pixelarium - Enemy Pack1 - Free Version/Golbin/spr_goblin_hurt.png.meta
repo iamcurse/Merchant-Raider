@@ -125,10 +125,10 @@ TextureImporter:
       name: spr_goblin_hurt_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 22
-        width: 27
-        height: 24
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: spr_goblin_hurt_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 22
-        width: 25
-        height: 24
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: spr_goblin_hurt_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 22
-        width: 24
-        height: 24
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: spr_goblin_hurt_3
       rect:
         serializedVersion: 2
-        x: 208
-        y: 22
-        width: 24
-        height: 24
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e85d5c06c1d4c2549b35f802ac8b98e3
     internalID: 0
     vertices: []
     indices: 
