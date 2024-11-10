@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _attackCloseRange;
     private InputAction _attackLongRange;
 
-    public bool isDead;
+    [ShowOnly] public bool isDead;
 
     private void Awake()
     {
