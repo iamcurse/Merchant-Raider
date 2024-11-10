@@ -125,10 +125,10 @@ TextureImporter:
       name: spr_Blue_slime_hurt_shadowless_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 24
-        width: 19
-        height: 15
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: spr_Blue_slime_hurt_shadowless_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 25
-        width: 17
-        height: 13
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: spr_Blue_slime_hurt_shadowless_2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 25
-        width: 13
-        height: 15
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: spr_Blue_slime_hurt_shadowless_3
       rect:
         serializedVersion: 2
-        x: 217
-        y: 25
-        width: 15
-        height: 14
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 81e5159a9adf4944a9d8332ee4cc963b
     internalID: 0
     vertices: []
     indices: 

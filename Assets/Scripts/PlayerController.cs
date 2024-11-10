@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
     [ShowOnly][SerializeField] private bool isAttacking;
     [HideInInspector] public Vector2 attackDirection;
     [ShowOnly][SerializeField] private bool isHit;
-    
-    
+
     private Animator _animator;
     private static readonly int MoveX = Animator.StringToHash("MoveX");
     private static readonly int MoveY = Animator.StringToHash("MoveY");
@@ -26,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private InputAction _interact;
     private InputAction _attackCloseRange;
     private InputAction _attackLongRange;
+
+    public bool isDead;
 
     private void Awake()
     {
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (!canMove) return;
+        if (!canMove || isDead) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
     }

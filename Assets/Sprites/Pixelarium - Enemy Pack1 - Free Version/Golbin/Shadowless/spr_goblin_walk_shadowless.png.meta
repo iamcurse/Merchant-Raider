@@ -131,10 +131,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 28
-        width: 25
-        height: 19
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 28
-        width: 23
-        height: 19
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_2
       rect:
         serializedVersion: 2
-        x: 145
-        y: 26
-        width: 21
-        height: 20
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_3
       rect:
         serializedVersion: 2
-        x: 209
-        y: 28
-        width: 23
-        height: 21
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_4
       rect:
         serializedVersion: 2
-        x: 272
-        y: 28
-        width: 23
-        height: 20
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: spr_goblin_walk_shadowless_5
       rect:
         serializedVersion: 2
-        x: 335
-        y: 26
-        width: 23
-        height: 20
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 375458676cfc7f44a9889cbd4d04939d
     internalID: 0
     vertices: []
     indices: 

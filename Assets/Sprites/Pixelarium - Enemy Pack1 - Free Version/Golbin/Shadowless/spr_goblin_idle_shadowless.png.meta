@@ -140,10 +140,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 23
-        height: 22
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 24
-        width: 25
-        height: 22
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_2
       rect:
         serializedVersion: 2
-        x: 143
-        y: 24
-        width: 25
-        height: 22
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 24
-        width: 25
-        height: 22
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_4
       rect:
         serializedVersion: 2
-        x: 271
-        y: 24
-        width: 25
-        height: 22
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,10 +250,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_5
       rect:
         serializedVersion: 2
-        x: 335
-        y: 24
-        width: 25
-        height: 22
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_6
       rect:
         serializedVersion: 2
-        x: 400
-        y: 24
-        width: 23
-        height: 22
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_7
       rect:
         serializedVersion: 2
-        x: 464
-        y: 24
-        width: 22
-        height: 22
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,10 +316,10 @@ TextureImporter:
       name: spr_goblin_idle_shadowless_8
       rect:
         serializedVersion: 2
-        x: 528
-        y: 24
-        width: 22
-        height: 22
+        x: 512
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 489ffae74ce5342409632fa5f3059553
     internalID: 0
     vertices: []
     indices: 

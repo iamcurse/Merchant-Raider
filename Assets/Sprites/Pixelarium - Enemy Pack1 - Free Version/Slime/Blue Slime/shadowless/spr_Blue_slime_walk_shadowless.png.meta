@@ -131,10 +131,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 25
-        width: 16
-        height: 14
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 24
-        width: 17
-        height: 14
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 24
-        width: 17
-        height: 15
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 24
-        width: 17
-        height: 15
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_4
       rect:
         serializedVersion: 2
-        x: 280
-        y: 24
-        width: 16
-        height: 14
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: spr_Blue_slime_walk_shadowless_5
       rect:
         serializedVersion: 2
-        x: 344
-        y: 24
-        width: 16
-        height: 15
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8acd4e97f136f4a4a8ecca0c0de1c43a
     internalID: 0
     vertices: []
     indices: 
