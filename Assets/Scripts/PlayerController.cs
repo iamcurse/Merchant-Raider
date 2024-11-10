@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit()
     {
+        //Public method to call when player gets hit, when player gets hit, player can't attack
         isHit = true;
         Debug.Log("Player got hit");
         _animator.Play("Player_Hit");
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackCloseRange()
     {
-        if (!canAttack) return;
+        if (!canAttack || isHit) return;
         _animator.Play("Player_Attack");
         Debug.Log("Attack Close Range");
         
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackLongRange()
     {
-        if (!canAttack) return;
+        if (!canAttack || isHit) return;
         Debug.Log("Attack Long Range");
         
         //Do something when Right Click
