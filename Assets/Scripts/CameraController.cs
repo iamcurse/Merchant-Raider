@@ -1,20 +1,30 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private GameObject 
-        _camera;
+    private GameObject _cameraObject;
+    private Transform _player;
+    private CinemachineCamera _camera;
 
     private void Awake()
     {
-        _camera = transform.GetChild(0).gameObject;
+        _player = GameObject.FindWithTag("Player").transform;
+        _cameraObject = transform.GetChild(0).gameObject;
+        _camera = transform.GetChild(0).gameObject.GetComponent<CinemachineCamera>();
+    }
+
+    private void Start()
+    {
+        _camera.Follow = _player;
+        _camera.LookAt = _player;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            _camera.SetActive(true);
+            _cameraObject.SetActive(true);
         }
     }
     
@@ -22,7 +32,7 @@ public class CameraController : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            _camera.SetActive(false);
+            _cameraObject.SetActive(false);
         }
     }
 }
