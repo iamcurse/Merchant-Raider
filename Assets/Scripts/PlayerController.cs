@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     [ShowOnly] public bool isDead;
 
+    private PauseMenu _pauseUI;
+    [ShowOnly] public bool isPause;
+
     private void Awake()
     {
         _playerInput = new PlayerInput();
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
         _interact = _playerInput.Player.Interact;
         _attackCloseRange = _playerInput.Player.AttackCloseRange;
         _attackLongRange = _playerInput.Player.AttackLongRange;
+
+        _pauseUI = GameObject.Find("UI").GetComponent<PauseMenu>();
     }
 
     private void Start()
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (!canMove || isDead) return;
+        if (!canMove || isDead || isPause) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
     }
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract()
     {
-        if (!canInteract) return;
+        if (!canInteract || isPause) return;
         Debug.Log("Interact");
         
         //Do something when 'E' is pressed
@@ -110,7 +115,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit) return;
+        if (!canAttack || isHit || isPause) return;
         _animator.Play("Player_Attack");
         Debug.Log("Attack Close Range");
         
@@ -119,9 +124,14 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackLongRange()
     {
-        if (!canAttack || isHit) return;
+        if (!canAttack || isHit || isPause) return;
         Debug.Log("Attack Long Range");
         
         //Do something when Right Click
+    }
+
+    private void OnPause()
+    {
+        _pauseUI.PauseScript();
     }
 }
