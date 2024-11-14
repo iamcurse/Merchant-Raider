@@ -843,7 +843,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: The lid of the chest was too [em2]heavy[/em2], so it [em4]fell[/em4]
-          on your hand [em4]again[/em4].
+          on your hand [em2]again[/em2].
         type: 0
         typeString: 
       - title: Sequence
@@ -870,8 +870,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 83}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94000006
   syncInfo:
     syncActors: 0
     syncItems: 0

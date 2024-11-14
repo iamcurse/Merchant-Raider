@@ -319,6 +319,8 @@ MonoBehaviour:
   canInteract: 1
   canAttack: 1
   isAttacking: 0
-  attackDirection: {x: 0, y: 0}
   isHit: 0
   isDead: 0
+  isPause: 0
+  playerInfo: {fileID: 0}
+  heart: {fileID: 805968267058032029, guid: dd79a398470e49b4d8e9d63a6492bafb, type: 3}

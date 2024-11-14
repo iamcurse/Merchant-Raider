@@ -28,11 +28,20 @@ public class PlayerController : MonoBehaviour
     private InputAction _attackLongRange;
 
     [ShowOnly] public bool isDead;
+    [ShowOnly] public bool gameOver;
 
+    private GameObject _ui;
     private PauseMenu _pauseUI;
     [ShowOnly] public bool isPause;
     
     private InteractableObject _interactableObject;
+
+    [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private GameObject heart;
+    private Transform _healthParent;
+    private TMPro.TextMeshProUGUI _moneyText;
+
+    private int _a;
 
     private void Awake()
     {
@@ -42,18 +51,27 @@ public class PlayerController : MonoBehaviour
         _attackCloseRange = _playerInput.Player.AttackCloseRange;
         _attackLongRange = _playerInput.Player.AttackLongRange;
 
-        _pauseUI = GameObject.Find("UI").GetComponent<PauseMenu>();
+        _ui = GameObject.Find("UI");
+        _pauseUI = _ui.GetComponent<PauseMenu>();
+        _healthParent = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2).transform;
+        _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
+        
+        playerInfo.health = playerInfo.maxHealth;
     }
 
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        OnHealthChanged();
+        OnMoneyChanged();
     }
 
     private void FixedUpdate()
     {
         Animate();
+        
+        if (gameOver && _a == 0) GameOver();
     }
     
     private void Update()
@@ -68,7 +86,10 @@ public class PlayerController : MonoBehaviour
         _attackCloseRange.Enable();
         _attackLongRange.Enable();
         
-        Lua.RegisterFunction(nameof(GetHit), this, GetType().GetMethod(nameof(GetHit)));
+        Lua.RegisterFunction(nameof(GetHit), this, SymbolExtensions.GetMethodInfo(() => GetHit()));
+        
+        OnHealthChanged();
+        OnMoneyChanged();
     }
     
     private void OnDisable()
@@ -106,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
     private void Animate()
     {
-        if (isAttacking) return;
+        if (isAttacking || isDead) return;
         if (_movementInput != Vector2.zero)
         {
             _animator.SetFloat(MoveX, _movementInput.x);
@@ -124,8 +145,22 @@ public class PlayerController : MonoBehaviour
     {
         //Public method to call when player gets hit, when player gets hit, player can't attack
         isHit = true;
-        Debug.Log("Player got hit");
-        _animator.Play("Player_Hit", -1, 0f);
+        playerInfo.health--;
+        Debug.Log("Player gets hit");
+        if (playerInfo.health != 0)
+            _animator.Play("Player_Hit", -1, 0f);
+        OnHealthChanged();
+    }
+    
+    public void GetHit(int damage)
+    {
+        //Public method to call when player gets hit, when player gets hit, player can't attack
+        isHit = true;
+        playerInfo.health -= damage;
+        Debug.Log("Player gets hit");
+        if (playerInfo.health != 0)
+            _animator.Play("Player_Hit", -1, 0f);
+        OnHealthChanged();
     }
 
     private void OnInteract()
@@ -160,5 +195,35 @@ public class PlayerController : MonoBehaviour
     {
         if (DialogueManager.isConversationActive) return;
         _pauseUI.PauseScript();
+    }
+    
+    private void OnHealthChanged()
+    {
+        if (playerInfo.health == 0)
+        {
+            Debug.Log("Player is dead");
+            _animator.Play("Player_Death");
+        }
+        
+        foreach (Transform child in _healthParent)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        for (var i = 0; i < playerInfo.health; i++)
+        {
+            Instantiate(heart, _healthParent);
+        }
+    }
+    
+    private void OnMoneyChanged()
+    {
+        _moneyText.text = playerInfo.money.ToString();
+    }
+
+    private void GameOver()
+    {
+        _a += 1;
+        _pauseUI.Pause();
     }
 }

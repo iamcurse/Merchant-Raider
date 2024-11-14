@@ -1,0 +1,432 @@
+fileFormatVersion: 2
+guid: f587962135f663f4bbde9f53f439522c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2474746085773965910
+    second: GUI 2_0
+  - first:
+      213: 6561604850718056862
+    second: GUI 2_1
+  - first:
+      213: -6003071882047758122
+    second: GUI 2_2
+  - first:
+      213: -8101102291198370959
+    second: GUI 2_3
+  - first:
+      213: -447736780349589760
+    second: GUI 2_4
+  - first:
+      213: 2991218053846046261
+    second: GUI 2_5
+  - first:
+      213: 4027286152358825114
+    second: GUI 2_6
+  - first:
+      213: 2873064843751520879
+    second: GUI 2_7
+  - first:
+      213: 2766698732303856511
+    second: GUI 2_8
+  - first:
+      213: 8947886975188571324
+    second: GUI 2_9
+  - first:
+      213: 306701076307085600
+    second: GUI 2_10
+  - first:
+      213: 4541537191116199812
+    second: GUI 2_11
+  - first:
+      213: -3279705550447001367
+    second: GUI 2_12
+  - first:
+      213: 5891903279001946289
+    second: GUI 2_13
+  - first:
+      213: -7774577455985555473
+    second: GUI 2_14
+  - first:
+      213: 3477161408735445089
+    second: GUI 2_15
+  - first:
+      213: -5828404841776307288
+    second: GUI 2_16
+  - first:
+      213: 5921501066873728192
+    second: GUI 2_17
+  - first:
+      213: 1145328656603358080
+    second: GUI 2_18
+  - first:
+      213: -430599675353779707
+    second: GUI 2_19
+  - first:
+      213: -4561981404262048257
+    second: GUI 2_20
+  - first:
+      213: 4708342373217717828
+    second: GUI 2_21
+  - first:
+      213: -5009155282508434639
+    second: GUI 2_22
+  - first:
+      213: -1037069453251414084
+    second: GUI 2_23
+  - first:
+      213: -3542861298929531253
+    second: GUI 2_24
+  - first:
+      213: -4042219868889475957
+    second: GUI 2_25
+  - first:
+      213: -868730925461365974
+    second: GUI 2_26
+  - first:
+      213: 7949537116688957621
+    second: GUI 2_27
+  - first:
+      213: -5842635030315926271
+    second: GUI 2_28
+  - first:
+      213: 7931415707415815899
+    second: GUI 2_29
+  - first:
+      213: 3960667259892427791
+    second: GUI 2_30
+  - first:
+      213: 1623999004644876994
+    second: GUI 2_31
+  - first:
+      213: -6580925231914583320
+    second: GUI 2_32
+  - first:
+      213: -1706760354112070322
+    second: GUI 2_33
+  - first:
+      213: 183527541835198986
+    second: GUI 2_34
+  - first:
+      213: 5894612927002777618
+    second: GUI 2_35
+  - first:
+      213: 188006976782563695
+    second: GUI 2_36
+  - first:
+      213: 7935022828344202315
+    second: GUI 2_37
+  - first:
+      213: 4249203315915758811
+    second: GUI 2_38
+  - first:
+      213: -5580700743894199096
+    second: GUI 2_39
+  - first:
+      213: -1061571656790656021
+    second: GUI 2_40
+  - first:
+      213: -6516100376606500436
+    second: GUI 2_41
+  - first:
+      213: -8936747923791864690
+    second: GUI 2_42
+  - first:
+      213: 5055842377179615700
+    second: GUI 2_43
+  - first:
+      213: -3625891007147394819
+    second: GUI 2_44
+  - first:
+      213: 9182706368381810393
+    second: GUI 2_45
+  - first:
+      213: -4033926473189397296
+    second: GUI 2_46
+  - first:
+      213: -7244427338107982746
+    second: GUI 2_47
+  - first:
+      213: -3432142789208041566
+    second: GUI 2_48
+  - first:
+      213: 6729137342440563310
+    second: GUI 2_49
+  - first:
+      213: 1528752099960093987
+    second: GUI 2_50
+  - first:
+      213: 1604555833124066685
+    second: GUI 2_51
+  - first:
+      213: -552004003666481312
+    second: GUI 2_52
+  - first:
+      213: -9191951825311834972
+    second: GUI 2_53
+  - first:
+      213: -738972142489467367
+    second: GUI 2_54
+  - first:
+      213: -8135675326982155716
+    second: GUI 2_55
+  - first:
+      213: 7126241517521190841
+    second: GUI 2_56
+  - first:
+      213: -3893061918538908528
+    second: GUI 2_57
+  - first:
+      213: 1336497750148466348
+    second: GUI 2_58
+  - first:
+      213: 2100869669033232214
+    second: GUI 2_59
+  - first:
+      213: -8268959240134487495
+    second: GUI 2_60
+  - first:
+      213: 9204854800557757913
+    second: GUI 2_61
+  - first:
+      213: -462621492804313090
+    second: GUI 2_62
+  - first:
+      213: 7365838397038801437
+    second: GUI 2_63
+  - first:
+      213: -2770902851870921575
+    second: GUI 2_64
+  - first:
+      213: 204931102862046353
+    second: GUI 2_65
+  - first:
+      213: 495722999197462945
+    second: GUI 2_66
+  - first:
+      213: 7340990539736304376
+    second: GUI 2_67
+  - first:
+      213: -964380045369587003
+    second: GUI 2_68
+  - first:
+      213: -786330349517671854
+    second: GUI 2_69
+  - first:
+      213: -8759402581583340564
+    second: GUI 2_70
+  - first:
+      213: 4973327893024757847
+    second: GUI 2_71
+  - first:
+      213: 5173709733879819457
+    second: GUI 2_72
+  - first:
+      213: -1819039591180658414
+    second: GUI 2_73
+  - first:
+      213: -6205983353696327014
+    second: GUI 2_74
+  - first:
+      213: -2600581317902530736
+    second: GUI 2_75
+  - first:
+      213: 3147400865991957716
+    second: GUI 2_76
+  - first:
+      213: 7792926725935109923
+    second: GUI 2_77
+  - first:
+      213: -922471084433808890
+    second: GUI 2_78
+  - first:
+      213: -113496555452552274
+    second: GUI 2_79
+  - first:
+      213: 2363404336867711158
+    second: GUI 2_80
+  - first:
+      213: -2388494935264823497
+    second: GUI 2_81
+  - first:
+      213: 5698835541382257047
+    second: GUI 2_82
+  - first:
+      213: 6598491045891557555
+    second: GUI 2_83
+  - first:
+      213: 5912879327401806011
+    second: GUI 2_84
+  - first:
+      213: 7144114165265268869
+    second: GUI 2_85
+  - first:
+      213: 6718907793275280852
+    second: GUI 2_86
+  - first:
+      213: -4390052648843298023
+    second: GUI 2_87
+  - first:
+      213: -5691076351618496935
+    second: GUI 2_88
+  - first:
+      213: -4495813649638179015
+    second: GUI 2_89
+  - first:
+      213: 5433389960402882777
+    second: GUI 2_90
+  - first:
+      213: 6490342855060966929
+    second: GUI 2_91
+  - first:
+      213: 4374834668506888531
+    second: GUI 2_92
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUI 2_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 244
+        width: 64
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa58728fb8fe7add0800000000000000
+      internalID: -2474746085773965910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3e56835ed13ef064d8ff090c6d46364b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GUI 2_0: -2474746085773965910
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
