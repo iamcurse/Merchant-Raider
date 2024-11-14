@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,13 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 1f;
     
     [SerializeField] private bool canMove = true;
-    [SerializeField] private bool canInteract = true;
+    [SerializeField] private bool canInteract;
     [SerializeField] private bool canAttack = true;
     
     private Vector2 _movementInput;
     private Rigidbody2D _rigidBody2D;
+    
     [ShowOnly][SerializeField] private bool isAttacking;
-    [HideInInspector] public Vector2 attackDirection;
     [ShowOnly][SerializeField] private bool isHit;
 
     private Animator _animator;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private PauseMenu _pauseUI;
     [ShowOnly] public bool isPause;
+    
+    private InteractableObject _interactableObject;
 
     private void Awake()
     {
@@ -64,6 +67,8 @@ public class PlayerController : MonoBehaviour
         _interact.Enable();
         _attackCloseRange.Enable();
         _attackLongRange.Enable();
+        
+        Lua.RegisterFunction(nameof(GetHit), this, GetType().GetMethod(nameof(GetHit)));
     }
     
     private void OnDisable()
@@ -72,13 +77,31 @@ public class PlayerController : MonoBehaviour
         _interact.Disable();
         _attackCloseRange.Disable();
         _attackLongRange.Disable();
+        
+        Lua.UnregisterFunction(nameof(GetHit));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Interactable Object")) return;
+        canInteract = true;
+        
+       _interactableObject = other.gameObject.GetComponent<InteractableObject>();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Interactable Object")) return;
+        canInteract = false;
+        _interactableObject = null;
     }
 
     private void Move()
     {
-        if (!canMove || isDead || isPause) return;
+        if (!canMove || isDead || isPause || DialogueManager.isConversationActive) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
+        Debug.Log(_movementInput);
     }
 
     private void Animate()
@@ -107,31 +130,35 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract()
     {
-        if (!canInteract || isPause) return;
-        Debug.Log("Interact");
+        if (!canInteract || isPause || DialogueManager.isConversationActive) return;
         
+        Debug.Log("Interact");
         //Do something when 'E' is pressed
+        _interactableObject.Interact();
     }
     
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit || isPause) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
         _animator.Play("Player_Attack");
         Debug.Log("Attack Close Range");
         
         //Do something when Left Click
+        
     }
     
     private void OnAttackLongRange()
     {
-        if (!canAttack || isHit || isPause) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
         Debug.Log("Attack Long Range");
         
         //Do something when Right Click
+        
     }
 
     private void OnPause()
     {
+        if (DialogueManager.isConversationActive) return;
         _pauseUI.PauseScript();
     }
 }
