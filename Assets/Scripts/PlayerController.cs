@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (!canMove || isDead || isPause || DialogueManager.isConversationActive) return;
+        if (!canMove || isDead || isPause/* || DialogueManager.isConversationActive*/) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
         Debug.Log(_movementInput);
@@ -193,7 +193,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnPause()
     {
-        if (DialogueManager.isConversationActive) return;
         _pauseUI.PauseScript();
     }
     

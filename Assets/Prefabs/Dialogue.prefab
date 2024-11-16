@@ -282,8 +282,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choice 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -386,7 +387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -533.17737, y: -336.6926}
+  m_AnchoredPosition: {x: -547, y: -336.6926}
   m_SizeDelta: {x: 301.6854, y: 141.384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6514422071666943594
@@ -421,8 +422,9 @@ MonoBehaviour:
     Dialogue Dialogue Dialogue Dialogue Dialogue Dialogue Dialogue Dialogue Dialogue
     Dialogue Dialogue Dialogue Dialogue  '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -633,17 +635,17 @@ MonoBehaviour:
     waitForHideAnimation: 0
     allowForceImmediate: 0
   conversationUIElements:
-    mainPanel: {fileID: 0}
+    mainPanel: {fileID: 293567878181002607}
     dontDeactivateMainPanel: 0
     waitForMainPanelOpen: 0
     subtitlePanels:
-    - {fileID: 0}
+    - {fileID: 293567878181002607}
     defaultNPCSubtitlePanel: {fileID: 0}
     defaultPCSubtitlePanel: {fileID: 0}
     allowOpenSubtitlePanelsOnStartConversation: 1
     allowDialogueActorCustomPanels: 0
     menuPanels:
-    - {fileID: 0}
+    - {fileID: 2936872451342055293}
     defaultMenuPanel: {fileID: 0}
     useFirstResponseForMenuPortrait: 0
     waitForClose: 1
@@ -791,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1164,8 +1166,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choice 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1452,8 +1455,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1697,8 +1701,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choice 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1990,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ee3d99442035942b6dd1ede25ff7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 0}
+  dialogueUI: {fileID: 8371828236909227031}
   typewriterEffect: {fileID: 6190989132275562085}
   hideContinueButtonOnContinue: 0
   continueSubtitlePanel: 1
@@ -2430,8 +2435,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ab566cd91a8a40044904d85b38f36135, type: 2}
+  m_sharedMaterial: {fileID: 5042708286696702068, guid: ab566cd91a8a40044904d85b38f36135,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
