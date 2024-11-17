@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
         if (!canMove || isDead || isPause/* || DialogueManager.isConversationActive*/) return;
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
-        Debug.Log(_movementInput);
     }
 
     private void Animate()
