@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1828293458200917077}
   - component: {fileID: 5679846697199730203}
   - component: {fileID: 6255885017808747270}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Area
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,12 +376,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   lineOfSight: 0
-  speed: 50
-  chasingRange: 7
+  playerInAttackRange: 0
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
+  speed: 50
+  chasingRange: 7
   chaseDuration: 4
-  playerInRange: 0
   isAttack: 0
   attackCooldown: 1
+  enemyInfo: {fileID: 11400000, guid: f48313c4e4905274b9a9a6a73a2d0334, type: 2}
+  isGettingHit: 0
+  isDead: 0

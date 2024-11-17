@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
+    [ShowOnly] public bool enemyInAttackRange;
     
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canInteract;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private TMPro.TextMeshProUGUI _moneyText;
 
     private int _a;
+    
+    private PlayerAttack _playerAttack;
 
     private void Awake()
     {
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
         _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
         
         playerInfo.health = playerInfo.maxHealth;
+        _playerAttack = transform.GetChild(0).gameObject.GetComponent<PlayerAttack>();
     }
 
     private void Start()
@@ -178,7 +182,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Attack Close Range");
         
         //Do something when Left Click
-        
+        if (enemyInAttackRange) _playerAttack.Attack();
     }
     
     private void OnAttackLongRange()

@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _enemy.playerInRange = true;
+            _enemy.playerInAttackRange = true;
         }
     }
     
@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _enemy.playerInRange = false;
+            _enemy.playerInAttackRange = false;
         }
     }
 }

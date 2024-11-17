@@ -7,15 +7,17 @@ public class Enemy : MonoBehaviour
 {
     static readonly int IsMoving = Animator.StringToHash("isWalking");
     private static readonly int Attack1 = Animator.StringToHash("isAttacking");
+    private static readonly int IsHit = Animator.StringToHash("isHit");
+    private static readonly int IsDead = Animator.StringToHash("isDead");
     [SerializeField] private Transform target;
     [ShowOnly][SerializeField] private bool lineOfSight;
+    [ShowOnly] public bool playerInAttackRange;
+    [SerializeField] private LayerMask collisionMask;
     [SerializeField] private float speed = 75f;
     [SerializeField] private int chasingRange = 5;
     private readonly float _nextWaypointDistance = 3f;
-    [SerializeField] private LayerMask collisionMask;
     private Transform _player;
     [SerializeField] private float chaseDuration = 4f;
-    [ShowOnly] public bool playerInRange;
     
     private Path _path;
     private int _currentWaypoint;
@@ -27,14 +29,18 @@ public class Enemy : MonoBehaviour
     private Animator _animator;
     
     private RaycastHit2D _hit;
-    
     private Coroutine _chaseCoroutine;
-
     private float ConvertChaseRange => (2 *chasingRange - 1) * 0.08f;
 
-    [ShowOnly] public bool isAttack;
+    [HideInInspector] public bool isAttack;
     [SerializeField] private float attackCooldown = 1f;
     private bool _isCooldown;
+    
+    [SerializeField] private EnemyInfo enemyInfo;
+    public bool isGettingHit;
+    public bool isDead;
+    
+    private PlayerAttack _playerAttack;
     
     private void Awake()
     {
@@ -44,6 +50,8 @@ public class Enemy : MonoBehaviour
         _player = GameObject.FindWithTag("Player").transform;
         _isFinish = true;
         isAttack = false;
+        enemyInfo.health = enemyInfo.maxHealth;
+        //_playerAttack = _player.GetChild(0).gameObject.GetComponent<PlayerAttack>();
     }
 
     private void Start()
@@ -134,6 +142,10 @@ public class Enemy : MonoBehaviour
         var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
         var force = direction * (speed * Time.deltaTime);
 
+        if (isDead)
+        {
+            force = Vector2.zero;
+        }
         _rigidbody2D.AddForce(force);
 
         var distance = Vector2.Distance(_rigidbody2D.position, _path.vectorPath[_currentWaypoint]);
@@ -152,7 +164,7 @@ public class Enemy : MonoBehaviour
 
     private void Animate()
     {
-        if (isAttack)
+        if (isAttack && !isGettingHit && !isDead)
         {
             _animator.SetBool(Attack1, true);
             return;
@@ -176,12 +188,6 @@ public class Enemy : MonoBehaviour
         if (!other.CompareTag("Player") || _isCooldown) return;
         StartCoroutine(AttackCooldown());
     }
-    //
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (!other.CompareTag("Player")) return;
-    //     _animator.SetBool(Attack1, false);
-    // }
 
     private IEnumerator AttackCooldown()
     {
@@ -194,9 +200,36 @@ public class Enemy : MonoBehaviour
     public void TryAttack()
     {
         Debug.Log("Attacking player");
-        if (playerInRange)
+        if (playerInAttackRange)
         {
             _player.gameObject.GetComponent<PlayerController>().GetHit();
         }
+    }
+
+    public void GetHit()
+    {
+        enemyInfo.health--;
+        isGettingHit = true;
+        Debug.Log("Enemy gets hit");
+        if (enemyInfo.health != 0)
+        {
+            _animator.SetBool(IsHit, true);
+        }
+        else
+        {
+            _rigidbody2D.linearVelocity = Vector2.zero;
+            _animator.SetTrigger(IsDead);
+            isDead = true;
+        }
+    }
+
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
+    
+    private void StopGetHit()
+    {
+        _animator.SetBool(IsHit, false);
     }
 }
