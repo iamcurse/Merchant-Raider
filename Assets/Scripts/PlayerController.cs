@@ -1,3 +1,4 @@
+using System.Collections;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
+    [ShowOnly] public bool isCloseAttackCooldown;
+    [SerializeField] private float closeAttackCooldown = 1f;
     [ShowOnly] public bool enemyInAttackRange;
     
     [SerializeField] private bool canMove = true;
@@ -146,7 +149,6 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit()
     {
-        //Public method to call when player gets hit, when player gets hit, player can't attack
         isHit = true;
         playerInfo.health--;
         Debug.Log("Player gets hit");
@@ -157,7 +159,6 @@ public class PlayerController : MonoBehaviour
     
     public void GetHit(int damage)
     {
-        //Public method to call when player gets hit, when player gets hit, player can't attack
         isHit = true;
         playerInfo.health -= damage;
         Debug.Log("Player gets hit");
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || isCloseAttackCooldown) return;
         _animator.Play("Player_Attack");
         Debug.Log("Attack Close Range");
         
@@ -227,5 +228,12 @@ public class PlayerController : MonoBehaviour
     {
         _a += 1;
         _pauseUI.Pause();
+    }
+    
+    private IEnumerator AttackCooldown()
+    {
+        isCloseAttackCooldown = true;
+        yield return new WaitForSeconds(closeAttackCooldown);
+        isCloseAttackCooldown = false;
     }
 }
