@@ -5,6 +5,7 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Enemy : MonoBehaviour
 {
+    [ShowOnly][SerializeField] private int health;
     static readonly int IsMoving = Animator.StringToHash("isWalking");
     private static readonly int Attack1 = Animator.StringToHash("isAttacking");
     private static readonly int IsHit = Animator.StringToHash("isHit");
@@ -37,20 +38,24 @@ public class Enemy : MonoBehaviour
     private bool _isCooldown;
     
     [SerializeField] private EnemyInfo enemyInfo;
-    public bool isGettingHit;
-    public bool isDead;
+    [ShowOnly] public bool isGettingHit;
+    [ShowOnly] public bool isDead;
     
     private PlayerAttack _playerAttack;
     
     private void Awake()
     {
+        if (!target)
+        {
+            target = GameObject.FindWithTag("Player").transform;
+        }
         _seeker = GetComponent<Seeker>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _player = GameObject.FindWithTag("Player").transform;
         _isFinish = true;
         isAttack = false;
-        enemyInfo.health = enemyInfo.maxHealth;
+        health = enemyInfo.maxHealth;
         //_playerAttack = _player.GetChild(0).gameObject.GetComponent<PlayerAttack>();
     }
 
@@ -105,6 +110,7 @@ public class Enemy : MonoBehaviour
 
             _path = null; // Stop chasing if player is not seen within the duration
             _isFinish = true;
+            _rigidbody2D.linearVelocity = Vector2.zero;
             yield break;
         }
     }
@@ -120,7 +126,6 @@ public class Enemy : MonoBehaviour
     {
         if (_path == null) return;
         _reachedEndOfPath = _currentWaypoint >= _path.vectorPath.Count;
-        
         Move();
     }
     
@@ -141,13 +146,13 @@ public class Enemy : MonoBehaviour
         if (_reachedEndOfPath) return;
         var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
         var force = direction * (speed * Time.deltaTime);
-
+        
         if (isDead)
         {
             force = Vector2.zero;
         }
         _rigidbody2D.AddForce(force);
-
+        
         var distance = Vector2.Distance(_rigidbody2D.position, _path.vectorPath[_currentWaypoint]);
         if (distance < _nextWaypointDistance)
         {
@@ -208,19 +213,18 @@ public class Enemy : MonoBehaviour
 
     public void GetHit()
     {
-        enemyInfo.health--;
+        health--;
         isGettingHit = true;
         Debug.Log("Enemy gets hit");
-        if (enemyInfo.health != 0)
-        {
-            _animator.SetBool(IsHit, true);
-        }
-        else
-        {
-            _rigidbody2D.linearVelocity = Vector2.zero;
-            _animator.SetTrigger(IsDead);
-            isDead = true;
-        }
+        _animator.SetBool(IsHit, true);
+    }
+    
+    private void CheckDead()
+    {
+        if (health > 0) return;
+        _rigidbody2D.linearVelocity = Vector2.zero;
+        _animator.SetTrigger(IsDead);
+        isDead = true;
     }
 
     private void DestroyThis()

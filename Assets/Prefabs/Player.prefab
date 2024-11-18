@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 651236825051082644}
   - component: {fileID: 2705237947965877071}
   - component: {fileID: 7919531788986841108}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,3 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 0
+  isRight: 0
+  isLeft: 0
+  isUp: 0
+  isDown: 0
