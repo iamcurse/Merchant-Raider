@@ -134,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_player_right_attack_0
+      name: spr_player_right_attack_6
       rect:
         serializedVersion: 2
         x: 0
@@ -159,7 +159,7 @@ TextureImporter:
       name: spr_player_right_attack_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 320
         y: 0
         width: 64
         height: 64
@@ -181,7 +181,7 @@ TextureImporter:
       name: spr_player_right_attack_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 0
         width: 64
         height: 64
@@ -222,32 +222,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_attack_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c321b5fe7e34fbf0800000000000000
-      internalID: -291539360863411257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spr_player_right_attack_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 64
         y: 0
         width: 64
         height: 64
@@ -266,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_attack_6
+      name: spr_player_right_attack_0
       rect:
         serializedVersion: 2
         x: 384
@@ -287,6 +265,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spr_player_right_attack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cc080509c2d86418078553be310707
+      internalID: 976793458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -301,13 +301,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_player_right_attack_0: 1925417606565882268
+      spr_player_right_attack_0: -1610358376348479289
       spr_player_right_attack_1: 1228504236542681798
       spr_player_right_attack_2: 3861819835043493671
       spr_player_right_attack_3: 239768519284618219
-      spr_player_right_attack_4: -291539360863411257
+      spr_player_right_attack_4: 976793458
       spr_player_right_attack_5: -4393288114827582582
-      spr_player_right_attack_6: -1610358376348479289
+      spr_player_right_attack_6: 1925417606565882268
+      spr_player_right_attack_7: 1160877107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

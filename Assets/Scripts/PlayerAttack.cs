@@ -9,10 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [ShowOnly][SerializeField] private int enemyCount;
     
     private BoxCollider2D _boxCollider2D;
-    [HideInInspector] public bool isRight;
-    [HideInInspector] public bool isLeft;
-    [HideInInspector] public bool isUp;
-    [HideInInspector] public bool isDown;
+    [HideInInspector] public float moveX;
+    [HideInInspector] public float moveY;
     
     private void Awake()
     {
@@ -42,21 +40,20 @@ public class PlayerAttack : MonoBehaviour
         _playerController.enemyInAttackRange = _enemiesInRange.Count > 0;
         enemyCount = _enemiesInRange.Count;
         
-        if (isUp)
+        switch (moveX)
         {
-            AttackUp();
-        }
-        else if (isDown)
-        {
-            AttackDown();
-        }
-        else if (isLeft)
-        {
-            AttackLeft();
-        }
-        else if (isRight)
-        {
-            AttackRight();
+            case > 0 when moveY == 0:
+                AttackRight();
+                break;
+            case < 0 when moveY == 0:
+                AttackLeft();
+                break;
+            case 0 when moveY > 0:
+                AttackUp();
+                break;
+            case 0 when moveY < 0:
+                AttackDown();
+                break;
         }
     }
 

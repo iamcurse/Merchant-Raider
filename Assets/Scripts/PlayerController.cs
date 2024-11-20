@@ -6,10 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    [ShowOnly] public bool isCloseAttackCooldown;
     [SerializeField] private float closeAttackCooldown = 1f;
+    // ReSharper disable once NotAccessedField.Global
     [ShowOnly] public bool enemyInAttackRange;
-    
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canInteract;
     [SerializeField] private bool canAttack = true;
@@ -76,14 +75,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Animate();
-        
         if (gameOver && _a == 0) GameOver();
     }
     
     private void Update()
     {
         Move();
+        Animate();
     }
 
     private void OnEnable()
@@ -138,6 +136,9 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetFloat(MoveX, _movementInput.x);
             _animator.SetFloat(MoveY, _movementInput.y);
+
+            _playerAttack.moveX = _movementInput.x;
+            _playerAttack.moveY = _movementInput.y;
             if (isHit) return;
             _animator.Play("Player_Walk");
         } else
@@ -178,12 +179,10 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || isCloseAttackCooldown) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        canAttack = false;
         _animator.Play("Player_Attack");
         Debug.Log("Attack Close Range");
-        
-        //Do something when Left Click
-        if (enemyInAttackRange) _playerAttack.Attack();
     }
     
     private void OnAttackLongRange()
@@ -232,8 +231,12 @@ public class PlayerController : MonoBehaviour
     
     private IEnumerator AttackCooldown()
     {
-        isCloseAttackCooldown = true;
         yield return new WaitForSeconds(closeAttackCooldown);
-        isCloseAttackCooldown = false;
+        canAttack = true;
+    }
+    
+    private void CallShortRangeAttack()
+    {
+        _playerAttack.Attack();
     }
 }
