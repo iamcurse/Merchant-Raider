@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 2455564937391825302}
   - component: {fileID: 9145881296354270465}
   - component: {fileID: 4494908696379679151}
+  - component: {fileID: 6559448420764135325}
   m_Layer: 0
   m_Name: Collision Object
   m_TagString: Untagged
@@ -1021,6 +1022,60 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &6559448420764135325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945803167000607739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f95134956cb9eafe5b55911ba9
+  m_ShapePath:
+  - {x: -9, y: -6, z: 0}
+  - {x: -9, y: 1.0000001, z: 0}
+  - {x: 10.999999, y: 1.0000001, z: 0}
+  - {x: 10.999999, y: -6, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 4494908696379679151}
+  m_ShadowShape2DProvider:
+    rid: 6088705562569867473
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 4494908696379679151}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6088705562569867473
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal,
+        asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &8969512098135644486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1088,7 @@ GameObject:
   - component: {fileID: 8813362797538297698}
   - component: {fileID: 8930479456733074253}
   - component: {fileID: 929555153267029333}
+  - component: {fileID: 1996679323008200051}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -1335,6 +1391,60 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1996679323008200051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969512098135644486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f95134956cb9eafe5b9faa7b6f
+  m_ShapePath:
+  - {x: -5, y: -7, z: 0}
+  - {x: -5, y: 4, z: 0}
+  - {x: 6, y: 4, z: 0}
+  - {x: 6, y: -7, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 929555153267029333}
+  m_ShadowShape2DProvider:
+    rid: 6088705562569867472
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 929555153267029333}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6088705562569867472
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal,
+        asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &9123750611734769267
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,13 @@ using UnityEngine;
 using Pathfinding;
 using Vector2 = UnityEngine.Vector2;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [ShowOnly][SerializeField] private int health;
-    static readonly int IsMoving = Animator.StringToHash("isWalking");
-    private static readonly int Attack1 = Animator.StringToHash("isAttacking");
+    private static readonly int IsMoving = Animator.StringToHash("isWalking");
     private static readonly int IsHit = Animator.StringToHash("isHit");
     private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int Attack = Animator.StringToHash("Attack");
     [SerializeField] private Transform target;
     [ShowOnly][SerializeField] private bool lineOfSight;
     [ShowOnly] public bool playerInAttackRange;
@@ -33,15 +33,16 @@ public class Enemy : MonoBehaviour
     private Coroutine _chaseCoroutine;
     private float ConvertChaseRange => (2 *chasingRange - 1) * 0.08f;
 
-    [HideInInspector] public bool isAttack;
+    [ShowOnly][SerializeField] public bool isAttack;
     [SerializeField] private float attackCooldown = 1f;
-    private bool _isCooldown;
     
     [SerializeField] private EnemyInfo enemyInfo;
     [ShowOnly] public bool isGettingHit;
     [ShowOnly] public bool isDead;
     
     private PlayerAttack _playerAttack;
+    
+    private EnemyAttackRange _enemyAttackRange;
     
     private void Awake()
     {
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
         _isFinish = true;
         isAttack = false;
         health = enemyInfo.maxHealth;
-        //_playerAttack = _player.GetChild(0).gameObject.GetComponent<PlayerAttack>();
+        _enemyAttackRange = transform.GetChild(0).GetComponent<EnemyAttackRange>();
     }
 
     private void Start()
@@ -132,6 +133,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Animate();
+        ZOrder();
     }
 
     private void OnPathComplete(Path path)
@@ -144,6 +146,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         if (_reachedEndOfPath) return;
+        
         var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
         var force = direction * (speed * Time.deltaTime);
         
@@ -169,15 +172,7 @@ public class Enemy : MonoBehaviour
 
     private void Animate()
     {
-        if (isAttack && !isGettingHit && !isDead)
-        {
-            _animator.SetBool(Attack1, true);
-            return;
-        }
-        else
-        {
-            _animator.SetBool(Attack1, false);
-        }
+        if (isAttack && !isGettingHit && !isDead) return;
 
         _animator.SetBool(IsMoving, !_isFinish);
     }
@@ -190,25 +185,36 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.CompareTag("Player") || _isCooldown) return;
+        //If player is still staying in Attack Range of Enemy, Enemy will keep trying to attack player using TryAttack() method
+        if (!other.CompareTag("Player")) return;
+        
+        TryAttack();
+    }
+
+    private void TryAttack()
+    {
+        //If Enemy is already attacking, getting hit, or dead, it will not attack player
+        if (isAttack || isGettingHit || isDead) return;
+        
+        Debug.Log("Attacking player");
+        //Set isAttack to true, so that the enemy will not attack player again until the attack cooldown is over
+        isAttack = true;
+        //Start the attack animation, and call CallAttack() on the specified time in the animation
+        _animator.SetTrigger(Attack);
         StartCoroutine(AttackCooldown());
     }
 
+    private void CallAttack()
+    {
+        //Check if player is still in attack range of enemy when the attack animation is played then call HitPlayer() method if player is still in range
+        if (!playerInAttackRange) return;
+        _player.GetComponent<PlayerController>().GetHit();
+    }
+    
     private IEnumerator AttackCooldown()
     {
-        _isCooldown = true;
-        isAttack = true;
         yield return new WaitForSeconds(attackCooldown);
-        _isCooldown = false;
-    }
-
-    public void TryAttack()
-    {
-        Debug.Log("Attacking player");
-        if (playerInAttackRange)
-        {
-            _player.gameObject.GetComponent<PlayerController>().GetHit();
-        }
+        isAttack = false;
     }
 
     public void GetHit()
@@ -223,6 +229,7 @@ public class Enemy : MonoBehaviour
     {
         if (health > 0) return;
         _rigidbody2D.linearVelocity = Vector2.zero;
+        _enemyAttackRange.gameObject.SetActive(false);
         _animator.SetTrigger(IsDead);
         isDead = true;
     }
@@ -235,5 +242,17 @@ public class Enemy : MonoBehaviour
     private void StopGetHit()
     {
         _animator.SetBool(IsHit, false);
+    }
+    
+    private void ZOrder()
+    {
+        if (_player.position.y > transform.position.y)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = -1;
+        }
     }
 }

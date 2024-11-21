@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerController _playerController;
-    private List<Enemy> _enemiesInRange;
+    private List<EnemyController> _enemiesInRange;
     // ReSharper disable once NotAccessedField.Local
     [ShowOnly][SerializeField] private int enemyCount;
     
@@ -15,14 +15,14 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _playerController = transform.parent.gameObject.GetComponent<PlayerController>();
-        _enemiesInRange = new List<Enemy>();
+        _enemiesInRange = new List<EnemyController>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
-        var enemy = other.gameObject.GetComponent<Enemy>();
+        var enemy = other.gameObject.GetComponent<EnemyController>();
         if (enemy == null || _enemiesInRange.Contains(enemy)) return;
         _enemiesInRange.Add(enemy);
     }
@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
-        var enemy = other.gameObject.GetComponent<Enemy>();
+        var enemy = other.gameObject.GetComponent<EnemyController>();
         if (enemy == null || !_enemiesInRange.Contains(enemy)) return;
         _enemiesInRange.Remove(enemy);
     }
@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (_enemiesInRange.Count == 0) return;
 
-        var enemiesToRemove = new List<Enemy>();
+        var enemiesToRemove = new List<EnemyController>();
 
         foreach (var enemy in _enemiesInRange)
         {
@@ -78,22 +78,22 @@ public class PlayerAttack : MonoBehaviour
 
     private void AttackRight()
     {
-        _boxCollider2D.offset = new Vector2(0.14f, -0.04f);
+        _boxCollider2D.offset = new Vector2(0.145f, 0.095f);
         _boxCollider2D.size = new Vector2(0.28f, 0.18f);
     }
     private void AttackLeft()
     {
-        _boxCollider2D.offset = new Vector2(-0.14f, -0.04f);
+        _boxCollider2D.offset = new Vector2(-0.135f, 0.095f);
         _boxCollider2D.size = new Vector2(0.28f, 0.18f);
     }
     private void AttackUp()
     {
-        _boxCollider2D.offset = new Vector2(0, 0.09f);
+        _boxCollider2D.offset = new Vector2(0, 0.205f);
         _boxCollider2D.size = new Vector2(0.28f, 0.18f);
     }
     private void AttackDown()
     {
-        _boxCollider2D.offset = new Vector2(0, -0.14f);
-        _boxCollider2D.size = new Vector2(0.28f, 0.18f);
+        _boxCollider2D.offset = new Vector2(0, -0.045f);
+        _boxCollider2D.size = new Vector2(0.28f, 0.16f);
     }
 }

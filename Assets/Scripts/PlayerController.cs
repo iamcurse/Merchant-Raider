@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private static readonly int MoveX = Animator.StringToHash("MoveX");
     private static readonly int MoveY = Animator.StringToHash("MoveY");
-
+    private static readonly int IsHit = Animator.StringToHash("isHit");
+    private static readonly int IsAttack = Animator.StringToHash("isAttack");
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int IsDead = Animator.StringToHash("isDead");
 
     private PlayerInput _playerInput;
     private InputAction _move;
@@ -131,20 +134,31 @@ public class PlayerController : MonoBehaviour
 
     private void Animate()
     {
-        if (isAttacking || isDead) return;
+        if (isDead) return;
         if (_movementInput != Vector2.zero)
         {
-            _animator.SetFloat(MoveX, _movementInput.x);
-            _animator.SetFloat(MoveY, _movementInput.y);
+            if (!isAttacking)
+            {
+                _animator.SetFloat(MoveX, _movementInput.x);
+                _animator.SetFloat(MoveY, _movementInput.y);
 
-            _playerAttack.moveX = _movementInput.x;
-            _playerAttack.moveY = _movementInput.y;
-            if (isHit) return;
-            _animator.Play("Player_Walk");
+                _playerAttack.moveX = _movementInput.x;
+                _playerAttack.moveY = _movementInput.y;
+            }
+            
+            _animator.SetBool(IsMoving, true);
         } else
         {
-            if (isHit) return;
-            _animator.Play("Player_Idle");
+            _animator.SetBool(IsMoving, false);
+        }
+        
+        var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("Player_Attack"))
+        {
+            isAttacking = stateInfo.normalizedTime < 1;
+        } else
+        {
+            isAttacking = false;
         }
     }
 
@@ -153,8 +167,8 @@ public class PlayerController : MonoBehaviour
         isHit = true;
         playerInfo.health--;
         Debug.Log("Player gets hit");
-        if (playerInfo.health != 0)
-            _animator.Play("Player_Hit", -1, 0f);
+        if (playerInfo.health > 0)
+            _animator.SetTrigger(IsHit);
         OnHealthChanged();
     }
     
@@ -163,8 +177,8 @@ public class PlayerController : MonoBehaviour
         isHit = true;
         playerInfo.health -= damage;
         Debug.Log("Player gets hit");
-        if (playerInfo.health != 0)
-            _animator.Play("Player_Hit", -1, 0f);
+        if (playerInfo.health > 0)
+            _animator.SetTrigger(IsHit);
         OnHealthChanged();
     }
 
@@ -179,10 +193,13 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackCloseRange()
     {
+        //When player do Left-Click, set canAttack to false so that player can't attack again until the cooldown is over. Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
         if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        
         canAttack = false;
-        _animator.Play("Player_Attack");
+        _animator.SetTrigger(IsAttack);
         Debug.Log("Attack Close Range");
+        StartCoroutine(AttackCooldown());
     }
     
     private void OnAttackLongRange()
@@ -201,10 +218,13 @@ public class PlayerController : MonoBehaviour
     
     private void OnHealthChanged()
     {
-        if (playerInfo.health == 0)
+        if (playerInfo.health <= 0)
         {
+            _rigidBody2D.linearVelocity = Vector2.zero;
             Debug.Log("Player is dead");
-            _animator.Play("Player_Death");
+            isDead = true;
+            _playerAttack.gameObject.SetActive(false);
+            _animator.SetTrigger(IsDead);
         }
         
         foreach (Transform child in _healthParent)
@@ -229,14 +249,22 @@ public class PlayerController : MonoBehaviour
         _pauseUI.Pause();
     }
     
+    private void CallShortRangeAttack()
+    {
+        //CallShortRangeAttack() is called in Player_Attack animation event. This function is called when the animation reach the frame where the player attack the enemy.
+        //This function will call Attack() function in PlayerAttack.cs script.
+        _playerAttack.Attack();
+        //AttackCooldown() coroutine is called to set canAttack to true after the cooldown is over.
+    }
+    
     private IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(closeAttackCooldown);
         canAttack = true;
     }
     
-    private void CallShortRangeAttack()
+    private void StopHit()
     {
-        _playerAttack.Attack();
+        isHit = false;
     }
 }

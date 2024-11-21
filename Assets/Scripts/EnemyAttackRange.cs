@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class EnemyAttackRange : MonoBehaviour
 {
-    private Enemy _enemy;
+    private EnemyController _enemy;
     
     private void Awake()
     {
-        _enemy = transform.parent.gameObject.GetComponent<Enemy>();
+        _enemy = transform.parent.gameObject.GetComponent<EnemyController>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
