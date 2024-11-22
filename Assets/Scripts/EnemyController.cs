@@ -41,7 +41,6 @@ public class EnemyController : MonoBehaviour
     [ShowOnly] public bool isDead;
     
     private PlayerAttack _playerAttack;
-    
     private EnemyAttackRange _enemyAttackRange;
     
     private void Awake()
@@ -174,9 +173,11 @@ public class EnemyController : MonoBehaviour
     {
         if (isAttack && !isGettingHit && !isDead) return;
 
+        // If enemy is attacking, getting hit, or dead, it will not play the movement animation
         _animator.SetBool(IsMoving, !_isFinish);
     }
     
+    // Draw Gizmos to show the chase range of the enemy
     private void OnDrawGizmos()
     {
         Gizmos.color = !lineOfSight ? Color.red : Color.green;
@@ -185,7 +186,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //If player is still staying in Attack Range of Enemy, Enemy will keep trying to attack player using TryAttack() method
+        // If player is still staying in Attack Range of Enemy, Enemy will keep trying to attack player using TryAttack() method
         if (!other.CompareTag("Player")) return;
         
         TryAttack();
@@ -193,22 +194,16 @@ public class EnemyController : MonoBehaviour
 
     private void TryAttack()
     {
-        //If Enemy is already attacking, getting hit, or dead, it will not attack player
+        // If Enemy is already attacking, getting hit, or dead, it will not attack player
         if (isAttack || isGettingHit || isDead) return;
         
         Debug.Log("Attacking player");
-        //Set isAttack to true, so that the enemy will not attack player again until the attack cooldown is over
+        // Set isAttack to true, so that the enemy will not attack player again until the attack cooldown is over
         isAttack = true;
-        //Start the attack animation, and call CallAttack() on the specified time in the animation
+        // Start the attack animation, and call CallAttack() on the specified time in the animation
         _animator.SetTrigger(Attack);
+        // Start the attack cooldown timer at the first frame of the attack animation
         StartCoroutine(AttackCooldown());
-    }
-
-    private void CallAttack()
-    {
-        //Check if player is still in attack range of enemy when the attack animation is played then call HitPlayer() method if player is still in range
-        if (!playerInAttackRange) return;
-        _player.GetComponent<PlayerController>().GetHit();
     }
     
     private IEnumerator AttackCooldown()
@@ -216,32 +211,46 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttack = false;
     }
+    
+    private void CallAttack()
+    {
+        // Check if player is still in attack range of enemy when the attack animation is played then call HitPlayer() method if player is still in range
+        if (!playerInAttackRange) return;
+        _player.GetComponent<PlayerController>().GetHit();
+    }
 
+    // GetHit() method is called when player attack enemy
     public void GetHit()
     {
         health--;
         isGettingHit = true;
         Debug.Log("Enemy gets hit");
+        // Start the get hit animation
         _animator.SetBool(IsHit, true);
-    }
+    }     
     
+    // CheckDead() method is called at the second last frame of the get hit animation to check if the enemy health is <= 0
     private void CheckDead()
     {
         if (health > 0) return;
+        
+        // If enemy health is <= 0, set isDead to true, stop the rigidbody movement, disable the attack range collider, and start the dead animation
+        isDead = true;
         _rigidbody2D.linearVelocity = Vector2.zero;
         _enemyAttackRange.gameObject.SetActive(false);
         _animator.SetTrigger(IsDead);
-        isDead = true;
-    }
-
-    private void DestroyThis()
-    {
-        Destroy(gameObject);
-    }
+    }   
     
+    // StopGetHit() method is called at the last frame of the get hit animation to set IsHit parameter in animator to false
     private void StopGetHit()
     {
         _animator.SetBool(IsHit, false);
+    }
+
+    // DestroyThis() method is called at the last frame of the dead animation to destroy the enemy object
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
     }
     
     private void ZOrder()

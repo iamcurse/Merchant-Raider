@@ -22,21 +22,28 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
+        
+        // Check if the enemy is already in the list before adding it
         var enemy = other.gameObject.GetComponent<EnemyController>();
         if (enemy == null || _enemiesInRange.Contains(enemy)) return;
+        // Add the enemy to the list of enemies in range
         _enemiesInRange.Add(enemy);
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
+        
+        // Check if the enemy is in the list before removing it
         var enemy = other.gameObject.GetComponent<EnemyController>();
         if (enemy == null || !_enemiesInRange.Contains(enemy)) return;
+        // Remove the enemy from the list of enemies in range
         _enemiesInRange.Remove(enemy);
     }
     
     private void Update()
     {
+        // Update the player in attack range in PlayerController
         _playerController.enemyInAttackRange = _enemiesInRange.Count > 0;
         enemyCount = _enemiesInRange.Count;
         

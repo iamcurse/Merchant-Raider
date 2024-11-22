@@ -75,11 +75,6 @@ public class PlayerController : MonoBehaviour
         OnHealthChanged();
         OnMoneyChanged();
     }
-
-    private void FixedUpdate()
-    {
-        if (gameOver && _a == 0) GameOver();
-    }
     
     private void Update()
     {
@@ -113,14 +108,15 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Interactable Object")) return;
-        canInteract = true;
         
+        canInteract = true;
        _interactableObject = other.gameObject.GetComponent<InteractableObject>();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Interactable Object")) return;
+        
         canInteract = false;
         _interactableObject = null;
     }
@@ -128,15 +124,19 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (!canMove || isDead || isPause/* || DialogueManager.isConversationActive*/) return;
+        
         _movementInput = _move.ReadValue<Vector2>();
         _rigidBody2D.linearVelocity = _movementInput * speed;
     }
 
     private void Animate()
     {
+        // If player is dead, it will skip the movement animation.
         if (isDead) return;
+        
         if (_movementInput != Vector2.zero)
         {
+            // Lock Attack animation during movement
             if (!isAttacking)
             {
                 _animator.SetFloat(MoveX, _movementInput.x);
@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool(IsMoving, false);
         }
         
+        // Check if attack animation is still playing
         var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("Player_Attack"))
         {
@@ -162,11 +163,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // GetHit() function is called when player gets hit by enemy.
     public void GetHit()
     {
         isHit = true;
         playerInfo.health--;
         Debug.Log("Player gets hit");
+        
+        // If player's health is below 0, it will skip the hit animation and go straight to death animation.
         if (playerInfo.health > 0)
             _animator.SetTrigger(IsHit);
         OnHealthChanged();
@@ -181,43 +185,11 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger(IsHit);
         OnHealthChanged();
     }
-
-    private void OnInteract()
-    {
-        if (!canInteract || isPause || DialogueManager.isConversationActive) return;
-        
-        Debug.Log("Interact");
-        //Do something when 'E' is pressed
-        _interactableObject.Interact();
-    }
     
-    private void OnAttackCloseRange()
-    {
-        //When player do Left-Click, set canAttack to false so that player can't attack again until the cooldown is over. Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
-        
-        canAttack = false;
-        _animator.SetTrigger(IsAttack);
-        Debug.Log("Attack Close Range");
-        StartCoroutine(AttackCooldown());
-    }
-    
-    private void OnAttackLongRange()
-    {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
-        Debug.Log("Attack Long Range");
-        
-        //Do something when Right Click
-        
-    }
-
-    private void OnPause()
-    {
-        _pauseUI.PauseScript();
-    }
-    
+    // When damage calculation is done, OnHealthChanged() function is called to update the health UI.
     private void OnHealthChanged()
     {
+        // Death animation is played when player's health is below 0.
         if (playerInfo.health <= 0)
         {
             _rigidBody2D.linearVelocity = Vector2.zero;
@@ -227,15 +199,75 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger(IsDead);
         }
         
+        // Destroy all the heart UI when player's health is updated.
         foreach (Transform child in _healthParent)
         {
             Destroy(child.gameObject);
         }
         
+        // Instantiate the heart UI based on player's health.
         for (var i = 0; i < playerInfo.health; i++)
         {
             Instantiate(heart, _healthParent);
         }
+    }
+        
+    private void StopHit()
+    {
+        isHit = false;
+    }
+
+    private void OnInteract()
+    {
+        if (!canInteract || isPause || DialogueManager.isConversationActive) return;
+        
+        Debug.Log("Interact");
+        // Do something when 'E' is pressed
+        _interactableObject.Interact();
+    }
+    
+    // When player do Left-Click, set canAttack to false so that player can't attack again until the cooldown is over.
+    // Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
+    private void OnAttackCloseRange()
+    {
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        
+        canAttack = false;
+        
+        // Start the attack animation, and call CallShortRangeAttack() on the specified time in the animation
+        _animator.SetTrigger(IsAttack);
+        Debug.Log("Attack Close Range");
+        
+        // AttackCooldown() coroutine is call to set canAttack to true after the cooldown is over. (Cooldown is started when the attack animation is played at first frame)
+        StartCoroutine(AttackCooldown());
+    }
+        
+    // CallShortRangeAttack() is called in Player_Attack animation event.
+    // This function will call Attack() function in PlayerAttack.cs script.
+    private void CallShortRangeAttack()
+    {
+        _playerAttack.Attack();
+    }
+    
+    // Cooldown for close range attack is set in closeAttackCooldown variable.
+    private IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(closeAttackCooldown);
+        canAttack = true;
+    }
+    
+    private void OnAttackLongRange()
+    {
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        Debug.Log("Attack Long Range");
+        
+        // Do something when Right Click
+        
+    }
+
+    private void OnPause()
+    {
+        _pauseUI.PauseScript();
     }
     
     private void OnMoneyChanged()
@@ -245,26 +277,6 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver()
     {
-        _a += 1;
         _pauseUI.Pause();
-    }
-    
-    private void CallShortRangeAttack()
-    {
-        //CallShortRangeAttack() is called in Player_Attack animation event. This function is called when the animation reach the frame where the player attack the enemy.
-        //This function will call Attack() function in PlayerAttack.cs script.
-        _playerAttack.Attack();
-        //AttackCooldown() coroutine is called to set canAttack to true after the cooldown is over.
-    }
-    
-    private IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(closeAttackCooldown);
-        canAttack = true;
-    }
-    
-    private void StopHit()
-    {
-        isHit = false;
     }
 }
