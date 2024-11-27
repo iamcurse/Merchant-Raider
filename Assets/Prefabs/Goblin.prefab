@@ -438,11 +438,11 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
-  speed: 70
-  chasingRange: 7
+  speed: 75
+  chasingRange: 5
   chaseDuration: 4
   isAttack: 0
-  attackCooldown: 2
+  attackCooldown: 1
   enemyInfo: {fileID: 11400000, guid: f48313c4e4905274b9a9a6a73a2d0334, type: 2}
   isGettingHit: 0
   isDead: 0

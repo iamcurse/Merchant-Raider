@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!target)
         {
-            target = GameObject.FindWithTag("Player").transform;
+            target = GameObject.Find("Player").transform;
         }
         _seeker = GetComponent<Seeker>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
