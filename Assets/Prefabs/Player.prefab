@@ -327,6 +327,7 @@ MonoBehaviour:
   isPause: 0
   playerInfo: {fileID: 11400000, guid: ea0146344cf687d4eacca9d9428cfb17, type: 2}
   heart: {fileID: 805968267058032029, guid: dd79a398470e49b4d8e9d63a6492bafb, type: 3}
+  inventory: {fileID: 11400000, guid: 409a8a6cc11ec4147884dcfde92028cf, type: 2}
 --- !u!1 &5600696893040564181
 GameObject:
   m_ObjectHideFlags: 0

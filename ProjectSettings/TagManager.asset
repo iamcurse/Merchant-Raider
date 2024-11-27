@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable Object
   - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - name: Wall
     uniqueID: 4250941897
     locked: 0
-  - name: Collision Object
+  - name: Object
     uniqueID: 4189426099
     locked: 0
   - name: Enemy
@@ -63,6 +64,9 @@ TagManager:
     locked: 0
   - name: Collision Object Top
     uniqueID: 1870375583
+    locked: 0
+  - name: UI
+    uniqueID: 2983577663
     locked: 0
   m_RenderingLayers:
   - Default

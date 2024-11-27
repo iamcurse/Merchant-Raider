@@ -37,7 +37,10 @@ public class PlayerController : MonoBehaviour
     [ShowOnly] public bool gameOver;
 
     private GameObject _ui;
-    private PauseMenu _pauseUI;
+    private MenuController _menuController;
+    private GameObject _inventoryUI;
+    private bool _inventoryActive;
+    private InventoryManager _inventoryManager;
     [ShowOnly] public bool isPause;
     
     private InteractableObject _interactableObject;
@@ -50,6 +53,8 @@ public class PlayerController : MonoBehaviour
     private int _a;
     
     private PlayerAttack _playerAttack;
+    
+    public Inventory inventory;
 
     private void Awake()
     {
@@ -60,10 +65,12 @@ public class PlayerController : MonoBehaviour
         _attackLongRange = _playerInput.Player.AttackLongRange;
 
         _ui = GameObject.Find("UI");
-        _pauseUI = _ui.GetComponent<PauseMenu>();
+        _menuController = _ui.GetComponent<MenuController>();
+        _inventoryManager = _ui.GetComponent<InventoryManager>();
+        
         _healthParent = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2).transform;
         _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
-        
+        _inventoryUI = _ui.transform.GetChild(1).gameObject;
         playerInfo.health = playerInfo.maxHealth;
         _playerAttack = transform.GetChild(0).gameObject.GetComponent<PlayerAttack>();
     }
@@ -80,6 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Animate();
+        _inventoryActive = _inventoryUI.activeSelf;
     }
 
     private void OnEnable()
@@ -219,18 +227,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract()
     {
-        if (!canInteract || isPause || DialogueManager.isConversationActive) return;
+        if (!canInteract || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
         Debug.Log("Interact");
         // Do something when 'E' is pressed
         _interactableObject.Interact();
     }
     
+    private void OnInventory()
+    {
+        if (isPause || DialogueManager.isConversationActive) return;
+        Debug.Log("Inventory");
+        _menuController.InventoryControl();
+    }
+    
     // When player do Left-Click, set canAttack to false so that player can't attack again until the cooldown is over.
     // Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
         canAttack = false;
         
@@ -258,7 +273,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackLongRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive) return;
+        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         Debug.Log("Attack Long Range");
         
         // Do something when Right Click
@@ -267,7 +282,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnPause()
     {
-        _pauseUI.PauseScript();
+        _menuController.PauseScript();
     }
     
     private void OnMoneyChanged()
@@ -277,6 +292,12 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver()
     {
-        _pauseUI.Pause();
+        _menuController.Pause();
+    }
+    
+    public void AddItem(ItemData item)
+    {
+        
+        _inventoryManager.AddItem(item);
     }
 }
