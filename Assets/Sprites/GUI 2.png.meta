@@ -397,7 +397,7 @@ TextureImporter:
         width: 64
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -406,6 +406,138 @@ TextureImporter:
       bones: []
       spriteID: aa58728fb8fe7add0800000000000000
       internalID: -2474746085773965910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 7
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd73eb71a763564468949d3fedb87619
+      internalID: -1965606106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 6
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce15aa94cb1b85c4c8c23589db01d2aa
+      internalID: -120380703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 180
+        width: 6
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd33ebf4d223a24b94cab88a99f0af5
+      internalID: 1768043372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 180
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bf0885f3bdcfc41ba946f5944dd151
+      internalID: -828849279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 48
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff34e840f51258b42ab442ffc1cf03a1
+      internalID: -859891430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 2_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 176
+        width: 38
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3930d008801e96248bd3e02d8914d1f7
+      internalID: 1037440087
       vertices: []
       indices: 
       edges: []
@@ -425,6 +557,14 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       GUI 2_0: -2474746085773965910
+      GUI 2_1: 1419384387
+      GUI 2_2: 226117906
+      GUI 2_3: -1965606106
+      GUI 2_4: -120380703
+      GUI 2_5: 1768043372
+      GUI 2_6: -828849279
+      GUI 2_7: -859891430
+      GUI 2_8: 1037440087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
