@@ -59,6 +59,9 @@
 # Unity3D generated file on crash reports
 sysinfo.txt
 
+# Dialogue System For Unity
+**/[Aa]ssets/Plugins/Pixel Crushers*
+
 # Builds
 *.apk
 *.aab
