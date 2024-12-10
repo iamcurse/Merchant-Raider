@@ -60,7 +60,7 @@
 sysinfo.txt
 
 # Dialogue System For Unity
-**/[Aa]ssets/Plugins/Pixel Crushers*
+**/[Aa]ssets/Plugins/Pixel Crushers/*
 
 # Builds
 *.apk
@@ -87,3 +87,4 @@ crashlytics-build.properties
 !.gitignore
 !.gitattributes
 !.github
+/Assets/Plugins/Pixel Crushers
