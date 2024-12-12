@@ -316,10 +316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   closeAttackCooldown: 0.5
+  longAttackCooldown: 1
   enemyInAttackRange: 0
   canMove: 1
   canInteract: 1
-  canAttack: 1
+  canCloseAttack: 1
+  canLongAttack: 1
   isAttacking: 0
   isHit: 0
   isDead: 0
@@ -479,3 +481,5 @@ MonoBehaviour:
   enemyCount: 0
   moveX: 0
   moveY: 0
+  arrowPrefab: {fileID: 7511456410575114496, guid: 04c957199ec1ec34793b44be963e69cd,
+    type: 3}

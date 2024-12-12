@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerAttack : MonoBehaviour
     private BoxCollider2D _boxCollider2D;
     [HideInInspector] public float moveX;
     [HideInInspector] public float moveY;
+    
+    private float _mouseAngle;
+    [SerializeField] private GameObject arrowPrefab;
     
     private void Awake()
     {
@@ -64,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void CloseAttack()
     {
         if (_enemiesInRange.Count == 0) return;
 
@@ -102,5 +106,24 @@ public class PlayerAttack : MonoBehaviour
     {
         _boxCollider2D.offset = new Vector2(0, -0.045f);
         _boxCollider2D.size = new Vector2(0.28f, 0.16f);
+    }
+    
+    // private void AngleTowardsMouse()
+    // {
+    //     if (Camera.main == null) return;
+    //     var mousePosition = Mouse.current.position.ReadValue();
+    //     var worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    //     _mouseAngle = Mathf.Atan2(worldMousePosition.y - transform.position.y, worldMousePosition.x - transform.position.x) * Mathf.Rad2Deg;
+    // }
+    
+    public void LongAttack()
+    {
+        if (Camera.main == null) return;
+        var mousePosition = Mouse.current.position.ReadValue();
+        var worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        var direction = (worldMousePosition - transform.position).normalized;
+        var rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        var arrow = Instantiate(arrowPrefab, transform.position, rotation).GetComponent<Arrow>();
+        arrow.SetDirection(direction);
     }
 }

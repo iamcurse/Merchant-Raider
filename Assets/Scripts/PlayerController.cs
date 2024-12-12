@@ -7,11 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private float closeAttackCooldown = 1f;
+    [SerializeField] private float longAttackCooldown = 1f;
     // ReSharper disable once NotAccessedField.Global
     [ShowOnly] public bool enemyInAttackRange;
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canInteract;
-    [SerializeField] private bool canAttack = true;
+    [SerializeField] private bool canCloseAttack = true;
+    [SerializeField] private bool canLongAttack = true;
+    private float _closeRangeAttackTimer;
+    private float _longRangeAttackTimer;
+
     
     private Vector2 _movementInput;
     private Rigidbody2D _rigidBody2D;
@@ -26,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int IsAttackBow = Animator.StringToHash("isAttackBow");
 
     private PlayerInput _playerInput;
     private InputAction _move;
@@ -88,6 +94,15 @@ public class PlayerController : MonoBehaviour
         Move();
         Animate();
         _inventoryActive = _inventoryUI.activeSelf;
+        
+        if (_closeRangeAttackTimer > 0)
+        {
+            _closeRangeAttackTimer -= Time.deltaTime;
+        }
+        if (_longRangeAttackTimer > 0)
+        {
+            _longRangeAttackTimer -= Time.deltaTime;
+        }
     }
 
     private void OnEnable()
@@ -162,7 +177,7 @@ public class PlayerController : MonoBehaviour
         
         // Check if attack animation is still playing
         var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.IsName("Player_Attack"))
+        if (stateInfo.IsName("Player_Attack") || stateInfo.IsName("Player_Attack_Bow"))
         {
             isAttacking = stateInfo.normalizedTime < 1;
         } else
@@ -245,39 +260,62 @@ public class PlayerController : MonoBehaviour
     // Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
     private void OnAttackCloseRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!canCloseAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
-        canAttack = false;
+        canCloseAttack = false;
         
         // Start the attack animation, and call CallShortRangeAttack() on the specified time in the animation
         _animator.SetTrigger(IsAttack);
         Debug.Log("Attack Close Range");
         
         // AttackCooldown() coroutine is call to set canAttack to true after the cooldown is over. (Cooldown is started when the attack animation is played at first frame)
-        StartCoroutine(AttackCooldown());
+        StartCoroutine(CloseAttackCooldown());
     }
         
     // CallShortRangeAttack() is called in Player_Attack animation event.
     // This function will call Attack() function in PlayerAttack.cs script.
     private void CallShortRangeAttack()
     {
-        _playerAttack.Attack();
+        if (_closeRangeAttackTimer > 0) return;
+        
+        Debug.Log("Call Close Range Attack");
+        _playerAttack.CloseAttack();
+        _closeRangeAttackTimer = closeAttackCooldown;
+
     }
     
     // Cooldown for close range attack is set in closeAttackCooldown variable.
-    private IEnumerator AttackCooldown()
+    private IEnumerator CloseAttackCooldown()
     {
         yield return new WaitForSeconds(closeAttackCooldown);
-        canAttack = true;
+        canCloseAttack = true;
     }
     
     private void OnAttackLongRange()
     {
-        if (!canAttack || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        
+        canLongAttack = false;
+        
+        _animator.SetTrigger(IsAttackBow);
         Debug.Log("Attack Long Range");
-        
-        // Do something when Right Click
-        
+
+        StartCoroutine(LongAttackCooldown());
+    }
+    
+    private void CallLongRangeAttack()
+    {
+        if (_longRangeAttackTimer > 0) return;
+
+        Debug.Log("Call Long Range Attack");
+        _playerAttack.LongAttack();
+        _longRangeAttackTimer = longAttackCooldown;
+    }
+    
+    private IEnumerator LongAttackCooldown()
+    {
+        yield return new WaitForSeconds(longAttackCooldown);
+        canLongAttack = true;
     }
 
     private void OnPause()
