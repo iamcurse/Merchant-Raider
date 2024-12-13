@@ -110,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
     
     public void LongAttack()
     {
-        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Utility.AngleTowardsMouse(transform.position) - 90f));
+        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Utility.AngleTowardsMouse(_playerController.transform.position) - 90f));
         var Arrow = Instantiate(arrowPrefab, _playerController.transform.position, rotation);
     }
 }
