@@ -299,6 +299,14 @@ public class PlayerController : MonoBehaviour
         
         canLongAttack = false;
         
+        // Calculate angle towards mouse position
+        var angle = Utility.AngleTowardsMouse(transform.position);
+        var direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+        // Update animator parameters
+        _animator.SetFloat(MoveX, direction.x);
+        _animator.SetFloat(MoveY, direction.y);
+        
         _animator.SetTrigger(IsAttackBow);
         Debug.Log("Attack Long Range");
 
