@@ -293,7 +293,9 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackLongRange()
     {
-        if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        var arrow = _inventoryManager.GetItem("Arrow");
+        Debug.Log("Arrow Available: " + _inventoryManager.CheckItem(arrow) + " Amount: " + _inventoryManager.CountItem(arrow));
+        if (!_inventoryManager.CheckItem(arrow) || !canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
         canLongAttack = false;
         
@@ -306,7 +308,8 @@ public class PlayerController : MonoBehaviour
     private void CallLongRangeAttack()
     {
         if (_longRangeAttackTimer > 0) return;
-
+        
+        _inventoryManager.RemoveItem(_inventoryManager.GetItem("Arrow"));
         Debug.Log("Call Long Range Attack");
         _playerAttack.LongAttack();
         _longRangeAttackTimer = longAttackCooldown;

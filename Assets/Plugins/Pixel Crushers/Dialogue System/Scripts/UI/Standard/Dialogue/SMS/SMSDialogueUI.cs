@@ -149,6 +149,7 @@ namespace PixelCrushers.DialogueSystem
             CheckAssignments();
             DestroyInstantiatedMessages(); // Start with clean slate.
             dialogueActorCache.Clear();
+            shouldShowContinueButton = false;
 
             if (headingText != null)
             {
@@ -168,7 +169,7 @@ namespace PixelCrushers.DialogueSystem
             StopAllCoroutines();
             base.Close();
             if (!isLoadingGame) ClearRecords();
-
+            shouldShowContinueButton = false;
         }
 
         public override void ShowSubtitle(Subtitle subtitle)

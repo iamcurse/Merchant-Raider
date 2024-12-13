@@ -133,7 +133,7 @@ TextureImporter:
         width: 16
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,6 +168,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bow and Arrows_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dc56f7df5b73141a1e5626f9d5d307
+      internalID: 1319002579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -184,6 +206,7 @@ TextureImporter:
     nameFileIdTable:
       Bow and Arrows_0: -3696291076358396005
       Bow and Arrows_1: 3298862418328315149
+      Bow and Arrows_2: 1319002579
       Bow and Arrows_3: 4948774720719412629
       Bow and Arrows_4: 3216016198144983771
   mipmapLimitGroupName: 

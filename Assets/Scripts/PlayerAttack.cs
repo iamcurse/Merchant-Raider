@@ -13,8 +13,8 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector] public float moveX;
     [HideInInspector] public float moveY;
     
-    private float _mouseAngle;
     [SerializeField] private GameObject arrowPrefab;
+    public float arrowSpeed = 10f;
     
     private void Awake()
     {
@@ -108,22 +108,9 @@ public class PlayerAttack : MonoBehaviour
         _boxCollider2D.size = new Vector2(0.28f, 0.16f);
     }
     
-    // private void AngleTowardsMouse()
-    // {
-    //     if (Camera.main == null) return;
-    //     var mousePosition = Mouse.current.position.ReadValue();
-    //     var worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-    //     _mouseAngle = Mathf.Atan2(worldMousePosition.y - transform.position.y, worldMousePosition.x - transform.position.x) * Mathf.Rad2Deg;
-    // }
-    
     public void LongAttack()
     {
-        if (Camera.main == null) return;
-        var mousePosition = Mouse.current.position.ReadValue();
-        var worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        var direction = (worldMousePosition - transform.position).normalized;
-        var rotation = Quaternion.LookRotation(Vector3.forward, direction);
-        var arrow = Instantiate(arrowPrefab, transform.position, rotation).GetComponent<Arrow>();
-        arrow.SetDirection(direction);
+        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Utility.AngleTowardsMouse(transform.position) - 90f));
+        var Arrow = Instantiate(arrowPrefab, transform.position, rotation);
     }
 }
