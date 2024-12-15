@@ -322,10 +322,12 @@ MonoBehaviour:
   canInteract: 1
   canCloseAttack: 1
   canLongAttack: 1
+  immune: 0
   isAttacking: 0
   isHit: 0
   isDead: 0
   gameOver: 0
+  inventoryManager: {fileID: 0}
   isPause: 0
   playerInfo: {fileID: 11400000, guid: ea0146344cf687d4eacca9d9428cfb17, type: 2}
   heart: {fileID: 805968267058032029, guid: dd79a398470e49b4d8e9d63a6492bafb, type: 3}
@@ -358,7 +360,7 @@ Transform:
   m_GameObject: {fileID: 5600696893040564181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.005, y: -0.105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,3 +485,5 @@ MonoBehaviour:
   moveY: 0
   arrowPrefab: {fileID: 7511456410575114496, guid: 04c957199ec1ec34793b44be963e69cd,
     type: 3}
+  arrowSpeed: 10
+  bowTip: {fileID: 0}

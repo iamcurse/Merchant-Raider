@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbbc84c70300ba489dc1fe1961516ec, type: 3}
   m_Name: DialogueSystemFunction
   m_EditorClassIdentifier: 
-  conditionFunctions: []
+  conditionFunctions:
+  - functionName: Inventory/CheckItem
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Inventory/CountItem
+    parameters: 02000000
+    returnValue: 1
   scriptFunctions:
   - functionName: Player/GetHit
     parameters: 
+    returnValue: 0
+  - functionName: Inventory/AddItem
+    parameters: 02000000
+    returnValue: 0
+  - functionName: Inventory/RemoveItem
+    parameters: 02000000
+    returnValue: 0
+  - functionName: Inventory/ClearInventory
+    parameters: 
+    returnValue: 0
+  - functionName: Chest/OpenChest
+    parameters: 02000000
     returnValue: 0

@@ -227,6 +227,13 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Enemy gets hit");
         // Start the get hit animation
         _animator.SetBool(IsHit, true);
+        
+        // Start chasing the player when hit
+        if (_chaseCoroutine != null)
+        {
+            StopCoroutine(_chaseCoroutine);
+        }
+        _chaseCoroutine = StartCoroutine(ChasePlayer());
     }     
     
     // CheckDead() method is called at the second last frame of the get hit animation to check if the enemy health is <= 0

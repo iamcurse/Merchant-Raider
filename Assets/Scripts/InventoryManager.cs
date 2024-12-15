@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,24 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void FixedUpdate() => ListItems();
+
+    private void OnEnable()
+    {
+        Lua.RegisterFunction("AddItem", this, SymbolExtensions.GetMethodInfo(() => AddItem("")));
+        Lua.RegisterFunction("CheckItem", this, SymbolExtensions.GetMethodInfo(() => CheckItem("")));
+        Lua.RegisterFunction("CountItem", this, SymbolExtensions.GetMethodInfo(() => CountItem("")));
+        Lua.RegisterFunction("RemoveItem", this, SymbolExtensions.GetMethodInfo(() => RemoveItem("")));
+        Lua.RegisterFunction("ClearInventory", this, SymbolExtensions.GetMethodInfo(() => ClearInventory()));
+    }
+    
+    private void OnDisable()
+    {
+        Lua.UnregisterFunction("AddItem");
+        Lua.UnregisterFunction("CheckItem");
+        Lua.UnregisterFunction("CountItem");
+        Lua.UnregisterFunction("RemoveItem");
+        Lua.UnregisterFunction("ClearInventory");
+    }
 
     private void ListItems()
     {
@@ -44,6 +63,13 @@ public class InventoryManager : MonoBehaviour
             _inventory.items.Add(item);
     }
     
+    private void AddItem(String itemName)
+    {
+        var item = itemDatabase.items.Find(i => i.itemName == itemName);
+        if (_inventory.items.Count < _inventory.maxItems)
+            _inventory.items.Add(item);
+    }
+    
     public ItemData GetItem(String itemName)
     {
         return itemDatabase.items.Find(item => item.itemName == itemName);
@@ -53,16 +79,32 @@ public class InventoryManager : MonoBehaviour
     {
         return _inventory.items.Contains(item);
     }
+
+    private bool CheckItem(String itemName)
+    {
+        return _inventory.items.Any(item => item.itemName == itemName);
+    }
     
     public int CountItem(ItemData item)
     {
         return _inventory.items.Count(i => i == item);
     }
     
+    private int CountItem(String itemName)
+    {
+        return _inventory.items.Count(i => i.itemName == itemName);
+    }
+    
     public void RemoveItem(ItemData item)
     {
         if (CheckItem(item))
             _inventory.items.Remove(item);
-        ListItems();
+    }
+    
+    private void RemoveItem(String itemName)
+    {
+        var item = itemDatabase.items.Find(i => i.itemName == itemName);
+        if (CheckItem(item))
+            _inventory.items.Remove(item);
     }
 }

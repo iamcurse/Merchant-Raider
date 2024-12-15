@@ -4,7 +4,7 @@ public class Item : MonoBehaviour
 {
     public ItemData itemData;
     
-    private PlayerController playerController;
+    private PlayerController _playerController;
 
     private void Awake()
     {
@@ -14,9 +14,16 @@ public class Item : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        playerController = other.GetComponent<PlayerController>();
-        if (playerController.inventory.items.Count >= playerController.inventory.maxItems) return;
-        playerController.inventory.items.Add(itemData);
+        _playerController = other.GetComponent<PlayerController>();
+        
+        if (_playerController.inventory.items.Count >= _playerController.inventory.maxItems) return;
+        _playerController.inventoryManager.AddItem(itemData);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        _playerController = null;
     }
 }

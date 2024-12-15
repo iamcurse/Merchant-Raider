@@ -37,6 +37,7 @@ public class Arrow : MonoBehaviour
         Debug.Log("Hit: " + other.gameObject.name);
         if (!other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("Collision") &&
             !other.gameObject.CompareTag("Interactable Object")) return;
+        
         if (other.gameObject.CompareTag("Enemy"))
         {
             var enemy = other.gameObject.GetComponent<EnemyController>();

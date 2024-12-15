@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canInteract;
     [SerializeField] private bool canCloseAttack = true;
     [SerializeField] private bool canLongAttack = true;
+    [SerializeField] private bool infiniteArrow;
+    public float arrowSpeed = 3f;
+    [SerializeField] private bool immune;
     private float _closeRangeAttackTimer;
     private float _longRangeAttackTimer;
 
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     private MenuController _menuController;
     private GameObject _inventoryUI;
     private bool _inventoryActive;
-    private InventoryManager _inventoryManager;
+    [HideInInspector] public InventoryManager inventoryManager;
     [ShowOnly] public bool isPause;
     
     private InteractableObject _interactableObject;
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         _ui = GameObject.Find("UI");
         _menuController = _ui.GetComponent<MenuController>();
-        _inventoryManager = _ui.GetComponent<InventoryManager>();
+        inventoryManager = _ui.GetComponent<InventoryManager>();
         
         _healthParent = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2).transform;
         _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
@@ -189,6 +192,8 @@ public class PlayerController : MonoBehaviour
     // GetHit() function is called when player gets hit by enemy.
     public void GetHit()
     {
+        if (immune || isDead) return;
+        immune = true;
         isHit = true;
         playerInfo.health--;
         Debug.Log("Player gets hit");
@@ -201,6 +206,8 @@ public class PlayerController : MonoBehaviour
     
     public void GetHit(int damage)
     {
+        if (immune || isDead) return;
+        immune = true;
         isHit = true;
         playerInfo.health -= damage;
         Debug.Log("Player gets hit");
@@ -293,9 +300,14 @@ public class PlayerController : MonoBehaviour
     
     private void OnAttackLongRange()
     {
-        var arrow = _inventoryManager.GetItem("Arrow");
-        Debug.Log("Arrow Available: " + _inventoryManager.CheckItem(arrow) + " Amount: " + _inventoryManager.CountItem(arrow));
-        if (!_inventoryManager.CheckItem(arrow) || !canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!infiniteArrow)
+        {
+            var arrow = inventoryManager.GetItem("Arrow");
+            Debug.Log("Arrow Available: " + inventoryManager.CheckItem(arrow) + ", Amount: " + inventoryManager.CountItem(arrow));
+            if (inventoryManager.CountItem(arrow) <= 0)
+                return;
+        }
+        if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
         canLongAttack = false;
         
@@ -317,7 +329,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_longRangeAttackTimer > 0) return;
         
-        _inventoryManager.RemoveItem(_inventoryManager.GetItem("Arrow"));
+        inventoryManager.RemoveItem(inventoryManager.GetItem("Arrow"));
         Debug.Log("Call Long Range Attack");
         _playerAttack.LongAttack();
         _longRangeAttackTimer = longAttackCooldown;
@@ -344,9 +356,13 @@ public class PlayerController : MonoBehaviour
         _menuController.Pause();
     }
     
-    public void AddItem(ItemData item)
+    private void SetImmune()
     {
-        
-        _inventoryManager.AddItem(item);
+        immune = true;
+    }
+    
+    private void RemoveImmune()
+    {
+        immune = false;
     }
 }

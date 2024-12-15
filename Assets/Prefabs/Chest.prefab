@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 5417219124947383041}
   - component: {fileID: 5693079372001218232}
   - component: {fileID: 1329976503162162827}
+  - component: {fileID: 8968910934132020157}
+  - component: {fileID: 6426661682530683870}
+  - component: {fileID: 953900329584040528}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Interactable Object
@@ -259,3 +262,90 @@ MonoBehaviour:
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal,
         asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &8968910934132020157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770266597426730817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3971b56ef8d00f0468798c7573b36177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inRange: 0
+  interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6426661682530683870}
+        m_TargetAssemblyTypeName: ChestController, Assembly-CSharp
+        m_MethodName: ChestInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6426661682530683870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770266597426730817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf4b47ecaf794b458a3cfb4f853d86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  onOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 953900329584040528}
+        m_TargetAssemblyTypeName: PixelCrushers.DialogueSystem.ConversationTrigger,
+          Assembly-CSharp-firstpass
+        m_MethodName: OnUse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _itemsDrop: []
+--- !u!114 &953900329584040528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770266597426730817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2c2a6631002944d9b39d43412301e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: OpenChest
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  skipIfNoValidEntries: 0
+  exclusive: 0
+  conversant: {fileID: 0}
+  useConversationTitlePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: 273dfddd2cfe25f4a975400ff8fc22b0, type: 2}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 1

@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector] public float moveY;
     
     [SerializeField] private GameObject arrowPrefab;
-    public float arrowSpeed = 10f;
+    [HideInInspector] public float arrowSpeed;
     
     private void Awake()
     {
@@ -22,7 +22,12 @@ public class PlayerAttack : MonoBehaviour
         _enemiesInRange = new List<EnemyController>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
-    
+
+    private void FixedUpdate()
+    {
+        arrowSpeed = _playerController.arrowSpeed;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
@@ -110,7 +115,22 @@ public class PlayerAttack : MonoBehaviour
     
     public void LongAttack()
     {
-        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Utility.AngleTowardsMouse(_playerController.transform.position) - 90f));
-        var Arrow = Instantiate(arrowPrefab, _playerController.transform.position, rotation);
+        if (Camera.main == null) return;
+        var mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePosition.z = 0; // Ensure the z-coordinate is set to 0
+        var playerPosition = _playerController.transform.position;
+
+        // Calculate the direction based on the mouse position
+        var direction = (mousePosition - playerPosition).normalized;
+
+        // Adjust bow tip position based on the player's position and direction
+        var bowTipPosition = new Vector3(playerPosition.x + direction.x * 0.1f, playerPosition.y + direction.y * 0.1f, 0);
+
+        // Calculate the angle towards the mouse from the bow tip position
+        var angle = Utility.AngleTowardsMouse(bowTipPosition);
+        var rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
+
+        // Instantiate the arrow at the bow tip position with the calculated rotation
+        var arrow = Instantiate(arrowPrefab, bowTipPosition, rotation);
     }
 }
