@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01db744855bbae74481522d48fd63008
+guid: b376f7d6733324545ace65d23a6840a5
 DefaultImporter:
   externalObjects: {}
   userData: 
@@ -10,6 +10,5 @@ AssetOrigin:
   productId: 11672
   packageName: Dialogue System for Unity
   packageVersion: 2.2.50.1
-  assetPath: Assets/Plugins/Pixel Crushers/Common/Third Party Support/Devion Inventory
-    Support.unitypackage
+  assetPath: Assets/Plugins/Pixel Crushers/Common/Third Party Support/Corgi Support.unitypackage
   uploadId: 710675

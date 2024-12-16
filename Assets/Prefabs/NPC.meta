@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 4d9b575363cdb56408d92f7d7f0e5216
-timeCreated: 1533129795
-licenseType: Store
+guid: e757f7a4324d4654b8ccbd0a200ab562
+folderAsset: yes
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +11,6 @@ AssetOrigin:
   productId: 11672
   packageName: Dialogue System for Unity
   packageVersion: 2.2.50.1
-  assetPath: Assets/Plugins/Pixel Crushers/Common/Scripts/CommonAssemblyDefinitions.unitypackage
+  assetPath: Assets/Plugins/Pixel Crushers/Common/Third Party Support/Devion Inventory
+    Support.unitypackage
   uploadId: 710675
