@@ -356,6 +356,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Call Long Range Attack");
         _playerAttack.LongAttack();
         _longRangeAttackTimer = longAttackCooldown;
+        _bowAttack = false;
     }
     
     private IEnumerator LongAttackCooldown()
