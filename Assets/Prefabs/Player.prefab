@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7093772174540217141}
   - component: {fileID: 3195593105020073805}
   - component: {fileID: 6832019860223320165}
+  - component: {fileID: 1014344849836695992}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -314,14 +315,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a804aaf8238e64a8425804d585e0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  playerSpeed: 1
   closeAttackCooldown: 0.5
+  closeRangeAttackMoveSpeed: 0.5
   longAttackCooldown: 1
+  longRangeAttackMoveSpeed: 0.5
   enemyInAttackRange: 0
   canMove: 1
   canInteract: 1
   canCloseAttack: 1
   canLongAttack: 1
+  infiniteArrow: 0
+  arrowSpeed: 3
   immune: 0
   isAttacking: 0
   isHit: 0
@@ -332,6 +337,58 @@ MonoBehaviour:
   playerInfo: {fileID: 11400000, guid: ea0146344cf687d4eacca9d9428cfb17, type: 2}
   heart: {fileID: 805968267058032029, guid: dd79a398470e49b4d8e9d63a6492bafb, type: 3}
   inventory: {fileID: 11400000, guid: 409a8a6cc11ec4147884dcfde92028cf, type: 2}
+--- !u!114 &1014344849836695992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070776388463845287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.77
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f95134956cb9eafe5b55911ba99faa7b6f3fc8d5b1
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &5600696893040564181
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,4 +543,3 @@ MonoBehaviour:
   arrowPrefab: {fileID: 7511456410575114496, guid: 04c957199ec1ec34793b44be963e69cd,
     type: 3}
   arrowSpeed: 10
-  bowTip: {fileID: 0}
