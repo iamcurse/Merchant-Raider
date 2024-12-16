@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 1f;
+    [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float closeAttackCooldown = 1f;
+    [SerializeField] private float closeRangeAttackMoveSpeed = 0.5f;
     [SerializeField] private float longAttackCooldown = 1f;
+    [SerializeField] private float longRangeAttackMoveSpeed = 0.5f;
     // ReSharper disable once NotAccessedField.Global
     [ShowOnly] public bool enemyInAttackRange;
     [SerializeField] private bool canMove = true;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
     
     [ShowOnly][SerializeField] private bool isAttacking;
     [ShowOnly][SerializeField] private bool isHit;
+    private bool _bowAttack;
+    private Vector2 _bowDirection;
 
     private Animator _animator;
     private static readonly int MoveX = Animator.StringToHash("MoveX");
@@ -135,7 +139,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!other.CompareTag("Interactable Object")) return;
         
-        canInteract = true;
        _interactableObject = other.gameObject.GetComponent<InteractableObject>();
     }
 
@@ -143,40 +146,40 @@ public class PlayerController : MonoBehaviour
     {
         if (!other.CompareTag("Interactable Object")) return;
         
-        canInteract = false;
         _interactableObject = null;
     }
 
     private void Move()
     {
-        if (!canMove || isDead || isPause/* || DialogueManager.isConversationActive*/) return;
+        if (!canMove || isDead || isPause /* || DialogueManager.isConversationActive*/)
+        {
+            _rigidBody2D.linearVelocity = Vector2.zero;
+            return;
+        }
         
         _movementInput = _move.ReadValue<Vector2>();
-        _rigidBody2D.linearVelocity = _movementInput * speed;
+        
+        if (isAttacking)
+        {
+            if (_bowAttack)
+            {
+                _rigidBody2D.linearVelocity = _movementInput * longRangeAttackMoveSpeed;
+            } else
+            {
+                _rigidBody2D.linearVelocity = _movementInput * closeRangeAttackMoveSpeed;
+            }
+            return;
+        }
+        
+        _rigidBody2D.linearVelocity = _movementInput * playerSpeed;
     }
 
     private void Animate()
     {
         // If player is dead, it will skip the movement animation.
         if (isDead) return;
-        
-        if (_movementInput != Vector2.zero)
-        {
-            // Lock Attack animation during movement
-            if (!isAttacking)
-            {
-                _animator.SetFloat(MoveX, _movementInput.x);
-                _animator.SetFloat(MoveY, _movementInput.y);
 
-                _playerAttack.moveX = _movementInput.x;
-                _playerAttack.moveY = _movementInput.y;
-            }
-            
-            _animator.SetBool(IsMoving, true);
-        } else
-        {
-            _animator.SetBool(IsMoving, false);
-        }
+        _animator.SetBool(IsMoving, _movementInput != Vector2.zero);
         
         // Check if attack animation is still playing
         var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
@@ -186,6 +189,20 @@ public class PlayerController : MonoBehaviour
         } else
         {
             isAttacking = false;
+        }
+        
+        // Lock Attack animation during movement
+        if (!isAttacking)
+        {
+            _animator.SetFloat(MoveX, _movementInput.x);
+            _animator.SetFloat(MoveY, _movementInput.y);
+
+            _playerAttack.moveX = _movementInput.x;
+            _playerAttack.moveY = _movementInput.y;
+        } else if (_bowAttack)
+        {
+            _animator.SetFloat(MoveX, _bowDirection.x);
+            _animator.SetFloat(MoveY, _bowDirection.y);
         }
     }
 
@@ -253,7 +270,8 @@ public class PlayerController : MonoBehaviour
         
         Debug.Log("Interact");
         // Do something when 'E' is pressed
-        _interactableObject.Interact();
+        if (_interactableObject != null)
+            _interactableObject.Interact();
     }
     
     private void OnInventory()
@@ -310,14 +328,16 @@ public class PlayerController : MonoBehaviour
         if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
         
         canLongAttack = false;
+        _bowAttack = true;
         
         // Calculate angle towards mouse position
         var angle = Utility.AngleTowardsMouse(transform.position);
         var direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-
+        
+        isAttacking = true;
+            
         // Update animator parameters
-        _animator.SetFloat(MoveX, direction.x);
-        _animator.SetFloat(MoveY, direction.y);
+        _bowDirection = direction;
         
         _animator.SetTrigger(IsAttackBow);
         Debug.Log("Attack Long Range");
