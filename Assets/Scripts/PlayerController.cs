@@ -194,9 +194,12 @@ public class PlayerController : MonoBehaviour
         // Lock Attack animation during movement
         if (!isAttacking)
         {
-            _animator.SetFloat(MoveX, _movementInput.x);
-            _animator.SetFloat(MoveY, _movementInput.y);
-
+            if (_movementInput != Vector2.zero)
+            {
+                _animator.SetFloat(MoveX, _movementInput.x);
+                _animator.SetFloat(MoveY, _movementInput.y);
+            }
+            
             _playerAttack.moveX = _movementInput.x;
             _playerAttack.moveY = _movementInput.y;
         } else if (_bowAttack)
@@ -353,6 +356,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Call Long Range Attack");
         _playerAttack.LongAttack();
         _longRangeAttackTimer = longAttackCooldown;
+        _bowAttack = false;
     }
     
     private IEnumerator LongAttackCooldown()
