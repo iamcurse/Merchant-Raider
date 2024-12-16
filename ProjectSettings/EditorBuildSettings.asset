@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start_Screen.unity
     guid: d96351f3a54133548a99be85c015c2f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene 1.unity
     guid: 73645d6dc5c18a544822b1e1d42a2258
+  - enabled: 1
+    path: Assets/Scenes/Scene1 (Tman Edit).unity
+    guid: 10f5cf5e710bcb34581cf44a03a1958c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
       type: 3}
