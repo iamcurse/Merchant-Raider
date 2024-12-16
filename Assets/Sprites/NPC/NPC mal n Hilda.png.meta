@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 535c7f87588546149afaffc3fc1e1c7a
+guid: 626d35d3cb2de964caa4b7a3e2c216fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5844929949034519735
-    second: Spike_animation_0
+      213: -3907249194336633724
+    second: NPC mal n Hilda_0
   - first:
-      213: 1447324222976824562
-    second: Spike_animation_1
-  - first:
-      213: -7952803388473535074
-    second: Spike_animation_2
+      213: -2621622897793657850
+    second: NPC mal n Hilda_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +100,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -116,7 +113,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -145,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spike_animation_0
+      name: NPC mal n Hilda_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,59 +150,37 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94361cadd23a2eea0800000000000000
-      internalID: -5844929949034519735
+      spriteID: 48c32aa2f89a6c9c0800000000000000
+      internalID: -3907249194336633724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike_animation_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f41a5966bde51410800000000000000
-      internalID: 1447324222976824562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spike_animation_2
+      name: NPC mal n Hilda_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.390625, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9513853477f1a190800000000000000
-      internalID: -7952803388473535074
+      spriteID: 6049af94ddf1e9bd0800000000000000
+      internalID: -2621622897793657850
       vertices: []
       indices: 
       edges: []
@@ -214,7 +189,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4c7f6f5eb3635e1489d96a6d04e8587a
+    spriteID: 591d7c201a3804c4e9886b743c7a5692
     internalID: 0
     vertices: []
     indices: 
@@ -224,9 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spike_animation_0: -5844929949034519735
-      Spike_animation_1: 1447324222976824562
-      Spike_animation_2: -7952803388473535074
+      NPC mal n Hilda_0: -3907249194336633724
+      NPC mal n Hilda_1: -2621622897793657850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
