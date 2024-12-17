@@ -118,7 +118,7 @@ public class EnemyController : MonoBehaviour
     private bool CheckLineOfSight()
     {
         var hit = Physics2D.Raycast(transform.position, _player.position - transform.position, ConvertChaseRange, collisionMask);
-        lineOfSight = hit.collider != null && hit.collider.CompareTag("Player");
+        lineOfSight = hit.collider != null && hit.collider.CompareTag("Player Raycast");
         return lineOfSight;
     }
 

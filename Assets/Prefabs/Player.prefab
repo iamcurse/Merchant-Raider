@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3992627398522725978}
   - component: {fileID: 4827146229464200767}
   - component: {fileID: 7837767054002597615}
-  - component: {fileID: 7093772174540217141}
+  - component: {fileID: 575706254309972037}
   - component: {fileID: 3195593105020073805}
   - component: {fileID: 6832019860223320165}
   - component: {fileID: 1014344849836695992}
@@ -37,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 651236825051082644}
+  - {fileID: 6191655683563569570}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3992627398522725978
@@ -144,8 +145,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &7093772174540217141
-CircleCollider2D:
+--- !u!70 &575706254309972037
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -178,8 +179,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.005, y: -0.055}
-  m_Radius: 0.06
+  m_Offset: {x: -0.005, y: -0.075}
+  m_Size: {x: 0.06, y: 0.065}
+  m_Direction: 0
 --- !u!114 &3195593105020073805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,8 +320,8 @@ MonoBehaviour:
   playerSpeed: 1
   closeAttackCooldown: 0.5
   closeRangeAttackMoveSpeed: 0.5
-  longAttackCooldown: 1
-  longRangeAttackMoveSpeed: 0.5
+  longAttackCooldown: 0.8
+  longRangeAttackMoveSpeed: 0.2
   enemyInAttackRange: 0
   canMove: 1
   canInteract: 1
@@ -389,6 +391,74 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &3487687777167202663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6191655683563569570}
+  - component: {fileID: 1205021140391339462}
+  m_Layer: 6
+  m_Name: RayCastHit
+  m_TagString: Player Raycast
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6191655683563569570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487687777167202663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8157247433320989879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1205021140391339462
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487687777167202663}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.005, y: -0.055}
+  m_Radius: 0.06
 --- !u!1 &5600696893040564181
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,4 +612,4 @@ MonoBehaviour:
   moveY: 0
   arrowPrefab: {fileID: 7511456410575114496, guid: 04c957199ec1ec34793b44be963e69cd,
     type: 3}
-  arrowSpeed: 10
+  arrowSpeed: 3

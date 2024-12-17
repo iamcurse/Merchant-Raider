@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         _playerController = other.GetComponent<PlayerController>();
         
-        if (_playerController.inventory.items.Count >= _playerController.inventory.maxItems) return;
+        if (_playerController.inventoryManager.CountItem() >= _playerController.inventory.maxItems) return;
         _playerController.inventoryManager.AddItem(itemData);
         Destroy(gameObject);
     }

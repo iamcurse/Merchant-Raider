@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Item
   - Collision
+  - Player Raycast
   layers:
   - Default
   - TransparentFX

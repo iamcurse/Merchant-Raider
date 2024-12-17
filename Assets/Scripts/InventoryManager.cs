@@ -85,6 +85,11 @@ public class InventoryManager : MonoBehaviour
         return _inventory.items.Any(item => item.itemName == itemName);
     }
     
+    public int CountItem()
+    {
+        return _inventory.items.Count;
+    }
+    
     public int CountItem(ItemData item)
     {
         return _inventory.items.Count(i => i == item);
