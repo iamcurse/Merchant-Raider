@@ -820,9 +820,9 @@ GameObject:
   - component: {fileID: 9145881296354270465}
   - component: {fileID: 4494908696379679151}
   - component: {fileID: 6559448420764135325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision Object
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1089,9 +1089,9 @@ GameObject:
   - component: {fileID: 8930479456733074253}
   - component: {fileID: 929555153267029333}
   - component: {fileID: 1996679323008200051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Collision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
