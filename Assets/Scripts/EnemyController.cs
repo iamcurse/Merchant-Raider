@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
     private bool _isFinish;
     private Seeker _seeker;
     private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
 
     private Animator _animator;
     
@@ -57,6 +58,8 @@ public class EnemyController : MonoBehaviour
         isAttack = false;
         health = enemyInfo.maxHealth;
         _enemyAttackRange = transform.GetChild(0).GetComponent<EnemyAttackRange>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        RandomFlip();
     }
 
     private void Start()
@@ -71,7 +74,6 @@ public class EnemyController : MonoBehaviour
 
         var distanceToPlayer = Vector2.Distance(_rigidbody2D.position, target.position);
         if (!(distanceToPlayer <= ConvertChaseRange) || !CheckLineOfSight()) return;
-        _isFinish = false;
         if (_chaseCoroutine != null)
         {
             StopCoroutine(_chaseCoroutine);
@@ -81,6 +83,8 @@ public class EnemyController : MonoBehaviour
     
     private IEnumerator ChasePlayer()
     {
+        _isFinish = false;
+        
         while (true)
         {
             _seeker.StartPath(_rigidbody2D.position, target.position, OnPathComplete);
@@ -161,11 +165,11 @@ public class EnemyController : MonoBehaviour
             _currentWaypoint++;
         }
 
-        transform.localScale = _rigidbody2D.linearVelocity.x switch
+        _spriteRenderer.flipX = _rigidbody2D.linearVelocity.x switch
         {
-            <= 0.01f => new Vector3(-1f, 1f, 1f),
-            >= -0.01f => new Vector3(1f, 1f, 1f),
-            _ => transform.localScale
+            <= 0.01f => true,
+            >= -0.01f => false,
+            _ => _spriteRenderer.flipX
         };
     }
 
@@ -271,5 +275,11 @@ public class EnemyController : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
+    }
+    
+    private void RandomFlip()
+    {
+        var random = Random.Range(0, 2);
+        _spriteRenderer.flipX = random == 0;
     }
 }
