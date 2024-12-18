@@ -84,8 +84,9 @@ public class PlayerController : MonoBehaviour
         _healthParent = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2).transform;
         _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
         _inventoryUI = _ui.transform.GetChild(1).gameObject;
-        playerInfo.health = playerInfo.maxHealth;
         _playerAttack = transform.GetChild(0).gameObject.GetComponent<PlayerAttack>();
+
+        RefreshHealth();
     }
 
     private void Start()
@@ -120,6 +121,7 @@ public class PlayerController : MonoBehaviour
         _attackLongRange.Enable();
         
         Lua.RegisterFunction(nameof(GetHit), this, SymbolExtensions.GetMethodInfo(() => GetHit()));
+        Lua.RegisterFunction(nameof(RefreshHealth), this, SymbolExtensions.GetMethodInfo(() => RefreshHealth()));
         
         OnHealthChanged();
         OnMoneyChanged();
@@ -133,6 +135,7 @@ public class PlayerController : MonoBehaviour
         _attackLongRange.Disable();
         
         Lua.UnregisterFunction(nameof(GetHit));
+        Lua.UnregisterFunction(nameof(RefreshHealth));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -388,5 +391,11 @@ public class PlayerController : MonoBehaviour
     private void RemoveImmune()
     {
         immune = false;
+    }
+
+    private void RefreshHealth()
+    {
+        playerInfo.health = playerInfo.maxHealth;
+        OnHealthChanged();
     }
 }

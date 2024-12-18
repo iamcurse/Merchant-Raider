@@ -228,6 +228,7 @@ public class EnemyController : MonoBehaviour
         // Start the get hit animation
         _animator.SetBool(IsHit, true);
         
+        _isFinish = false;
         // Start chasing the player when hit
         if (_chaseCoroutine != null)
         {
