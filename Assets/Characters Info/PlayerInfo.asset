@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2cf6cf99ee2c440b902b2f9b879013, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  health: 5
-  maxHealth: 5
-  money: 0
+  <Health>k__BackingField: 2
+  <MaxHealth>k__BackingField: 5
+  <Money>k__BackingField: 0

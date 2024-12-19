@@ -16,10 +16,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask collisionMask;
     [SerializeField] private float speed = 1f;
     [SerializeField] private int chasingRange = 5;
-    private readonly float _nextWaypointDistance = 3f;
+    private const float NextWaypointDistance = 3f;
     private GameObject _player;
     [SerializeField] private float chaseDuration = 4f;
-    [SerializeField] private float knockBackForce = 1f;
     
     private Path _path;
     private int _currentWaypoint;
@@ -61,6 +60,7 @@ public class EnemyController : MonoBehaviour
         _enemyAttackRange = transform.GetChild(0).GetComponent<EnemyAttackRange>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         RandomFlip();
+        
     }
 
     private void Start()
@@ -163,7 +163,7 @@ public class EnemyController : MonoBehaviour
         _rigidbody2D.linearVelocity = force;
         
         var distance = Vector2.Distance(_rigidbody2D.position, _path.vectorPath[_currentWaypoint]);
-        if (distance < _nextWaypointDistance)
+        if (distance < NextWaypointDistance)
         {
             _currentWaypoint++;
         }

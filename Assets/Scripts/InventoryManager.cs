@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
@@ -63,14 +62,14 @@ public class InventoryManager : MonoBehaviour
             _inventory.items.Add(item);
     }
     
-    private void AddItem(String itemName)
+    private void AddItem(string itemName)
     {
         var item = itemDatabase.items.Find(i => i.itemName == itemName);
         if (_inventory.items.Count < _inventory.maxItems)
             _inventory.items.Add(item);
     }
     
-    public ItemData GetItem(String itemName)
+    public ItemData GetItem(string itemName)
     {
         return itemDatabase.items.Find(item => item.itemName == itemName);
     }
@@ -80,7 +79,7 @@ public class InventoryManager : MonoBehaviour
         return _inventory.items.Contains(item);
     }
 
-    private bool CheckItem(String itemName)
+    private bool CheckItem(string itemName)
     {
         return _inventory.items.Any(item => item.itemName == itemName);
     }
@@ -95,7 +94,7 @@ public class InventoryManager : MonoBehaviour
         return _inventory.items.Count(i => i == item);
     }
     
-    private int CountItem(String itemName)
+    private int CountItem(string itemName)
     {
         return _inventory.items.Count(i => i.itemName == itemName);
     }
@@ -106,7 +105,7 @@ public class InventoryManager : MonoBehaviour
             _inventory.items.Remove(item);
     }
     
-    private void RemoveItem(String itemName)
+    private void RemoveItem(string itemName)
     {
         var item = itemDatabase.items.Find(i => i.itemName == itemName);
         if (CheckItem(item))

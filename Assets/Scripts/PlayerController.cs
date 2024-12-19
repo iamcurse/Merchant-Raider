@@ -218,11 +218,11 @@ public class PlayerController : MonoBehaviour
         if (immune || isDead) return;
         immune = true;
         isHit = true;
-        playerInfo.health--;
+        playerInfo.TakeDamage();
         Debug.Log("Player gets hit");
         
         // If player's health is below 0, it will skip the hit animation and go straight to death animation.
-        if (playerInfo.health > 0)
+        if (!playerInfo.IsDead())
             _animator.SetTrigger(IsHit);
         OnHealthChanged();
     }
@@ -232,9 +232,9 @@ public class PlayerController : MonoBehaviour
         if (immune || isDead) return;
         immune = true;
         isHit = true;
-        playerInfo.health -= damage;
+        playerInfo.TakeDamage(damage);
         Debug.Log("Player gets hit");
-        if (playerInfo.health > 0)
+        if (!playerInfo.IsDead())
             _animator.SetTrigger(IsHit);
         OnHealthChanged();
     }
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
     private void OnHealthChanged()
     {
         // Death animation is played when player's health is below 0.
-        if (playerInfo.health <= 0)
+        if (playerInfo.IsDead())
         {
             _rigidBody2D.linearVelocity = Vector2.zero;
             Debug.Log("Player is dead");
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // Instantiate the heart UI based on player's health.
-        for (var i = 0; i < playerInfo.health; i++)
+        for (var i = 0; i < playerInfo.Health; i++)
         {
             Instantiate(heart, _healthParent);
         }
@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnMoneyChanged()
     {
-        _moneyText.text = playerInfo.money.ToString();
+        _moneyText.text = playerInfo.Money.ToString();
     }
 
     private void GameOver()
@@ -395,7 +395,7 @@ public class PlayerController : MonoBehaviour
 
     private void RefreshHealth()
     {
-        playerInfo.health = playerInfo.maxHealth;
+        playerInfo.RestoreHealth();
         OnHealthChanged();
     }
 }
