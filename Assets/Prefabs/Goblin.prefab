@@ -279,7 +279,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 10
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -291,7 +291,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &780801218242748549
 CapsuleCollider2D:
@@ -438,7 +438,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
-  speed: 300
+  speed: 0.5
   chasingRange: 5
   chaseDuration: 4
   isAttack: 0

@@ -81,7 +81,16 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (var enemy in _enemiesInRange)
         {
+            // Perform a raycast to check for obstacles
+            var direction = (enemy.transform.position - transform.position).normalized;
+            var distance = Vector2.Distance(transform.position, enemy.transform.position);
+            var hit = Physics2D.Raycast(transform.position, direction, distance, LayerMask.GetMask("Collision"));
+            
+            // If the raycast hits an obstacle, skip this enemy
+            if (hit.collider != null) continue;
+            
             enemy.GetHit();
+            
             if (!enemy.isDead) continue;
             enemiesToRemove.Add(enemy);
         }
@@ -131,6 +140,7 @@ public class PlayerAttack : MonoBehaviour
         var rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90f));
 
         // Instantiate the arrow at the bow tip position with the calculated rotation
+        // ReSharper disable once UnusedVariable
         var arrow = Instantiate(arrowPrefab, bowTipPosition, rotation);
     }
 }

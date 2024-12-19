@@ -14,11 +14,12 @@ public class EnemyController : MonoBehaviour
     [ShowOnly][SerializeField] private bool lineOfSight;
     [ShowOnly] public bool playerInAttackRange;
     [SerializeField] private LayerMask collisionMask;
-    [SerializeField] private float speed = 75f;
+    [SerializeField] private float speed = 1f;
     [SerializeField] private int chasingRange = 5;
     private readonly float _nextWaypointDistance = 3f;
-    private Transform _player;
+    private GameObject _player;
     [SerializeField] private float chaseDuration = 4f;
+    [SerializeField] private float knockBackForce = 1f;
     
     private Path _path;
     private int _currentWaypoint;
@@ -53,7 +54,7 @@ public class EnemyController : MonoBehaviour
         _seeker = GetComponent<Seeker>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _player = GameObject.FindWithTag("Player").transform;
+        _player = GameObject.FindWithTag("Player");
         _isFinish = true;
         isAttack = false;
         health = enemyInfo.maxHealth;
@@ -121,7 +122,7 @@ public class EnemyController : MonoBehaviour
     
     private bool CheckLineOfSight()
     {
-        var hit = Physics2D.Raycast(transform.position, _player.position - transform.position, ConvertChaseRange, collisionMask);
+        var hit = Physics2D.Raycast(transform.position, _player.transform.position - transform.position, ConvertChaseRange, collisionMask);
         lineOfSight = hit.collider != null && hit.collider.CompareTag("Player Raycast");
         return lineOfSight;
     }
@@ -143,7 +144,7 @@ public class EnemyController : MonoBehaviour
     {
         if (path.error) return;
         _path = path;
-        _currentWaypoint = 0;
+        _currentWaypoint = 1;
     }
 
     private void Move()
@@ -151,13 +152,15 @@ public class EnemyController : MonoBehaviour
         if (_reachedEndOfPath) return;
         
         var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
-        var force = direction * (speed * Time.deltaTime);
+        var force = direction * (speed /* Time.deltaTime*/);
         
         if (isDead)
         {
             force = Vector2.zero;
         }
-        _rigidbody2D.AddForce(force);
+        //_rigidbody2D.AddForce(force);
+        
+        _rigidbody2D.linearVelocity = force;
         
         var distance = Vector2.Distance(_rigidbody2D.position, _path.vectorPath[_currentWaypoint]);
         if (distance < _nextWaypointDistance)
@@ -200,6 +203,14 @@ public class EnemyController : MonoBehaviour
     {
         // If Enemy is already attacking, getting hit, or dead, it will not attack player
         if (isAttack || isGettingHit || isDead) return;
+        
+        // Perform a raycast to check for obstacles
+        var direction = (_player.transform.position - transform.position).normalized;
+        var distance = Vector2.Distance(transform.position, _player.transform.position);
+        var hit = Physics2D.Raycast(transform.position, direction, distance, collisionMask);
+
+        // If the raycast hits an obstacle, skip the attack
+        if (hit.collider != null && !hit.collider.CompareTag("Player")) return;
         
         Debug.Log("Attacking player");
         // Set isAttack to true, so that the enemy will not attack player again until the attack cooldown is over
@@ -267,7 +278,7 @@ public class EnemyController : MonoBehaviour
     
     private void ZOrder()
     {
-        if (_player.position.y > transform.position.y)
+        if (_player.transform.position.y > transform.position.y)
         {
             GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
