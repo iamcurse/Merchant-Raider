@@ -13,7 +13,7 @@ public class ChestController : MonoBehaviour
 
     [SerializeField] private UnityEvent onOpen;
     
-    [SerializeField] private List<ItemData> _itemsDrop;
+    [SerializeField] private List<ItemData> itemsDrop;
     
     private void Awake()
     {
@@ -49,14 +49,14 @@ public class ChestController : MonoBehaviour
         
         DialogueLua.SetVariable("ChestName", name);
         
-        switch (_itemsDrop.Count)
+        switch (itemsDrop.Count)
         {
             case 1:
-                DialogueLua.SetVariable("ItemName", _itemsDrop[0].itemName);
+                DialogueLua.SetVariable("ItemName", itemsDrop[0].itemName);
                 break;
             case > 1:
-                var items = string.Join(", ", _itemsDrop.Take(_itemsDrop.Count - 1).Select(item => item.itemName)) +
-                            ", and " + _itemsDrop.Last().itemName;
+                var items = string.Join(", ", itemsDrop.Take(itemsDrop.Count - 1).Select(item => item.itemName)) +
+                            ", and " + itemsDrop.Last().itemName;
                 DialogueLua.SetVariable("ItemName", items);
                 break;
         }
@@ -73,7 +73,7 @@ public class ChestController : MonoBehaviour
     private void OpenChest()
     {
         _animator.SetTrigger(Open);
-        foreach (var item in _itemsDrop)
+        foreach (var item in itemsDrop)
         {
             _playerController.inventoryManager.AddItem(item);
         }

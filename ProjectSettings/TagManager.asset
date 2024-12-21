@@ -9,6 +9,8 @@ TagManager:
   - Item
   - Collision
   - Player Raycast
+  - Enemy Hit Box
+  - Player Hit Box
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+    
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float closeAttackCooldown = 1f;
     [SerializeField] private float closeRangeAttackMoveSpeed = 0.5f;
@@ -49,9 +51,7 @@ public class PlayerController : MonoBehaviour
     [ShowOnly] public bool isDead;
     [ShowOnly] public bool gameOver;
 
-    private GameObject _ui;
-    private MenuController _menuController;
-    private GameObject _inventoryUI;
+    private UIController _uiController;
     private bool _inventoryActive;
     [HideInInspector] public InventoryManager inventoryManager;
     [ShowOnly] public bool isPause;
@@ -59,9 +59,6 @@ public class PlayerController : MonoBehaviour
     private InteractableObject _interactableObject;
 
     [SerializeField] private PlayerInfo playerInfo;
-    [SerializeField] private GameObject heart;
-    private Transform _healthParent;
-    private TMPro.TextMeshProUGUI _moneyText;
 
     private int _a;
     
@@ -71,29 +68,32 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Debug.LogError("Multiple Player instances found! Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        
         _playerInput = new PlayerInput();
         _move = _playerInput.Player.Move;
         _interact = _playerInput.Player.Interact;
         _attackCloseRange = _playerInput.Player.AttackCloseRange;
         _attackLongRange = _playerInput.Player.AttackLongRange;
-
-        _ui = GameObject.Find("UI");
-        _menuController = _ui.GetComponent<MenuController>();
-        inventoryManager = _ui.GetComponent<InventoryManager>();
         
-        _healthParent = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2).transform;
-        _moneyText = _ui.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
-        _inventoryUI = _ui.transform.GetChild(1).gameObject;
-        _playerAttack = transform.GetChild(0).gameObject.GetComponent<PlayerAttack>();
-
-        RefreshHealth();
+        _playerAttack = GetComponentInChildren<PlayerAttack>();
+        
+        _uiController = UIController.Instance;
+        inventoryManager = InventoryManager.Instance;
     }
 
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        OnHealthChanged();
+        
+        RefreshHealth();
         OnMoneyChanged();
     }
     
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Animate();
-        _inventoryActive = _inventoryUI.activeSelf;
+        _inventoryActive = _uiController.IsInventoryActive();
         
         if (_closeRangeAttackTimer > 0)
         {
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!other.CompareTag("Interactable Object")) return;
         
-       _interactableObject = other.gameObject.GetComponent<InteractableObject>();
+       _interactableObject = other.GetComponent<InteractableObject>();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -252,17 +252,12 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger(IsDead);
         }
         
-        // Destroy all the heart UI when player's health is updated.
-        foreach (Transform child in _healthParent)
-        {
-            Destroy(child.gameObject);
-        }
-        
-        // Instantiate the heart UI based on player's health.
-        for (var i = 0; i < playerInfo.Health; i++)
-        {
-            Instantiate(heart, _healthParent);
-        }
+        _uiController.UpdateHealthUI(playerInfo.Health);
+    }
+    
+    private void OnMoneyChanged()
+    {
+        _uiController.UpdateMoneyUI(playerInfo.Money);
     }
         
     private void StopHit()
@@ -284,7 +279,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isPause || DialogueManager.isConversationActive) return;
         Debug.Log("Inventory");
-        _menuController.InventoryControl();
+        _uiController.InventoryControl();
     }
     
     // When player do Left-Click, set canAttack to false so that player can't attack again until the cooldown is over.
@@ -370,17 +365,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnPause()
     {
-        _menuController.PauseScript();
-    }
-    
-    private void OnMoneyChanged()
-    {
-        _moneyText.text = playerInfo.Money.ToString();
+        _uiController.PauseScript();
     }
 
     private void GameOver()
     {
-        _menuController.Pause();
+        _uiController.Pause();
     }
     
     private void SetImmune()

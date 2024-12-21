@@ -2445,7 +2445,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh mighty adventurer. May my [em3]blessings[/em3] be with you
+        value: Oh, my mighty adventurer. May my [em3]blessings[/em3] bestow upon
+          you
         type: 0
         typeString: 
       - title: Sequence
@@ -2467,7 +2468,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 158
+        x: 157
         y: 114
         width: 160
         height: 30

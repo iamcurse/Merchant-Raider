@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
     
     private void Awake()
     {
-        _playerController = transform.parent.gameObject.GetComponent<PlayerController>();
+        _playerController = GetComponentInParent<PlayerController>();
         _enemiesInRange = new List<EnemyController>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
@@ -30,10 +30,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (!other.CompareTag("Enemy Hit Box")) return;
         
         // Check if the enemy is already in the list before adding it
-        var enemy = other.gameObject.GetComponent<EnemyController>();
+        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
         if (enemy == null || _enemiesInRange.Contains(enemy)) return;
         // Add the enemy to the list of enemies in range
         _enemiesInRange.Add(enemy);
@@ -41,10 +41,10 @@ public class PlayerAttack : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (!other.CompareTag("Enemy Hit Box")) return;
         
         // Check if the enemy is in the list before removing it
-        var enemy = other.gameObject.GetComponent<EnemyController>();
+        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
         if (enemy == null || !_enemiesInRange.Contains(enemy)) return;
         // Remove the enemy from the list of enemies in range
         _enemiesInRange.Remove(enemy);

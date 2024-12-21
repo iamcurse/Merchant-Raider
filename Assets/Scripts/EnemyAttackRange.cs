@@ -6,12 +6,12 @@ public class EnemyAttackRange : MonoBehaviour
     
     private void Awake()
     {
-        _enemy = transform.parent.gameObject.GetComponent<EnemyController>();
+        _enemy = GetComponentInParent<EnemyController>();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player Hit Box"))
         {
             // Set the player in attack range in EnemyController to true when player enters the attack range of enemy
             _enemy.playerInAttackRange = true;
@@ -20,7 +20,7 @@ public class EnemyAttackRange : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player Hit Box"))
         {
             // Set the player in attack range in EnemyController to false when player exits the attack range of enemy
             _enemy.playerInAttackRange = false;

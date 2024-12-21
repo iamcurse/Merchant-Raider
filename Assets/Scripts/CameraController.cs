@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player").transform;
         _cameraObject = transform.GetChild(0).gameObject;
-        _camera = transform.GetChild(0).gameObject.GetComponent<CinemachineCamera>();
+        _camera = GetComponentInChildren<CinemachineCamera>(true);
     }
 
     private void Start()

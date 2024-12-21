@@ -5,14 +5,30 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance { get; private set; }
+    
+    private PlayerController _playerController;
     private Inventory _inventory;
     private GameObject _itemsPanel;
     [SerializeField] private Inventory itemDatabase;
 
     private void Awake()
     {
-        _inventory = FindAnyObjectByType<PlayerController>().inventory;
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Debug.LogError("Multiple InventoryManager instances found! Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        
         _itemsPanel = transform.GetChild(1).transform.GetChild(1).gameObject;
+    }
+    
+    private void Start()
+    {
+        _playerController = PlayerController.Instance;
+        _inventory = _playerController.inventory;
     }
 
     private void FixedUpdate() => ListItems();

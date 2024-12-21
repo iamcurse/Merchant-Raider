@@ -5,6 +5,8 @@ using Vector2 = UnityEngine.Vector2;
 
 public class EnemyController : MonoBehaviour
 {
+    private PlayerController _player;
+    
     [ShowOnly][SerializeField] private int health;
     private static readonly int IsMoving = Animator.StringToHash("isWalking");
     private static readonly int IsHit = Animator.StringToHash("isHit");
@@ -17,7 +19,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private int chasingRange = 5;
     private const float NextWaypointDistance = 3f;
-    private GameObject _player;
     [SerializeField] private float chaseDuration = 4f;
     
     private Path _path;
@@ -46,21 +47,23 @@ public class EnemyController : MonoBehaviour
     
     private void Awake()
     {
+        // Find the Player object and assign it to the target instead of FindWithTag
+        _player = PlayerController.Instance;
+        if (_player == null)
+            Debug.LogError("Player not found");
+
         if (!target)
-        {
-            target = GameObject.Find("Player").transform;
-        }
+            target = _player.transform;
+        
         _seeker = GetComponent<Seeker>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _player = GameObject.FindWithTag("Player");
         _isFinish = true;
         isAttack = false;
         health = enemyInfo.maxHealth;
-        _enemyAttackRange = transform.GetChild(0).GetComponent<EnemyAttackRange>();
+        _enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         RandomFlip();
-        
     }
 
     private void Start()

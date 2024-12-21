@@ -34,16 +34,19 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (!other.gameObject.CompareTag("Collision") && !other.gameObject.CompareTag("Interactable Object")) return;
         Debug.Log("Hit: " + other.gameObject.name);
-        if (!other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("Collision") &&
-            !other.gameObject.CompareTag("Interactable Object")) return;
-        
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            var enemy = other.gameObject.GetComponent<EnemyController>();
-            enemy.GetHit();
-        }
-
         Destroy(gameObject);
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Enemy Hit Box")) return;
+        Debug.Log("Hit: " + other.gameObject.name);
+        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
+        enemy.GetHit();
+        Destroy(gameObject);
+    }
+    
+    
 }
