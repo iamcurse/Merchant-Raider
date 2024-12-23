@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int IsAttackBow = Animator.StringToHash("isAttackBow");
 
-    private PlayerInput _playerInput;
+    private PlayerInputController _playerInput;
     private InputAction _move;
     private InputAction _interact;
     private InputAction _attackCloseRange;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
         
-        _playerInput = new PlayerInput();
+        _playerInput = new PlayerInputController();
         _move = _playerInput.Player.Move;
         _interact = _playerInput.Player.Interact;
         _attackCloseRange = _playerInput.Player.AttackCloseRange;

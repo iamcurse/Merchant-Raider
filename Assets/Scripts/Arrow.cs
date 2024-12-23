@@ -1,17 +1,20 @@
-using System;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    private PlayerController _playerController;
     private PlayerAttack _playerAttack;
     
     private Rigidbody2D _rigidbody2D;
     [SerializeField] private float lifeTime = 4f;
-    
-    [Obsolete("Obsolete")]
+
     private void Awake()
     {
-        _playerAttack = FindObjectOfType<PlayerAttack>();
+        _playerController = PlayerController.Instance;
+        if (_playerController == null)
+            Debug.LogError("Player not found");
+        
+        _playerAttack = _playerController.GetComponentInChildren<PlayerAttack>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -47,6 +50,4 @@ public class Arrow : MonoBehaviour
         enemy.GetHit();
         Destroy(gameObject);
     }
-    
-    
 }
