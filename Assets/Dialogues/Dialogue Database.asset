@@ -1477,7 +1477,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Most people dont last long in here.
+        value: Most people don't last long in here.
         type: 0
         typeString: 
       - title: Sequence
@@ -1532,7 +1532,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Anyways, you  keep your eyes peeled.
+        value: Anyway, keep your eyes peeled.
         type: 0
         typeString: 
       - title: Sequence
@@ -1587,7 +1587,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: And if you hurt  in there just use one of these [em1]fountains[/em1]
+        value: And if you hurt in there just use one of these [em1]fountains[/em1]
           to heal up Haha!
         type: 0
         typeString: 
@@ -1643,7 +1643,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Goodluck in there little sparrow! '
+        value: Good luck out there little sparrow!
         type: 0
         typeString: 
       - title: Sequence
@@ -1906,7 +1906,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: OH my... you quite young for such a job.
+        value: OH my... you are quite young for such a job.
         type: 0
         typeString: 
       - title: Sequence
@@ -1961,7 +1961,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hopefully you dont end up like the others...
+        value: Hopefully, you don't end up like the others...
         type: 0
         typeString: 
       - title: Sequence
@@ -2016,7 +2016,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The golblins breed like rats. I heard there is a whole horde of them
+        value: The goblins breed like rats. I heard there is a whole horde of them
           deeper in the cave!
         type: 0
         typeString: 
@@ -2072,7 +2072,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Well...Stay safe and please bring me back some treasure if you can.
+        value: Well... Stay safe and please bring me back some treasure if you can.
         type: 0
         typeString: 
       - title: Sequence
@@ -2188,7 +2188,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh(sigh)...okay then. May our lady bless you in battle. goodbye.
+        value: Oh(sigh)... okay then. May our lady bless you in battle. Goodbye.
         type: 0
         typeString: 
       - title: Sequence
