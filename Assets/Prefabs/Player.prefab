@@ -319,17 +319,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 0.85
-  closeAttackCooldown: 0.5
-  closeRangeAttackMoveSpeed: 0.5
-  longAttackCooldown: 0.8
-  longRangeAttackMoveSpeed: 0.2
-  enemyInAttackRange: 0
   canMove: 1
   canInteract: 1
   canCloseAttack: 1
+  closeAttackCooldown: 0.5
+  closeRangeAttackMoveSpeed: 0.5
   canLongAttack: 1
+  longAttackCooldown: 0.8
+  longRangeAttackMoveSpeed: 0.2
   infiniteArrow: 0
   arrowSpeed: 3
+  enemyInAttackRange: 0
+  canRoll: 1
+  rollSpeed: 5
+  rollCooldown: 1.5
   immune: 0
   isAttacking: 0
   isHit: 0

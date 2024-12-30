@@ -8,22 +8,40 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
     
     [SerializeField] private float playerSpeed = 1f;
-    [SerializeField] private float closeAttackCooldown = 1f;
-    [SerializeField] private float closeRangeAttackMoveSpeed = 0.5f;
-    [SerializeField] private float longAttackCooldown = 1f;
-    [SerializeField] private float longRangeAttackMoveSpeed = 0.5f;
-    // ReSharper disable once NotAccessedField.Global
-    [ShowOnly] public bool enemyInAttackRange;
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canInteract;
+    
     [SerializeField] private bool canCloseAttack = true;
+    [EnabledIf("canCloseAttack")]
+    [SerializeField] private float closeAttackCooldown = 1f;
+    [EnabledIf("canCloseAttack")]
+    [SerializeField] private float closeRangeAttackMoveSpeed = 0.5f;
+    
     [SerializeField] private bool canLongAttack = true;
+    [EnabledIf("canLongAttack")]
+    [SerializeField] private float longAttackCooldown = 1f;
+    [EnabledIf("canLongAttack")]
+    [SerializeField] private float longRangeAttackMoveSpeed = 0.5f;
+    
+    [EnabledIf("canLongAttack")]
     [SerializeField] private bool infiniteArrow;
+    [EnabledIf("canLongAttack")] 
     public float arrowSpeed = 3f;
+    
+    // ReSharper disable once NotAccessedField.Global
+    [ShowOnly] public bool enemyInAttackRange;
+    
+    [SerializeField] private bool canRoll;
+    [EnabledIf("canRoll")]
+    [SerializeField] private float rollSpeed = 5f;
+    [EnabledIf("canRoll")]
+    [SerializeField] private float rollCooldown = 1.5f;
+    private bool _isRolling;
+    
     [SerializeField] private bool immune;
+    
     private float _closeRangeAttackTimer;
     private float _longRangeAttackTimer;
-
     
     private Vector2 _movementInput;
     private Rigidbody2D _rigidBody2D;
@@ -41,6 +59,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int IsAttackBow = Animator.StringToHash("isAttackBow");
+    private static readonly int IsRoll = Animator.StringToHash("IsRoll");
 
     private PlayerInputController _playerInput;
     private InputAction _move;
@@ -58,9 +77,7 @@ public class PlayerController : MonoBehaviour
     
     private InteractableObject _interactableObject;
 
-    [SerializeField] private PlayerInfo playerInfo;
-
-    private int _a;
+    public PlayerInfo playerInfo;
     
     private PlayerAttack _playerAttack;
     
@@ -154,6 +171,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (_isRolling) return;
         if (!canMove || isDead || isPause /* || DialogueManager.isConversationActive*/)
         {
             _rigidBody2D.linearVelocity = Vector2.zero;
@@ -194,8 +212,17 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
         }
         
+        if (stateInfo.IsName("Player_Roll"))
+        {
+            _isRolling = stateInfo.normalizedTime < 1;
+        } else
+        {
+            _isRolling = false;
+            RemoveImmune();
+        }
+        
         // Lock Attack animation during movement
-        if (!isAttacking)
+        if (!isAttacking && !_isRolling)
         {
             if (_movementInput != Vector2.zero)
             {
@@ -252,12 +279,12 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger(IsDead);
         }
         
-        _uiController.UpdateHealthUI(playerInfo.Health);
+        _uiController.UpdateHealth(playerInfo.Health);
     }
     
     private void OnMoneyChanged()
     {
-        _uiController.UpdateMoneyUI(playerInfo.Money);
+        _uiController.UpdateMoney(playerInfo.Money);
     }
         
     private void StopHit()
@@ -267,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract()
     {
-        if (!canInteract || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!canInteract || isPause || DialogueManager.isConversationActive || _inventoryActive || _isRolling) return;
         
         Debug.Log("Interact");
         // Do something when 'E' is pressed
@@ -286,7 +313,7 @@ public class PlayerController : MonoBehaviour
     // Cooldown was handle by AttackCooldown() coroutine which is called in CallShortRangeAttack().
     private void OnAttackCloseRange()
     {
-        if (!canCloseAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!canCloseAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive || _isRolling) return;
         
         canCloseAttack = false;
         
@@ -326,7 +353,7 @@ public class PlayerController : MonoBehaviour
             if (inventoryManager.CountItem(arrow) <= 0)
                 return;
         }
-        if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive) return;
+        if (!canLongAttack || isAttacking || isHit || isPause || DialogueManager.isConversationActive || _inventoryActive || _isRolling) return;
         
         canLongAttack = false;
         _bowAttack = true;
@@ -350,7 +377,9 @@ public class PlayerController : MonoBehaviour
     {
         if (_longRangeAttackTimer > 0) return;
         
-        inventoryManager.RemoveItem(inventoryManager.GetItem("Arrow"));
+        if (!infiniteArrow)
+            inventoryManager.RemoveItem(inventoryManager.GetItem("Arrow"));
+        
         Debug.Log("Call Long Range Attack");
         _playerAttack.LongAttack();
         _longRangeAttackTimer = longAttackCooldown;
@@ -370,7 +399,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver()
     {
-        _uiController.Pause();
+        _uiController.GameOver();
     }
     
     private void SetImmune()
@@ -387,5 +416,32 @@ public class PlayerController : MonoBehaviour
     {
         playerInfo.RestoreHealth();
         OnHealthChanged();
+    }
+
+    private void OnRoll()
+    {
+        if (!canRoll) return;
+        Debug.Log("Roll");
+        
+        canRoll = false;
+        _isRolling = true;
+        
+        _rigidBody2D.linearVelocity = Vector2.zero;
+        
+        var rollDirection = new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
+        Debug.Log($"Roll Direction: {rollDirection}");
+        
+        SetImmune();
+        
+        _animator.SetTrigger(IsRoll);
+        _rigidBody2D.linearVelocity = rollDirection * rollSpeed;
+        
+        StartCoroutine(RollCooldown());
+    }
+    
+    private IEnumerator RollCooldown()
+    {
+        yield return new WaitForSeconds(rollCooldown);
+        canRoll = true;
     }
 }

@@ -15,10 +15,6 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: f3fe5e9b641939d49b87d7bdc4dda9be, type: 2}
   - {fileID: 11400000, guid: 3c81a4699f47fb0438b2db66f257aa2b, type: 2}
-  - {fileID: 11400000, guid: 3c81a4699f47fb0438b2db66f257aa2b, type: 2}
-  - {fileID: 11400000, guid: 3c81a4699f47fb0438b2db66f257aa2b, type: 2}
-  - {fileID: 11400000, guid: bd61edb1451ec784188b456f4130d611, type: 2}
-  - {fileID: 11400000, guid: bd61edb1451ec784188b456f4130d611, type: 2}
   - {fileID: 11400000, guid: bd61edb1451ec784188b456f4130d611, type: 2}
   - {fileID: 11400000, guid: bd61edb1451ec784188b456f4130d611, type: 2}
   maxItems: 36

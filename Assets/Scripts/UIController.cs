@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -9,12 +11,15 @@ public class UIController : MonoBehaviour
     private GameObject _pauseUI;
     private GameObject _gameUI;
     private GameObject _inventoryUI;
+    private GameObject _gameOverUI;
     private Transform _healthParent;
     private TMPro.TextMeshProUGUI _moneyText;
     [SerializeField] private GameObject healthPrefab;
-
     
     private bool _isDialogActive;
+    
+    private PlayerInfo _playerInfoBackup;
+    private Inventory _inventoryBackup;
 
     private void Awake()
     {
@@ -29,6 +34,7 @@ public class UIController : MonoBehaviour
         _gameUI = gameObject.transform.GetChild(0).gameObject;
         _inventoryUI = gameObject.transform.GetChild(1).gameObject;
         _pauseUI = gameObject.transform.GetChild(2).gameObject;
+        _gameOverUI = gameObject.transform.GetChild(3).gameObject;
         _healthParent = _gameUI.transform.GetChild(0).transform.GetChild(2).transform;
         _moneyText = _gameUI.transform.GetChild(0).transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>();
     }
@@ -36,6 +42,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         _playerController = PlayerController.Instance;
+        BackupPlayerInfo();
     }
 
     private void Update()
@@ -83,7 +90,7 @@ public class UIController : MonoBehaviour
     public void ExitToMainMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Start_Screen");
+        SceneManager.LoadScene("StartScreen");
     }
     
     private void DisableMenuButtons()
@@ -106,7 +113,13 @@ public class UIController : MonoBehaviour
         _inventoryUI.SetActive(!_inventoryUI.activeSelf);
     }
 
-    public void UpdateHealthUI(int health)
+    private void UpdateHealthMoney(PlayerInfo playerInfo)
+    {
+        UpdateHealth(playerInfo.Health);
+        UpdateMoney(playerInfo.Money);
+    }
+
+    public void UpdateHealth(int health)
     {
         foreach (Transform child in _healthParent)
         {
@@ -119,7 +132,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateMoneyUI(int money)
+    public void UpdateMoney(int money)
     {
         _moneyText.text = money.ToString();
     }
@@ -127,6 +140,40 @@ public class UIController : MonoBehaviour
     public bool IsInventoryActive()
     {
         return _inventoryUI.activeSelf;
+    }
+    
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        _gameOverUI.SetActive(true);
+    }
+    
+    public void Restart()
+    {
+        RestorePlayerInfo();
+        
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    private void BackupPlayerInfo()
+    {
+        _playerInfoBackup = _playerController.playerInfo.Clone();
+        _inventoryBackup = _playerController.inventory.Clone();
+    }
+    
+    private void RestorePlayerInfo()
+    {
+        if (_playerInfoBackup == null || _inventoryBackup == null)
+        {
+            Debug.LogError("PlayerInfoBackup or InventoryBackup is null!");
+            return;
+        }
+        
+        _playerController.inventory.items = new List<ItemData>(_inventoryBackup.items);
+        _playerController.playerInfo.SetMaxHealth(_playerInfoBackup.MaxHealth);
+        
+        UpdateHealthMoney(_playerController.playerInfo);
     }
 }
 

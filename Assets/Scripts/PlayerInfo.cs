@@ -7,6 +7,15 @@ public class PlayerInfo : ScriptableObject
     [field: SerializeField] public int MaxHealth { get; private set; }
     [field: SerializeField] public int Money { get; private set; }
 
+    public PlayerInfo Clone()
+    {
+        var clone = CreateInstance<PlayerInfo>();
+        clone.Health = Health;
+        clone.MaxHealth = MaxHealth;
+        clone.Money = Money;
+        return clone;
+    }
+
     public void RestoreHealth()
     {
         Health = MaxHealth;
@@ -65,5 +74,11 @@ public class PlayerInfo : ScriptableObject
     public bool IsDead()
     {
         return Health <= 0;
+    }
+    
+    public void Reset()
+    {
+        Health = MaxHealth;
+        Money = 0;
     }
 }
