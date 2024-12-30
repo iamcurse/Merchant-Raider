@@ -33,7 +33,9 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private bool canRoll;
     [EnabledIf("canRoll")]
-    [SerializeField] private float rollSpeed = 5f;
+    [SerializeField] private float rollDistance = 0.32f; // Fixed roll distance
+    [EnabledIf("canRoll")]
+    [SerializeField] private float rollSpeed = 2.5f;
     [EnabledIf("canRoll")]
     [SerializeField] private float rollCooldown = 1.5f;
     private bool _isRolling;
@@ -417,25 +419,65 @@ public class PlayerController : MonoBehaviour
         playerInfo.RestoreHealth();
         OnHealthChanged();
     }
+    
+    private Vector2 _rollDirection = new Vector2(0, -1);
+    private float _distanceTraveled = 0f;
 
     private void OnRoll()
     {
         if (!canRoll) return;
         Debug.Log("Roll");
-        
+
         canRoll = false;
         _isRolling = true;
-        
-        _rigidBody2D.linearVelocity = Vector2.zero;
-        
-        var rollDirection = new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
-        Debug.Log($"Roll Direction: {rollDirection}");
-        
-        SetImmune();
-        
-        _animator.SetTrigger(IsRoll);
-        _rigidBody2D.linearVelocity = rollDirection * rollSpeed;
-        
+
+        // Reset distance traveled on each roll
+        _distanceTraveled = 0f;
+
+        // Get the roll direction from the animator (or movement input)
+        _rollDirection = new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
+        if (_rollDirection == Vector2.zero)
+        {
+            _rollDirection = new Vector2(0, -1); // Default to downward if no input
+        }
+        Debug.Log($"Roll Direction: {_rollDirection}");
+
+        SetImmune();  // Prevent damage during the roll
+
+        _animator.SetTrigger(IsRoll);  // Trigger roll animation
+
+        // Start the roll movement coroutine
+        StartCoroutine(RollCoroutine());
+    }
+    
+    private IEnumerator RollCoroutine()
+    {
+        // While the player hasn't traveled the full roll distance
+        while (_distanceTraveled < rollDistance)
+        {
+            // Calculate the step based on the roll speed and time
+            var step = rollSpeed * Time.deltaTime;
+
+            // Move the player in the roll direction
+            _rigidBody2D.MovePosition(_rigidBody2D.position + _rollDirection * step);
+
+            // Update the distance traveled
+            _distanceTraveled += step;
+
+            // Wait until the next fixed frame
+            yield return null;
+        }
+
+        // Stop the roll once the distance is covered
+        EndRoll();
+    }
+    
+    private void EndRoll()
+    {
+        // Reset rolling state
+        _isRolling = false;
+
+        // Additional logic to handle after the roll ends (e.g., cooldown)
         StartCoroutine(RollCooldown());
     }
     
