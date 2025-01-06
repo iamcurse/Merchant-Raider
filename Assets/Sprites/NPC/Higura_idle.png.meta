@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: 13b39977607bafc42ae8664277be3263
+guid: 119b847c6db7b1c45b28acdc72932760
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2528658860307344956
-    second: Golem_attack_animation_0
+      213: 4340007057079020959
+    second: Higura_idle_0
   - first:
-      213: -4134833939433094831
-    second: Golem_attack_animation_1
+      213: 4192273484759063161
+    second: Higura_idle_1
   - first:
-      213: -6704921828008474674
-    second: Golem_attack_animation_2
+      213: -5368066515783155975
+    second: Higura_idle_2
   - first:
-      213: -1381705814058936582
-    second: Golem_attack_animation_3
+      213: 6487816008337985651
+    second: Higura_idle_3
   - first:
-      213: 5095817006024344002
-    second: Golem_attack_animation_4
-  - first:
-      213: 7800294446152247151
-    second: Golem_attack_animation_5
-  - first:
-      213: 1228402374579174187
-    second: Golem_attack_animation_6
-  - first:
-      213: 6739697034039198663
-    second: Golem_attack_animation_7
-  - first:
-      213: -3437512718429548001
-    second: Golem_attack_animation_8
+      213: -6970498416786277982
+    second: Higura_idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,199 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golem_attack_animation_0
+      name: Higura_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c19c39f92668ecd0800000000000000
-      internalID: -2528658860307344956
+      spriteID: f9d22ef8c6dca3c30800000000000000
+      internalID: 4340007057079020959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_attack_animation_1
+      name: Higura_idle_1
       rect:
         serializedVersion: 2
-        x: 140
+        x: 32
         y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1518cda707e1e96c0800000000000000
-      internalID: -4134833939433094831
+      spriteID: 97a5a54d582fd2a30800000000000000
+      internalID: 4192273484759063161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_attack_animation_2
+      name: Higura_idle_2
       rect:
         serializedVersion: 2
-        x: 280
+        x: 64
         y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec7cac22f1553f2a0800000000000000
-      internalID: -6704921828008474674
+      spriteID: 9fe7314f1fbc085b0800000000000000
+      internalID: -5368066515783155975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_attack_animation_3
+      name: Higura_idle_3
       rect:
         serializedVersion: 2
-        x: 420
+        x: 96
         y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af6dce8f1e133dce0800000000000000
-      internalID: -1381705814058936582
+      spriteID: 3701411294a590a50800000000000000
+      internalID: 6487816008337985651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Golem_attack_animation_4
+      name: Higura_idle_4
       rect:
         serializedVersion: 2
-        x: 560
+        x: 128
         y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c1c974719af7b640800000000000000
-      internalID: 5095817006024344002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_attack_animation_5
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f676b569876304c60800000000000000
-      internalID: 7800294446152247151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_attack_animation_6
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2bb90a83792c0110800000000000000
-      internalID: 1228402374579174187
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_attack_animation_7
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c309a77eb6388d50800000000000000
-      internalID: 6739697034039198663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golem_attack_animation_8
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 0
-        width: 140
-        height: 110
-      alignment: 9
-      pivot: {x: 0.3, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f129e1335608b40d0800000000000000
-      internalID: -3437512718429548001
+      spriteID: 2a9f7080f90d34f90800000000000000
+      internalID: -6970498416786277982
       vertices: []
       indices: 
       edges: []
@@ -338,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cacc71f7c73c6234ba9ef7262a6ddf3d
+    spriteID: 8c9f435225ea91f46a096d98fd1c62f5
     internalID: 0
     vertices: []
     indices: 
@@ -348,15 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Golem_attack_animation_0: -2528658860307344956
-      Golem_attack_animation_1: -4134833939433094831
-      Golem_attack_animation_2: -6704921828008474674
-      Golem_attack_animation_3: -1381705814058936582
-      Golem_attack_animation_4: 5095817006024344002
-      Golem_attack_animation_5: 7800294446152247151
-      Golem_attack_animation_6: 1228402374579174187
-      Golem_attack_animation_7: 6739697034039198663
-      Golem_attack_animation_8: -3437512718429548001
+      Higura_idle_0: 4340007057079020959
+      Higura_idle_1: 4192273484759063161
+      Higura_idle_2: -5368066515783155975
+      Higura_idle_3: 6487816008337985651
+      Higura_idle_4: -6970498416786277982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
