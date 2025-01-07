@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rollSpeed = 2.5f;
     [EnabledIf("canRoll")]
     [SerializeField] private float rollCooldown = 1.5f;
+
+    [SerializeField] private bool playerImmune;
+    
     private bool _isRolling;
     
-    [SerializeField] private bool immune;
+    private bool _immune;
     
     private float _closeRangeAttackTimer;
     private float _longRangeAttackTimer;
@@ -220,7 +223,6 @@ public class PlayerController : MonoBehaviour
         } else
         {
             _isRolling = false;
-            RemoveImmune();
         }
         
         // Lock Attack animation during movement
@@ -244,8 +246,8 @@ public class PlayerController : MonoBehaviour
     // GetHit() function is called when player gets hit by enemy.
     public void GetHit()
     {
-        if (immune || isDead) return;
-        immune = true;
+        if (_immune || isDead || playerImmune) return;
+        _immune = true;
         isHit = true;
         playerInfo.TakeDamage();
         Debug.Log("Player gets hit");
@@ -258,8 +260,8 @@ public class PlayerController : MonoBehaviour
     
     public void GetHit(int damage)
     {
-        if (immune || isDead) return;
-        immune = true;
+        if (_immune || isDead || playerImmune) return;
+        _immune = true;
         isHit = true;
         playerInfo.TakeDamage(damage);
         Debug.Log("Player gets hit");
@@ -406,12 +408,12 @@ public class PlayerController : MonoBehaviour
     
     private void SetImmune()
     {
-        immune = true;
+        _immune = true;
     }
     
     private void RemoveImmune()
     {
-        immune = false;
+        _immune = false;
     }
 
     private void RefreshHealth()
@@ -421,7 +423,7 @@ public class PlayerController : MonoBehaviour
     }
     
     private Vector2 _rollDirection = new Vector2(0, -1);
-    private float _distanceTraveled = 0f;
+    private float _distanceTraveled;
 
     private void OnRoll()
     {
@@ -441,7 +443,7 @@ public class PlayerController : MonoBehaviour
             _rollDirection = new Vector2(0, -1); // Default to downward if no input
         }
         Debug.Log($"Roll Direction: {_rollDirection}");
-
+        
         SetImmune();  // Prevent damage during the roll
 
         _animator.SetTrigger(IsRoll);  // Trigger roll animation

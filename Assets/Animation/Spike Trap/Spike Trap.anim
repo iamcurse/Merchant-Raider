@@ -31,7 +31,16 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 2
+        time: 1.5166667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.8333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -53,10 +62,13 @@ AnimationClip:
     - time: 0
       value: {fileID: -5844929949034519735, guid: 535c7f87588546149afaffc3fc1e1c7a,
         type: 3}
-    - time: 0.75
+    - time: 0.6
       value: {fileID: 1447324222976824562, guid: 535c7f87588546149afaffc3fc1e1c7a,
         type: 3}
-    - time: 2
+    - time: 1.5166667
+      value: {fileID: -7952803388473535074, guid: 535c7f87588546149afaffc3fc1e1c7a,
+        type: 3}
+    - time: 1.8333334
       value: {fileID: -7952803388473535074, guid: 535c7f87588546149afaffc3fc1e1c7a,
         type: 3}
     attribute: m_Sprite
@@ -64,7 +76,7 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 4
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -93,12 +105,13 @@ AnimationClip:
     - {fileID: -5844929949034519735, guid: 535c7f87588546149afaffc3fc1e1c7a, type: 3}
     - {fileID: 1447324222976824562, guid: 535c7f87588546149afaffc3fc1e1c7a, type: 3}
     - {fileID: -7952803388473535074, guid: 535c7f87588546149afaffc3fc1e1c7a, type: 3}
+    - {fileID: -7952803388473535074, guid: 535c7f87588546149afaffc3fc1e1c7a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.25
+    m_StopTime: 1.85
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -128,7 +141,16 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 2
+        time: 1.5166667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.8333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity

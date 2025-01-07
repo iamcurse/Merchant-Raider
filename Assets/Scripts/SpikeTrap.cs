@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
@@ -24,9 +23,10 @@ public class SpikeTrap : MonoBehaviour
     private void DoDamage()
     {
         if (_playerController == null) return;
-        
-        if (isActivated && _playerInRange)
-            _playerController.GetHit();
+
+        if (!isActivated || !_playerInRange) return;
+        _playerController.GetHit();
+        Debug.Log("Player hit by spike trap");
     }
 
     private void FixedUpdate()
