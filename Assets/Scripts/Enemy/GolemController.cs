@@ -12,8 +12,9 @@ namespace Enemy
         
         private static readonly int IsMoving = Animator.StringToHash("isWalking");
         private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int MoveY = Animator.StringToHash("MoveY");
 
-        
+
         [SerializeField] private Transform target;
         [ShowOnly][SerializeField] private bool lineOfSight;
         [SerializeField] private LayerMask collisionMask;
@@ -173,6 +174,8 @@ namespace Enemy
                 >= -0.01f => false,
                 _ => spriteRenderer.flipX
             };
+            
+            _animator.SetFloat(MoveY, force.y);
         }
         
         private void Animate()

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4692874413422771749}
   - component: {fileID: 7462740569548015398}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Enemy HitBox
-  m_TagString: Untagged
+  m_TagString: Enemy Hit Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,9 +87,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2804499335813670225}
+  - component: {fileID: 2035421920355897434}
   - component: {fileID: 7800965578603717082}
   - component: {fileID: 6037534100461551537}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Attack Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,12 +106,68 @@ Transform:
   m_GameObject: {fileID: 3865286861405522468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.04, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4475281283958265740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2035421920355897434
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865286861405522468}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -2169089974868248150, guid: 703e759f917cfe349bc86d67b8b29dce,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.96, y: 0.46}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!61 &7800965578603717082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,13 +202,13 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.34, y: -0.02}
+  m_Offset: {x: 0.3, y: 0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.46}
+    newSize: {x: 0.96, y: 0.46}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -186,7 +243,7 @@ GameObject:
   - component: {fileID: 8109663234563559934}
   - component: {fileID: 8660355243284102723}
   - component: {fileID: 8296060779496027193}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Dark Golem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -453,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32b7404526ae0d45af36e4e8bfc407d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 6486602451670148835}
   playerInAttackRange: 0
   health: 0
   target: {fileID: 0}
@@ -462,7 +519,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   speed: 0.2
-  chasingRange: 5
+  chasingRange: 10
   chaseDuration: 4
   isAttack: 0
   attackCooldown: 2
