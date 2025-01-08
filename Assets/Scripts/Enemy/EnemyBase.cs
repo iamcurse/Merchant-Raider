@@ -6,5 +6,6 @@ namespace Enemy
     {
         [HideInInspector] public SpriteRenderer spriteRenderer;
         [ShowOnly] public bool playerInAttackRange;
+        [HideInInspector] public Animator animator;
     }
 }

@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack _playerAttack;
     
     public Inventory inventory;
-
     private void Awake()
     {
         if (Instance == null)
@@ -108,13 +107,13 @@ public class PlayerController : MonoBehaviour
         
         _uiController = UIController.Instance;
         inventoryManager = InventoryManager.Instance;
+        
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        _rigidBody2D = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        
         RefreshHealth();
         OnMoneyChanged();
     }

@@ -44,6 +44,9 @@ namespace Enemy
     
         private PlayerAttack _playerAttack;
         private EnemyAttackRange _enemyAttackRange;
+        private Collider2D _attackRange;
+        private float _attackRangeX;
+        private float _attackRangeY;
     
         private void Awake()
         {
@@ -64,12 +67,16 @@ namespace Enemy
             _enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             RandomFlip();
+            _attackRange = _enemyAttackRange.GetComponent<Collider2D>();
         }
 
         private void Start()
         {
             InvokeRepeating(nameof(UpdatePath), 0f, 0.2f);
             Physics2D.queriesStartInColliders = false;
+            
+            _attackRangeX = _attackRange.offset.x;
+            _attackRangeY = _attackRange.offset.y;
         }
     
         private void UpdatePath()
@@ -140,7 +147,7 @@ namespace Enemy
         private void Update()
         {
             Animate();
-            //ZOrder();
+            AttackRangeOffset();
         }
 
         private void OnPathComplete(Path path)
@@ -279,22 +286,15 @@ namespace Enemy
             Destroy(gameObject);
         }
     
-        private void ZOrder()
-        {
-            if (_player.transform.position.y > transform.position.y)
-            {
-                GetComponent<SpriteRenderer>().sortingOrder = 1;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().sortingOrder = -1;
-            }
-        }
-    
         private void RandomFlip()
         {
             var random = Random.Range(0, 2);
             spriteRenderer.flipX = random == 0;
+        }
+
+        private void AttackRangeOffset()
+        {
+            _attackRange.offset = spriteRenderer.flipX ? new Vector2(-_attackRangeX, _attackRangeY) : new Vector2(_attackRangeX, _attackRangeY);
         }
     }
 }
