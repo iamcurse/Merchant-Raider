@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerController _playerController;
-    private List<EnemyController> _enemiesInRange;
+    private List<EnemyBase> _enemiesInRange;
     // ReSharper disable once NotAccessedField.Local
     [ShowOnly][SerializeField] private int enemyCount;
     
@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _playerController = GetComponentInParent<PlayerController>();
-        _enemiesInRange = new List<EnemyController>();
+        _enemiesInRange = new List<EnemyBase>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
         if (!other.CompareTag("Enemy Hit Box")) return;
         
         // Check if the enemy is already in the list before adding it
-        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
+        var enemy = other.gameObject.GetComponentInParent<EnemyBase>();
         if (enemy == null || _enemiesInRange.Contains(enemy)) return;
         // Add the enemy to the list of enemies in range
         _enemiesInRange.Add(enemy);
@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
         if (!other.CompareTag("Enemy Hit Box")) return;
         
         // Check if the enemy is in the list before removing it
-        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
+        var enemy = other.gameObject.GetComponentInParent<EnemyBase>();
         if (enemy == null || !_enemiesInRange.Contains(enemy)) return;
         // Remove the enemy from the list of enemies in range
         _enemiesInRange.Remove(enemy);
@@ -78,7 +78,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (_enemiesInRange.Count == 0) return;
 
-        var enemiesToRemove = new List<EnemyController>();
+        var enemiesToRemove = new List<EnemyBase>();
 
         foreach (var enemy in _enemiesInRange)
         {

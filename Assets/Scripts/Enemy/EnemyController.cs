@@ -40,9 +40,7 @@ namespace Enemy
     
         [SerializeField] private EnemyInfo enemyInfo;
         [ShowOnly] public bool isGettingHit;
-        [ShowOnly] public bool isDead;
     
-        private PlayerAttack _playerAttack;
         private EnemyAttackRange _enemyAttackRange;
         private Collider2D _attackRange;
         private float _attackRangeX;
@@ -148,6 +146,7 @@ namespace Enemy
         {
             Animate();
             AttackRangeOffset();
+            ZOrder();
         }
 
         private void OnPathComplete(Path path)
@@ -245,7 +244,7 @@ namespace Enemy
         }
 
         // GetHit() method is called when player attack enemy
-        public void GetHit()
+        public override void GetHit()
         {
             health--;
             isGettingHit = true;
@@ -260,7 +259,7 @@ namespace Enemy
                 StopCoroutine(_chaseCoroutine);
             }
             _chaseCoroutine = StartCoroutine(ChasePlayer());
-        }     
+        }
     
         // CheckDead() method is called at the second last frame of the get hit animation to check if the enemy health is <= 0
         private void CheckDead()
@@ -295,6 +294,18 @@ namespace Enemy
         private void AttackRangeOffset()
         {
             _attackRange.offset = spriteRenderer.flipX ? new Vector2(-_attackRangeX, _attackRangeY) : new Vector2(_attackRangeX, _attackRangeY);
+        }
+        
+        private void ZOrder()
+        {
+            if (_player.transform.position.y > transform.position.y)
+            {
+                GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sortingOrder = -1;
+            }
         }
     }
 }
