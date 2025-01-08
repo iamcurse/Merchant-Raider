@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 119b847c6db7b1c45b28acdc72932760
+guid: 11377b5d10ffc9e4fbdb08a3c9e83882
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4340007057079020959
-    second: Higura_idle_0
+      213: 1974895838090585116
+    second: Spider_Idle_0
   - first:
-      213: 4192273484759063161
-    second: Higura_idle_1
+      213: 1829324309001267361
+    second: Spider_Idle_1
   - first:
-      213: -5368066515783155975
-    second: Higura_idle_2
+      213: 3062135226306828002
+    second: Spider_Idle_2
   - first:
-      213: 6487816008337985651
-    second: Higura_idle_3
+      213: -2704754160999275011
+    second: Spider_Idle_3
   - first:
-      213: -6970498416786277982
-    second: Higura_idle_4
+      213: 8955776280775515899
+    second: Spider_Idle_4
+  - first:
+      213: 3857004015402991681
+    second: Spider_Idle_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,111 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Higura_idle_0
+      name: Spider_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9d22ef8c6dca3c30800000000000000
-      internalID: 4340007057079020959
+      spriteID: c1469c12d4d386b10800000000000000
+      internalID: 1974895838090585116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Higura_idle_1
+      name: Spider_Idle_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97a5a54d582fd2a30800000000000000
-      internalID: 4192273484759063161
+      spriteID: 1a8e10154c0136910800000000000000
+      internalID: 1829324309001267361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Higura_idle_2
+      name: Spider_Idle_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fe7314f1fbc085b0800000000000000
-      internalID: -5368066515783155975
+      spriteID: 2e69a32b3c3ee7a20800000000000000
+      internalID: 3062135226306828002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Higura_idle_3
+      name: Spider_Idle_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3701411294a590a50800000000000000
-      internalID: 6487816008337985651
+      spriteID: df5e0e4cb68c67ad0800000000000000
+      internalID: -2704754160999275011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Higura_idle_4
+      name: Spider_Idle_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a9f7080f90d34f90800000000000000
-      internalID: -6970498416786277982
+      spriteID: bfe5e7fd31f494c70800000000000000
+      internalID: 8955776280775515899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140c95b77b4d68530800000000000000
+      internalID: 3857004015402991681
       vertices: []
       indices: 
       edges: []
@@ -238,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c9f435225ea91f46a096d98fd1c62f5
+    spriteID: c7f8a36ef2b19294c8ab40207e31a266
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Higura_idle_0: 4340007057079020959
-      Higura_idle_1: 4192273484759063161
-      Higura_idle_2: -5368066515783155975
-      Higura_idle_3: 6487816008337985651
-      Higura_idle_4: -6970498416786277982
+      Spider_Idle_0: 1974895838090585116
+      Spider_Idle_1: 1829324309001267361
+      Spider_Idle_2: 3062135226306828002
+      Spider_Idle_3: -2704754160999275011
+      Spider_Idle_4: 8955776280775515899
+      Spider_Idle_5: 3857004015402991681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
