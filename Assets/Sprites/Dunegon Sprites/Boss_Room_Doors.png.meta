@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: 119b847c6db7b1c45b28acdc72932760
+guid: 9b82025d805b50247975cf5e72eed094
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4340007057079020959
-    second: Higura_idle_0
+      213: 2332513241088698963
+    second: Boss_Room_Doors_0
   - first:
-      213: 4192273484759063161
-    second: Higura_idle_1
-  - first:
-      213: -5368066515783155975
-    second: Higura_idle_2
-  - first:
-      213: 6487816008337985651
-    second: Higura_idle_3
-  - first:
-      213: -6970498416786277982
-    second: Higura_idle_4
+      213: 6946270853060315705
+    second: Boss_Room_Doors_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,111 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Higura_idle_0
+      name: Boss_Room_Doors_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      pivot: {x: 0.5107529, y: 0.0627239}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9d22ef8c6dca3c30800000000000000
-      internalID: 4340007057079020959
+      spriteID: 35aacf04f60ce5020800000000000000
+      internalID: 2332513241088698963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Higura_idle_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97a5a54d582fd2a30800000000000000
-      internalID: 4192273484759063161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Higura_idle_2
+      name: Boss_Room_Doors_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
+      pivot: {x: 0.5107529, y: 0.0627239}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fe7314f1fbc085b0800000000000000
-      internalID: -5368066515783155975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Higura_idle_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3701411294a590a50800000000000000
-      internalID: 6487816008337985651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Higura_idle_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4911724, y: 0.2292844}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a9f7080f90d34f90800000000000000
-      internalID: -6970498416786277982
+      spriteID: 93a4f46b98c166060800000000000000
+      internalID: 6946270853060315705
       vertices: []
       indices: 
       edges: []
@@ -238,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c9f435225ea91f46a096d98fd1c62f5
+    spriteID: 6573753f76ada33448386055fac35d9a
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Higura_idle_0: 4340007057079020959
-      Higura_idle_1: 4192273484759063161
-      Higura_idle_2: -5368066515783155975
-      Higura_idle_3: 6487816008337985651
-      Higura_idle_4: -6970498416786277982
+      Boss_Room_Doors_0: 2332513241088698963
+      Boss_Room_Doors_1: 6946270853060315705
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
