@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 42e87608406573e42b9f27d7d0948f94
+guid: 9b82025d805b50247975cf5e72eed094
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3224508411229928122
-    second: dungeon doors animation_0
+      213: 2332513241088698963
+    second: Boss_Room_Doors_0
+  - first:
+      213: 6946270853060315705
+    second: Boss_Room_Doors_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,119 +112,49 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dungeon doors animation_0
+      name: Boss_Room_Doors_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5107529, y: 0.0627239}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64581652fae3043d0800000000000000
-      internalID: -3224508411229928122
+      spriteID: 35aacf04f60ce5020800000000000000
+      internalID: 2332513241088698963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon doors animation_1
+      name: Boss_Room_Doors_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06341563ebd580a4aa9b66fe9eb45020
-      internalID: 1598619285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dungeon doors animation_2
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 64
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5107529, y: 0.0627239}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e0d2fdd42cc075442972a99c11352a3f
-      internalID: 1742126063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dungeon doors animation_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4544c04362037bd40b62bb2e464d7d50
-      internalID: 877546918
+      spriteID: 93a4f46b98c166060800000000000000
+      internalID: 6946270853060315705
       vertices: []
       indices: 
       edges: []
@@ -230,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f8a5b662b41bc64fbbc70eb50cfff6c
+    spriteID: 6573753f76ada33448386055fac35d9a
     internalID: 0
     vertices: []
     indices: 
@@ -240,10 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dungeon doors animation_0: -3224508411229928122
-      dungeon doors animation_1: 1598619285
-      dungeon doors animation_2: 1742126063
-      dungeon doors animation_3: 877546918
+      Boss_Room_Doors_0: 2332513241088698963
+      Boss_Room_Doors_1: 6946270853060315705
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
