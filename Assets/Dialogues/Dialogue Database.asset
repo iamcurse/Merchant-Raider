@@ -3485,8 +3485,8 @@ MonoBehaviour:
         destinationDialogueID: 40
         isConnector: 0
         priority: 2
-      conditionsString: 0 <= Variable["Skulls.NumCollected"] and Variable["Skulls.NumCollected"]
-        <= 5 and (CurrentQuestState("Proving Grounds") == "active")
+      conditionsString: 1 <= Variable["Skulls.NumCollected"] and Variable["Skulls.NumCollected"]
+        <= 5
       userScript: 
       onExecute:
         m_PersistentCalls:
