@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3335783078278441494}
   - component: {fileID: 1880361698553263307}
   m_Layer: 0
-  m_Name: Cut Ruby_0
+  m_Name: Ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272097077f3c7fb48aaffb3c4b296fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 6edf2371c83988a44b8f925361776d73, type: 2}
+  itemData: {fileID: 11400000, guid: 149f57aef563c1340a47bd818936cae7, type: 2}
 --- !u!114 &-3335783078278441494
 MonoBehaviour:
   m_ObjectHideFlags: 0
