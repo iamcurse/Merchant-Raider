@@ -21,31 +21,31 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -8814521239484095222, guid: a099db133c6c44643aa496ee64acda8a,
+      value: {fileID: -9154517116519272685, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.15
-      value: {fileID: -5301637278012588610, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.13333334
+      value: {fileID: 6682901312287157321, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.31666666
-      value: {fileID: -2716617057797933558, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.3
+      value: {fileID: -5760783076372878251, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.46666667
-      value: {fileID: -1262912282323321987, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.43333334
+      value: {fileID: 4551080986214759442, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.6166667
-      value: {fileID: 379808896477752976, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.5833333
+      value: {fileID: -1202060680137261125, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.78333336
-      value: {fileID: -5074603988866144682, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.73333335
+      value: {fileID: -3149761284058296320, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 0.93333334
-      value: {fileID: 2345351865734428726, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 0.8666667
+      value: {fileID: 6267158022941332121, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 1.1
-      value: {fileID: 8130526319777415185, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 1.0333333
+      value: {fileID: -7731170781383673010, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
-    - time: 1.25
-      value: {fileID: 5048857779808314209, guid: a099db133c6c44643aa496ee64acda8a,
+    - time: 1.1666666
+      value: {fileID: 1155484661503158849, guid: 8c417528a9adebf4ea55ef55e4e6e09c,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -69,21 +69,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -8814521239484095222, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: -5301637278012588610, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: -2716617057797933558, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: -1262912282323321987, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: 379808896477752976, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: -5074603988866144682, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: 2345351865734428726, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: 8130526319777415185, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
-    - {fileID: 5048857779808314209, guid: a099db133c6c44643aa496ee64acda8a, type: 3}
+    - {fileID: -9154517116519272685, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: 6682901312287157321, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: -5760783076372878251, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: 4551080986214759442, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: -1202060680137261125, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: -3149761284058296320, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: 6267158022941332121, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: -7731170781383673010, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
+    - {fileID: 1155484661503158849, guid: 8c417528a9adebf4ea55ef55e4e6e09c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2666667
+    m_StopTime: 1.1833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
