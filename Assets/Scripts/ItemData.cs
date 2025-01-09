@@ -1,14 +1,18 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Inventory/Item")]
 public class ItemData : ScriptableObject
 {
     public int itemID;
     public string itemName;
+    public string description;
     public Sprite itemSprite;
+    public GameObject prefab;
+    public bool isStackable;
     public int stackCount = 1; 
-    public int maxStackSize = 99; 
+    public int maxStackSize = 99;
+    
+    
     public ItemData Clone()
     {
         var clone = CreateInstance<ItemData>();
