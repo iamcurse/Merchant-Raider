@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   itemName: Arrow
+  description: 
   itemSprite: {fileID: -4346244404228752641, guid: fdb3fd40c1b91b948b500d11deeaf501,
     type: 3}
+  prefab: {fileID: 6271874301094621004, guid: 01e2589ba8287da4b8192b0d603701bd, type: 3}
+  isStackable: 0
+  stackCount: 2
+  maxStackSize: 99

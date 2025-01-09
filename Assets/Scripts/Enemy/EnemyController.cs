@@ -8,7 +8,6 @@ namespace Enemy
     public class EnemyController : EnemyBase
     {
         private PlayerController _player;
-        [SerializeField] private DropItems dropItems;
     
         [ShowOnly][SerializeField] private int health;
         private static readonly int IsMoving = Animator.StringToHash("isWalking");
@@ -66,7 +65,7 @@ namespace Enemy
             _enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             RandomFlip();
-            _attackRange = _enemyAttackRange.GetComponent<Collider2D>();
+            _attackRange = _enemyAttackRange.GetComponent<BoxCollider2D>();
         }
 
         private void Start()
@@ -285,18 +284,6 @@ namespace Enemy
         {
             DropItem();
             Destroy(gameObject);
-        }
-
-        private void DropItem()
-        {
-            if (dropItems != null)
-            {
-              dropItems.DropItem(transform.position);  // Drop the item at the enemy's position
-            }
-            else
-            {
-                Debug.LogWarning("DropItems component not assigned.");
-            }
         }
     
         private void RandomFlip()

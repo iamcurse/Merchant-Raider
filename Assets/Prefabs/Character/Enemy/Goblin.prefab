@@ -165,8 +165,6 @@ GameObject:
   - component: {fileID: 5991964118340286111}
   - component: {fileID: 2145480381855679807}
   - component: {fileID: 8485357276071348206}
-  - component: {fileID: 4838799876122895922}
-  - component: {fileID: 5261553164442699860}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Enemy
@@ -437,7 +435,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   playerInAttackRange: 0
   animator: {fileID: 0}
-  dropItems: {fileID: 4838799876122895922}
+  isDead: 0
+  dropItemOnDeath: 0
+  dropItem: {fileID: 0}
   health: 0
   target: {fileID: 0}
   lineOfSight: 0
@@ -451,39 +451,6 @@ MonoBehaviour:
   attackCooldown: 1
   enemyInfo: {fileID: 11400000, guid: f48313c4e4905274b9a9a6a73a2d0334, type: 2}
   isGettingHit: 0
-  isDead: 0
---- !u!114 &4838799876122895922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444910930230936956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5658bb073b86a6343bbecf458cae4825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: a63e020fd6211dc45b1e2d4a225e0735, type: 2}
---- !u!114 &5261553164442699860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444910930230936956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03526e258566dc247a4eb8525aeeb667, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_key: 
-  m_appendSaverTypeToKey: 0
-  m_saveAcrossSceneChanges: 1
-  m_restoreStateOnStart: 0
-  m_mode: 1
-  m_destroyMode: 0
-  m_destroyedVersionPrefab: {fileID: 0}
 --- !u!1 &8626126719327552684
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8715379082736259537}
   - component: {fileID: 4893719266743149643}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Enemy Hit Box
   m_TagString: Enemy Hit Box
   m_Icon: {fileID: 0}

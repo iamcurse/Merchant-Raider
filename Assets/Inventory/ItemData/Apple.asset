@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 1
   itemName: Apple
+  description: 
   itemSprite: {fileID: 7293598183456022363, guid: 349dddefcdc92ae43bf1001210ac4968,
     type: 3}
+  prefab: {fileID: 0}
+  isStackable: 0
+  stackCount: 1
+  maxStackSize: 99

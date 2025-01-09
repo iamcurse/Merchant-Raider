@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Key
+  description: 
   itemSprite: {fileID: -7305190463855962756, guid: e791ec90ff91be24697d9c867875f2b2,
     type: 3}
+  prefab: {fileID: 6271874301094621004, guid: e422303d324f656459bdd2819a0c8e01, type: 3}
+  isStackable: 0
+  stackCount: 1
+  maxStackSize: 99

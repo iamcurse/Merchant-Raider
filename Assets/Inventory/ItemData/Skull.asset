@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 3
   itemName: Goblin skull
+  description: 
   itemSprite: {fileID: -2739807658926110822, guid: 0a6a241a3b5c98b48b71fe16df839b7a,
     type: 3}
+  prefab: {fileID: 6271874301094621004, guid: 714b9f4219e505745bc7380438ab6041, type: 3}
+  isStackable: 0
+  stackCount: 1
+  maxStackSize: 99

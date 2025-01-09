@@ -38,3 +38,6 @@ MonoBehaviour:
   - functionName: Player/RefreshHealth
     parameters: 
     returnValue: 0
+  - functionName: Door/OpenDoor
+    parameters: 02000000
+    returnValue: 0
