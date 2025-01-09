@@ -165,11 +165,14 @@ public void AddItem(string itemName)
     public void RemoveItem(ItemData item)
     {
          // Check if the item exists in the inventory
-    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
-
-    if (existingItem != null)
-    {
+        var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
+        if (existingItem == null)
+        {
+            Debug.LogError($"Item with name '{item.itemName}' was not found in the item database.");
+            return;
+        }
         
+        if (existingItem == null) return;
         if (existingItem.stackCount > 1)
         {
             existingItem.stackCount--; 
@@ -179,33 +182,24 @@ public void AddItem(string itemName)
             _inventory.items.Remove(existingItem); 
         }
     }
-    }
     
     private void RemoveItem(string itemName)
     {
-    var item = itemDatabase.items.FirstOrDefault(i => i.itemName == itemName);
-    if (item == null)
-    {
-        Debug.LogError($"Item with name '{itemName}' not found in the item database.");
-        return;
-    }
-
-    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
-
-    if (existingItem != null)
-    {
-        if (existingItem.stackCount > 1)
+        var item = itemDatabase.items.FirstOrDefault(i => i.itemName == itemName);
+        if (item == null)
         {
-            existingItem.stackCount--;
+            Debug.LogError($"Item with name '{itemName}' not found in the item database.");
+            return;
+        }
+
+        if (item == null) return;
+        if (item.stackCount > 1)
+        {
+            item.stackCount--;
         }
         else
         {
-            _inventory.items.Remove(existingItem);
+            _inventory.items.Remove(item);
         }
-    }
-    else
-    {
-        Debug.LogWarning($"Item '{itemName}' not found in the inventory.");
-    }
     }
 }
