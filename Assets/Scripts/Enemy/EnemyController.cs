@@ -65,7 +65,7 @@ namespace Enemy
             _enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             RandomFlip();
-            _attackRange = _enemyAttackRange.GetComponent<Collider2D>();
+            _attackRange = _enemyAttackRange.GetComponent<BoxCollider2D>();
         }
 
         private void Start()
