@@ -88,33 +88,56 @@ public class InventoryManager : MonoBehaviour
         _inventory.items.Clear();
     }
     
-    public void AddItem(ItemData item)
-    {
-       // Check if the item already exists in the inventory (based on itemID)
-    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
+public void AddItem(ItemData itemToAdd)
+{
+    // Check if the item is already in the inventory
+    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == itemToAdd.itemID);
 
-    if (existingItem != null) // If the item already exists in the inventory
+    if (existingItem != null)
     {
-        // Increase the stack count (ensure it doesn't exceed max stack size)
-        existingItem.stackCount = Mathf.Min(existingItem.stackCount + 1, item.maxStackSize); // Adjust stacking behavior
+        // Check if the stack is not full
+        if (existingItem.stackCount < itemToAdd.maxStackCount)
+        {
+            existingItem.stackCount++;
+            return;
+        }
+    }
+
+    // If no existing stack or stack is full, find an empty slot
+    if (_inventory.items.Count < _inventory.maxItems)
+    {
+        var newItem = new ItemData
+        {
+            itemID = itemToAdd.itemID,
+            itemName = itemToAdd.itemName,
+            itemSprite = itemToAdd.itemSprite,
+            stackCount = 1,
+            maxStackCount = itemToAdd.maxStackCount
+        };
+
+        _inventory.items.Add(newItem);
     }
     else
     {
-        // Add the item if it's not already in the inventory
-        if (_inventory.items.Count < _inventory.maxItems)
-        {
-            item.stackCount = 1; // Initialize stack count to 1 for a new item
-            _inventory.items.Add(item);
-        }
+        Debug.Log("Inventory is full! Cannot add more items.");
     }
-    }
-    
-    private void AddItem(string itemName)
+}
+
+// Overloaded AddItem method to add by item name
+public void AddItem(string itemName)
+{
+    // Find the item in the item database
+    var itemToAdd = itemDatabase.items.FirstOrDefault(i => i.itemName == itemName);
+
+    if (itemToAdd != null)
     {
-        var item = itemDatabase.items.Find(i => i.itemName == itemName);
-        if (_inventory.items.Count < _inventory.maxItems)
-            _inventory.items.Add(item);
+        AddItem(itemToAdd);
     }
+    else
+    {
+        Debug.LogError($"Item with name '{itemName}' not found in the item database.");
+    }
+}
     
     public ItemData GetItem(string itemName)
     {
