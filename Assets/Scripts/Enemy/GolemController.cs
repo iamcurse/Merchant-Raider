@@ -14,6 +14,8 @@ namespace Enemy
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private static readonly int MoveX = Animator.StringToHash("MoveX");
+        private static readonly int IsHit = Animator.StringToHash("IsHit");
+        private static readonly int IsDead = Animator.StringToHash("IsDead");
 
 
         [SerializeField] private Transform target;
@@ -40,12 +42,13 @@ namespace Enemy
     
         [SerializeField] private EnemyInfo enemyInfo;
         [ShowOnly] public bool isGettingHit;
-        [ShowOnly] public bool isDead;
     
-        private PlayerAttack _playerAttack;
-        private Collider2D _attackRange;
-        private float _attackRangeX;
-        private float _attackRangeY;
+        private EnemyAttackRange _enemyAttackRange;
+        private BoxCollider2D _attackRange;
+        private float _attackRangeOffSetX;
+        private float _attackRangeOffSetY;
+        private float _attackRangeSizeX;
+        private float _attackRangeSizeY;
 
         private SpriteRenderer _shadow;
         
@@ -66,8 +69,9 @@ namespace Enemy
             isAttack = false;
             health = enemyInfo.maxHealth;
             spriteRenderer = GetComponent<SpriteRenderer>();
-            _attackRange = transform.GetChild(0).GetComponent<Collider2D>();
+            _attackRange = transform.GetChild(0).GetComponent<BoxCollider2D>();
             _shadow = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            _enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
         }
         
         private void Start()
@@ -75,8 +79,10 @@ namespace Enemy
             InvokeRepeating(nameof(UpdatePath), 0f, 0.2f);
             Physics2D.queriesStartInColliders = false;
             
-            _attackRangeX = _attackRange.offset.x;
-            _attackRangeY = _attackRange.offset.y;
+            _attackRangeOffSetX = _attackRange.offset.x;
+            _attackRangeOffSetY = _attackRange.offset.y;
+            _attackRangeSizeX = _attackRange.size.x;
+            _attackRangeSizeY = _attackRange.size.y;
         }
         
         private void FixedUpdate()
@@ -90,7 +96,7 @@ namespace Enemy
         {
             Animate();
             AttackRangeOffset();
-            
+            ZOrder();
         }
         
         private void UpdatePath()
@@ -160,12 +166,12 @@ namespace Enemy
         
         private void Move()
         {
-            if (_reachedEndOfPath || isAttack) return;
+            if (_reachedEndOfPath) return;
         
             var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
             var force = direction * (speed /* Time.deltaTime*/);
         
-            if (isDead || isAttack || isGettingHit)
+            if (isDead || isGettingHit)
             {
                 force = Vector2.zero;
             }
@@ -190,18 +196,10 @@ namespace Enemy
             animator.SetFloat(MoveY, _rigidbody2D.linearVelocity.y);
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (!other.CompareTag("Player Hit Box")) return;
-            // If player enters the attack range of enemy, set playerInAttackRange to true
-            _reachedEndOfPath = true;
-            _path = null;
-        }
-
         private void OnTriggerStay2D(Collider2D other)
         {
             // If player is still staying in Attack Range of Enemy, Enemy will keep trying to attack player using TryAttack() method
-            if (!other.CompareTag("Player")) return;
+            if (!other.CompareTag("Player Hit Box")) return;
             TryAttack();
         }
         
@@ -248,16 +246,74 @@ namespace Enemy
         
         private void AttackRangeOffset()
         {
-            _attackRange.offset = _rigidbody2D.linearVelocity switch
+            if (animator.GetFloat(MoveX) < 0 && animator.GetFloat(MoveY) < 0)  //Front Left
+                _attackRange.offset = new Vector2(_attackRangeOffSetX - 0.62f, _attackRangeOffSetY);
+            else if (animator.GetFloat(MoveX) > 0 && animator.GetFloat(MoveY) < 0) //Front Right
+                _attackRange.offset = new Vector2(_attackRangeOffSetX, _attackRangeOffSetY);
+            else if (animator.GetFloat(MoveX) < 0 && animator.GetFloat(MoveY) > 0) //Back Left
             {
-                { x: < 0, y: < 0 } => new Vector2(_attackRangeX - 0.68f, _attackRangeY),
-                { x: > 0, y: < 0 } => new Vector2(_attackRangeX, _attackRangeY),
-                { x: < 0, y: > 0 } => new Vector2(_attackRangeX - 0.68f, _attackRangeY + 0.32f),
-                { x: > 0, y: > 0 } => new Vector2(_attackRangeX, _attackRangeY + 0.32f),
-                _ => _attackRange.offset
-            };
+                _attackRange.offset = new Vector2(_attackRangeOffSetX - 0.62f, _attackRangeOffSetY + 0.18f);
+                _attackRange.size = new Vector2(_attackRangeSizeX, _attackRangeSizeY + 0.28f); 
+            }
+            else if (animator.GetFloat(MoveX) > 0 && animator.GetFloat(MoveY) > 0) //Back Right
+            {
+                _attackRange.offset = new Vector2(_attackRangeOffSetX, _attackRangeOffSetY + 0.18f);
+                _attackRange.size = new Vector2(_attackRangeSizeX, _attackRangeSizeY + 0.28f);
+            }
 
-            _shadow.flipX = !(_rigidbody2D.linearVelocity.x > 0);
+            _shadow.flipX = !(animator.GetFloat(MoveX) > 0);
+        }
+        
+        public override void GetHit()
+        {
+            health--;
+            isGettingHit = true;
+            Debug.Log("Enemy gets hit");
+            // Start the get hit animation
+            
+            if (health % 5 == 0)
+                animator.SetBool(IsHit, true);
+        
+            _isFinish = false;
+            // Start chasing the player when hit
+            if (_chaseCoroutine != null)
+            {
+                StopCoroutine(_chaseCoroutine);
+            }
+            _chaseCoroutine = StartCoroutine(ChasePlayer());
+        }
+        
+        private void CheckDead()
+        {
+            if (health > 0) return;
+        
+            // If enemy health is <= 0, set isDead to true, stop the rigidbody movement, disable the attack range collider, and start the dead animation
+            isDead = true;
+            _rigidbody2D.linearVelocity = Vector2.zero;
+            _enemyAttackRange.gameObject.SetActive(false);
+            animator.SetTrigger(IsDead);
+        }   
+        
+        private void DestroyThis()
+        {
+            Destroy(gameObject);
+        }
+        
+        private void StopGetHit()
+        {
+            animator.SetBool(IsHit, false);
+        }
+
+        private void ZOrder()
+        {
+            if (_player.transform.position.y > transform.position.y)
+            {
+                GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sortingOrder = -1;
+            }
         }
     }
 }

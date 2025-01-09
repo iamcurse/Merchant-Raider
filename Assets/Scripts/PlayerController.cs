@@ -110,6 +110,8 @@ public class PlayerController : MonoBehaviour
         
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        
+        RefreshHealth();
     }
 
     private void Start()

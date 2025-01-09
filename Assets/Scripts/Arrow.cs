@@ -47,7 +47,7 @@ public class Arrow : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Enemy Hit Box")) return;
         Debug.Log("Hit: " + other.gameObject.name);
-        var enemy = other.gameObject.GetComponentInParent<EnemyController>();
+        var enemy = other.gameObject.GetComponentInParent<EnemyBase>();
         enemy.GetHit();
         Destroy(gameObject);
     }
