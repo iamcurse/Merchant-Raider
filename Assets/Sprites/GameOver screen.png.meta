@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8b5177f26c81d344ca841522f245d471
+guid: d64da5253d4866240bb904656bac1e01
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 281412781644219602
-    second: Normal_Doors_0
-  - first:
-      213: -7813233255155732979
-    second: Normal_Doors_1
+      213: 3940899293320221325
+    second: GameOver screen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal_Doors_0
+      name: GameOver screen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.25390625, y: 0.25}
+        width: 480
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d488251f67c7e300800000000000000
-      internalID: 281412781644219602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal_Doors_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.25390625, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0e6c2f20c1d19390800000000000000
-      internalID: -7813233255155732979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal_Doors_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 64
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25390625, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86f37689210bda54282befc00b064d44
-      internalID: -1575222944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal_Doors_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 64
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25390625, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 949baa21ecaf7b94c95d6fb2f1539ef9
-      internalID: -329533992
+      spriteID: d8290f90703e0b630800000000000000
+      internalID: 3940899293320221325
       vertices: []
       indices: 
       edges: []
@@ -207,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7a93c1184bf0ed14b9e088fad12b8ff4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -217,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal_Doors_0: 281412781644219602
-      Normal_Doors_1: -7813233255155732979
-      Normal_Doors_2: -1575222944
-      Normal_Doors_3: -329533992
+      GameOver screen_0: 3940899293320221325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
