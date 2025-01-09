@@ -8,6 +8,7 @@ namespace Enemy
     public class EnemyController : EnemyBase
     {
         private PlayerController _player;
+        [SerializeField] private DropItems dropItems;
     
         [ShowOnly][SerializeField] private int health;
         private static readonly int IsMoving = Animator.StringToHash("isWalking");
@@ -283,7 +284,20 @@ namespace Enemy
         // DestroyThis() method is called at the last frame of the dead animation to destroy the enemy object
         private void DestroyThis()
         {
+            DropItem();
             Destroy(gameObject);
+        }
+
+        private void DropItem()
+        {
+            if (dropItems != null)
+            {
+              dropItems.DropItem(transform.position);  // Drop the item at the enemy's position
+            }
+            else
+            {
+                Debug.LogWarning("DropItems component not assigned.");
+            }
         }
     
         private void RandomFlip()

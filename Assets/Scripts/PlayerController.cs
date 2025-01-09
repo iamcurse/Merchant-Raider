@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [EnabledIf("canCloseAttack")]
     [SerializeField] private float closeRangeAttackMoveSpeed = 0.5f;
     
-    [SerializeField] private bool canLongAttack = true;
+    [SerializeField] public bool canLongAttack = true;
     [EnabledIf("canLongAttack")]
     [SerializeField] private float longAttackCooldown = 1f;
     [EnabledIf("canLongAttack")]

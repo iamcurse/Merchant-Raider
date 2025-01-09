@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 575706254309972037}
   - component: {fileID: 3195593105020073805}
   - component: {fileID: 6832019860223320165}
+  - component: {fileID: 4994724729884315656}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -331,9 +332,10 @@ MonoBehaviour:
   arrowSpeed: 3
   enemyInAttackRange: 0
   canRoll: 1
+  rollDistance: 0.32
   rollSpeed: 5
   rollCooldown: 1.5
-  immune: 0
+  playerImmune: 0
   isAttacking: 0
   isHit: 0
   isDead: 0
@@ -342,6 +344,25 @@ MonoBehaviour:
   isPause: 0
   playerInfo: {fileID: 11400000, guid: ea0146344cf687d4eacca9d9428cfb17, type: 2}
   inventory: {fileID: 11400000, guid: 409a8a6cc11ec4147884dcfde92028cf, type: 2}
+--- !u!114 &4994724729884315656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070776388463845287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af33a602e20a3d4ca46c8a6ef942618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: 
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  m_target: {fileID: 8157247433320989879}
+  m_usePlayerSpawnpoint: 1
+  m_multiscene: 0
 --- !u!1 &3487687777167202663
 GameObject:
   m_ObjectHideFlags: 0
