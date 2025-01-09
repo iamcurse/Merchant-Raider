@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e533b2cbdc4828742aab98f7427c869d, type: 3}
+  m_Name: Emerald
+  m_EditorClassIdentifier: 
+  itemID: 4
+  itemName: Emerald
+  itemSprite: {fileID: -7564190652846395695, guid: 0d3284a226612d84abe5e1ef53787c5f,
+    type: 3}
+  itemDescription: 
+  prefab: {fileID: 6271874301094621004, guid: 6f300b213d5f9ab40b558bff4e3d8f24, type: 3}
+  stackCount: 1
+  maxStackCount: 99
