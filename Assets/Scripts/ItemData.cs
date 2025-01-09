@@ -10,7 +10,7 @@ public class ItemData : ScriptableObject
     public GameObject prefab;
     public bool isStackable;
     public int stackCount = 1; 
-    public int maxStackSize = 99;
+    [DisabledIf("isStackable")] public int maxStackSize = 99;
     
     
     public ItemData Clone()
