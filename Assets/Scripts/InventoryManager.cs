@@ -88,15 +88,15 @@ public class InventoryManager : MonoBehaviour
         _inventory.items.Clear();
     }
     
-public void AddItem(ItemData itemToAdd)
+public void AddItem(ItemData item)
 {
     // Check if the item is already in the inventory
-    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == itemToAdd.itemID);
+    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
 
     if (existingItem != null)
     {
         // Check if the stack is not full
-        if (existingItem.stackCount < itemToAdd.maxStackCount)
+        if (existingItem.stackCount < item.maxStackCount)
         {
             existingItem.stackCount++;
             return;
@@ -106,16 +106,9 @@ public void AddItem(ItemData itemToAdd)
     // If no existing stack or stack is full, find an empty slot
     if (_inventory.items.Count < _inventory.maxItems)
     {
-        var newItem = new ItemData
-        {
-            itemID = itemToAdd.itemID,
-            itemName = itemToAdd.itemName,
-            itemSprite = itemToAdd.itemSprite,
-            stackCount = 1,
-            maxStackCount = itemToAdd.maxStackCount
-        };
+        item.stackCount = 1;
 
-        _inventory.items.Add(newItem);
+        _inventory.items.Add(item);
     }
     else
     {
