@@ -1602,7 +1602,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 11
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2701,8 +2701,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 78.45709
-        y: 543.19965
+        x: 80
+        y: 554
         width: 160
         height: 30
     - id: 12
@@ -2896,9 +2896,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Old Mal reaches behind him and pulls out a simple yet [em4]sturdy
-          sword[/em4]. The blade is nicked and worn but still sharp. He hands it
-          to the MC.
+        value: 'Old Mal reaches behind him and pulls out a simple yet sturdy sword.
+          The blade is nicked and worn but still sharp. He hands it to the MC.
 
 '
         type: 0
@@ -3069,8 +3068,8 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "Don\u2019t thank me yet. This isnt a gift . You want to prove you\u2019re
           not just another corpse in the making? Bring me back something. A goblin
-          [em1]skull[/em1]\u2019ll do. Shouldn\u2019t be hard those little devils
-          have plenty to spare."
+          skull\u2019ll do. Shouldn\u2019t be hard those little devils have plenty
+          to spare."
         type: 0
         typeString: 
       - title: Sequence
@@ -3125,7 +3124,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: A goblin [em1]skulls[/em1]? I can do that.
+        value: A goblin skulls? I can do that.
         type: 0
         typeString: 
       - title: Sequence
@@ -3457,8 +3456,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Trouble\u2019s all you\u2019ll find in there if you keep comin\u2019
-          back with excuses. No [em1]skull[/em1], no progress. Go on, get back in
-          there, and bring me somethin\u2019 worth my time."
+          back with excuses. No skull, no progress. Go on, get back in there, and
+          bring me somethin\u2019 worth my time."
         type: 0
         typeString: 
       - title: Sequence
@@ -3481,7 +3480,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 704
-        y: 302
+        y: 300.6207
         width: 160
         height: 30
     - id: 27
@@ -3539,7 +3538,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1016
-        y: 134
+        y: 132.75
         width: 160
         height: 30
     - id: 28
@@ -3595,7 +3594,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1120
-        y: 470
+        y: 386
         width: 160
         height: 30
     - id: 29
@@ -3623,7 +3622,8 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "You\u2019ve got some fight in you, I\u2019ll give you that. But this
           is just the beginning. Goblins... they\u2019re nothing but low-level creatures
-          on the first floor. "
+          on the first floor. You want to prove you\u2019ve got what it takes to
+          survive? Bring me those skulls, kid. Don\u2019t leave me with excuses."
         type: 0
         typeString: 
       - title: Sequence
@@ -3641,7 +3641,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 29
         destinationConversationID: 5
-        destinationDialogueID: 54
+        destinationDialogueID: 30
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3652,7 +3652,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1120
-        y: 554
+        y: 470
         width: 160
         height: 30
     - id: 30
@@ -3707,8 +3707,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1137.6467
-        y: 718.82336
+        x: 1120
+        y: 554
         width: 160
         height: 30
     - id: 31
@@ -3734,7 +3734,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "I\u2019ll bring you those [em1]skulls[/em1]."
+        value: "I\u2019ll bring you those skulls."
         type: 0
         typeString: 
       - title: Sequence
@@ -3762,8 +3762,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1137.6467
-        y: 768.8234
+        x: 1120
+        y: 638
         width: 160
         height: 30
     - id: 32
@@ -3812,8 +3812,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1137.6467
-        y: 818.82336
+        x: 1120
+        y: 722
         width: 160
         height: 30
     - id: 37
@@ -3839,7 +3839,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 5 Goblin [em1]skulls[/em1], as promised old man.
+        value: 5 Goblin skulls, as promised old man.
         type: 0
         typeString: 
       - title: Sequence
@@ -3868,7 +3868,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 470
+        y: 386
         width: 160
         height: 30
     - id: 38
@@ -3923,8 +3923,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 912
-        y: 554
+        x: 908.06555
+        y: 467.377
         width: 160
         height: 30
     - id: 39
@@ -3979,7 +3979,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 638
+        y: 554
         width: 160
         height: 30
     - id: 40
@@ -4008,7 +4008,7 @@ MonoBehaviour:
         value: "But it\u2019s more than just the kill. It\u2019s about survivin'
           out there. Any fool can swing a sword, but it takes grit to keep going,
           to keep breathin' when it seems like the world\u2019s tryin\u2019 to crush
-          you. "
+          you. That\u2019s what separates a man from a corpse in these parts"
         type: 0
         typeString: 
       - title: Sequence
@@ -4026,7 +4026,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 40
         destinationConversationID: 5
-        destinationDialogueID: 53
+        destinationDialogueID: 41
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -4063,7 +4063,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Now,  do you have those [em1]skulls[/em1]?
+        value: Now, how many skulls do you have for me?
         type: 0
         typeString: 
       - title: Sequence
@@ -4098,7 +4098,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1016
-        y: 386
+        y: 302
         width: 160
         height: 30
     - id: 42
@@ -4154,7 +4154,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 806
+        y: 722
         width: 160
         height: 30
     - id: 43
@@ -4210,7 +4210,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 974
+        y: 890
         width: 160
         height: 30
     - id: 44
@@ -4266,7 +4266,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 1058
+        y: 974
         width: 160
         height: 30
     - id: 45
@@ -4323,7 +4323,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 1226
+        y: 1142
         width: 160
         height: 30
     - id: 46
@@ -4378,7 +4378,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 1310
+        y: 1226
         width: 160
         height: 30
     - id: 47
@@ -4427,7 +4427,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 1394
+        y: 1310
         width: 160
         height: 30
     - id: 48
@@ -4453,10 +4453,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Take this too. My boy\u2019s [em4]bow[/em4]. Not the fanciest thing,
-          but it\u2019ll do the job if you\u2019ve got the aim. You\u2019ll need
-          every advantage if you\u2019re gonna make it through this hellhole. Consider
-          it another trial don\u2019t expect me to babysit you forever."
+        value: "Take this too. My boy\u2019s bow. Not the fanciest thing, but it\u2019ll
+          do the job if you\u2019ve got the aim. You\u2019ll need every advantage
+          if you\u2019re gonna make it through this hellhole. Consider it another
+          trial don\u2019t expect me to babysit you forever."
         type: 0
         typeString: 
       - title: Sequence
@@ -4485,7 +4485,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 890
+        y: 806
         width: 160
         height: 30
     - id: 49
@@ -4541,7 +4541,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 722
+        y: 638
         width: 160
         height: 30
     - id: 50
@@ -4597,7 +4597,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 912
-        y: 1142
+        y: 1058
         width: 160
         height: 30
     - id: 51
@@ -4651,8 +4651,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1328
-        y: 134
+        x: 1338
+        y: 101.499954
         width: 160
         height: 30
     - id: 52
@@ -4700,124 +4700,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1328
-        y: 218
-        width: 160
-        height: 30
-    - id: 53
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "That\u2019s what separates a man from a corpse in these parts"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 53
-        destinationConversationID: 5
-        destinationDialogueID: 41
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1016
-        y: 302
-        width: 160
-        height: 30
-    - id: 54
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "You want to prove you\u2019ve got what it takes to survive? Bring
-          me those skulls, kid. Don\u2019t leave me with excuses."
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 54
-        destinationConversationID: 5
-        destinationDialogueID: 30
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1120
-        y: 636.9041
+        x: 1344.2501
+        y: 167.99988
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 47.339493, y: 573.1493}
-    canvasZoom: 0.7402511
+    canvasScrollPosition: {x: 92.56578, y: 0}
+    canvasZoom: 0.579999
   - id: 6
     fields:
     - title: Title
@@ -7918,6 +7807,12 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
@@ -7933,12 +7828,6 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
-      - originConversationID: 12
-        originDialogueID: 0
-        destinationConversationID: 12
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7948,6 +7837,61 @@ MonoBehaviour:
         serializedVersion: 2
         x: 496
         y: 50
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: Tutorial
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 1
+        destinationConversationID: 12
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: CurrentQuestState("Spiked Stakes") == "unassigned"
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 184
+        y: 134
         width: 160
         height: 30
     - id: 2
@@ -8534,9 +8478,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "See that chest over there? It\u2019s got a [em1]gem[/em1] I\u2019ve
-          had my eye on. Problem is, the dungeon\u2019s been playin\u2019 dirty lately,
-          and I\u2019m not as spry as I used to be."
+        value: "See that chest over there? It\u2019s got a gem I\u2019ve had my eye
+          on. Problem is, the dungeon\u2019s been playin\u2019 dirty lately, and
+          I\u2019m not as spry as I used to be."
         type: 0
         typeString: 
       - title: Sequence
@@ -8565,7 +8509,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 184
-        y: 1056.9042
+        y: 1058
         width: 160
         height: 30
     - id: 13
@@ -8648,8 +8592,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "You bring me that [em1]gem[em1], and I\u2019ll call it square. Think
-          of it as your first test in not gettin\u2019 yourself killed."
+        value: "You bring me that gem, and I\u2019ll call it square. Think of it
+          as your first test in not gettin\u2019 yourself killed."
         type: 0
         typeString: 
       - title: Sequence
@@ -8871,8 +8815,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Alright, I\u2019ll get your [em1]gem[/em1]. Just don\u2019t disappear
-          on me while I\u2019m risking my neck out there."
+        value: "Alright, I\u2019ll get your gem. Just don\u2019t disappear on me
+          while I\u2019m risking my neck out there."
         type: 0
         typeString: 
       - title: Sequence
@@ -9148,7 +9092,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: 'The Hall of Spikes is a deadly trial. To avoid the traps, you must
-          roll with precision. [em3]Press Shift[/em3] to perform a roll. '
+          roll with precision. Press Shift to perform a roll. '
         type: 0
         typeString: 
       - title: Sequence
@@ -9397,8 +9341,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 66.43039, y: 0}
-    canvasZoom: 0.3112519
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.25000104
   - id: 14
     fields:
     - title: Title
@@ -10506,7 +10450,7 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      conversationID: 16
+      conversationID: 0
       isRoot: 0
       isGroup: 0
       nodeColor: 
