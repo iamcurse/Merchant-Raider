@@ -399,7 +399,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnPause()
     {
-        _uiController.PauseScript();
+        if(!DialogueManager.isConversationActive)
+            _uiController.PauseScript();
     }
 
     private void GameOver()
