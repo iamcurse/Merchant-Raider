@@ -183,8 +183,29 @@ public void AddItem(string itemName)
     
     private void RemoveItem(string itemName)
     {
-        var item = itemDatabase.items.Find(i => i.itemName == itemName);
-        if (CheckItem(item))
-            _inventory.items.Remove(item);
+    var item = itemDatabase.items.FirstOrDefault(i => i.itemName == itemName);
+    if (item == null)
+    {
+        Debug.LogError($"Item with name '{itemName}' not found in the item database.");
+        return;
+    }
+
+    var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
+
+    if (existingItem != null)
+    {
+        if (existingItem.stackCount > 1)
+        {
+            existingItem.stackCount--;
+        }
+        else
+        {
+            _inventory.items.Remove(existingItem);
+        }
+    }
+    else
+    {
+        Debug.LogWarning($"Item '{itemName}' not found in the inventory.");
+    }
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4499857734752853887}
   - component: {fileID: 6404043870600720297}
   m_Layer: 0
-  m_Name: Goblin Skull
+  m_Name: Skull
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
