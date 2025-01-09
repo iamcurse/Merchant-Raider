@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e533b2cbdc4828742aab98f7427c869d, type: 3}
-  m_Name: Skull
+  m_Name: Gem
   m_EditorClassIdentifier: 
-  itemID: 3
-  itemName: Skull
-  itemSprite: {fileID: -2739807658926110822, guid: 0a6a241a3b5c98b48b71fe16df839b7a,
+  itemID: 0
+  itemName: 
+  itemSprite: {fileID: 7774493202208912350, guid: 8d142ca65043e4b42886491108bca952,
     type: 3}
   itemDescription: 
-  prefab: {fileID: 6271874301094621004, guid: 714b9f4219e505745bc7380438ab6041, type: 3}
-  stackCount: 4
+  prefab: {fileID: 4433779205875535191, guid: 202560f4c08b7f2499fccc6a84a0307b, type: 3}
+  stackCount: 1
   maxStackCount: 99
