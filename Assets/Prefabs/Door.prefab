@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7387068720754894407
 Transform:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.07875, y: 0.08}
+  m_Offset: {x: 0.07875, y: 0.010738343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.25390625, y: 0.25}
@@ -336,7 +336,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.32, y: 0.18147665}
   m_EdgeRadius: 0
 --- !u!61 &700746312208889416
 BoxCollider2D:
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
-  needKey: 1
+  needKey: 0
   key: {fileID: 11400000, guid: 3c81a4699f47fb0438b2db66f257aa2b, type: 2}
   onDoorOpen:
     m_PersistentCalls:

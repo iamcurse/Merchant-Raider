@@ -15,8 +15,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene1 (Tman Edit).unity
     guid: 10f5cf5e710bcb34581cf44a03a1958c
   - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: 6f1694bcbb8dd2b43a293363b75f98bb
+  - enabled: 0
     path: Assets/Scenes/Scene1 (Bus).unity
     guid: ea7bb1b458af7f447b2a197b787d11fe
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 30af1f590edde4f4dba217c982e5d2cc
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: f44552ec7cc51754cbce2c0196427df2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
       type: 3}
