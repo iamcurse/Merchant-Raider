@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Gem
   m_EditorClassIdentifier: 
   itemID: 5
-  itemName: 
+  itemName: Ruby
   itemSprite: {fileID: 7774493202208912350, guid: 8d142ca65043e4b42886491108bca952,
     type: 3}
   itemDescription: 
   prefab: {fileID: 4433779205875535191, guid: 202560f4c08b7f2499fccc6a84a0307b, type: 3}
-  stackCount: 1
+  stackCount: 3
   maxStackCount: 99

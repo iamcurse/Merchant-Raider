@@ -83,13 +83,13 @@ public class InventoryManager : MonoBehaviour
     }
     }
     
-    private void ClearInventory()
+    public void ClearInventory()
     {
         _inventory.items.Clear();
     }
     
-public void AddItem(ItemData item)
-{
+    public void AddItem(ItemData item)
+    {
     // Check if the item is already in the inventory
     var existingItem = _inventory.items.FirstOrDefault(i => i.itemID == item.itemID);
 
