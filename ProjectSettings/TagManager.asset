@@ -11,6 +11,7 @@ TagManager:
   - Player Raycast
   - Enemy Hit Box
   - Player Hit Box
+  - Reverb Zone
   layers:
   - Default
   - TransparentFX
